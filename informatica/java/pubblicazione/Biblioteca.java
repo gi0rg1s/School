@@ -45,31 +45,37 @@ public class Biblioteca {
                 biblioteca.remove(p);
         }
     }
+
+    public Pubbliczione getElementByID(int id){
+        for (Pubbliczione p : biblioteca) {
+            if(id == p.getId()) return p;
+        }
+        return null;
+    }
 /**
  * @param (int)
  * borrow a pubbliczione
  */
-    public void chiediPubblicazioneInPrestito(int id){
-        int flag = 0;
+    public String chiediPubblicazioneInPrestito(int id){
+        boolean flag = false;
         try {
             if(id == 0) throw new IllegalArgumentException("Pubblicazione non trovata");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            return (e.getMessage());
         }
         for(Pubbliczione p : biblioteca){
             if(p.getId() == id){
-                flag = 1;
+                flag = true;
                 if(p.getReturnDate() != null) p.setReturnDate();
                 else{
-                    System.out.println("Pubblicazione sarà disponibile a partire dal: " + p.getReturnDate());
+                    return ("Pubblicazione sarà disponibile a partire dal: " + p.getReturnDate());
                 }
             }
         }
-        try {
-            if(flag==0) throw new IllegalArgumentException("Pubblicazione non trovata");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        if(!flag) return "Pubblicazione non trovata";
+        Pubbliczione found = getElementByID(id);
+        if (found == null) return "Pubblicazione non trovata";
+        return ("Hai preso in prestito la pubblicazione! Dovrai restituirla entro: " + found.getReturnDate());
     }
 /**
  * @param (Pubbliczione)
