@@ -53,11 +53,8 @@ public class Pubbliczione {
     public void setNumeroDiPagine(int numeroDiPagine) {
         this.numeroDiPagine = numeroDiPagine;
     }
-    public void setReturnDate(LocalDate returnDate) {
-        this.returnDate = returnDate;
-    }
-    public void setBorrowed(boolean isBorrowed) {
-        this.isBorrowed = isBorrowed;
+    public void setReturnDate() {
+        this.returnDate = null;
     }
     
 //methods

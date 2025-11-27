@@ -26,7 +26,10 @@ public class Libro extends Pubbliczione {
     public void setISBN(String iSBN) {
         this.ISBN = iSBN;
     }
-
+    @Override
+    public void setReturnDate() {
+        this.returnDate = LocalDate.now().plusDays(60);
+    }
 //methods
     public String toString() {
         return (super.toString() + ", autore=" + autore + ", ISBN=" + ISBN + "]");

@@ -18,7 +18,10 @@ public class Rivista extends Pubbliczione {
     public void setPatinata(boolean isPatinata) {
         this.isPatinata = isPatinata;
     }
-    
+    @Override
+    public void setReturnDate() {
+        this.returnDate = LocalDate.now().plusDays(30);
+    }
 //methods
     public String toString() {
         return (super.toString() + ", isPatinata=" + isPatinata + "]");

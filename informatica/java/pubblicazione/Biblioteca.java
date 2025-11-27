@@ -1,30 +1,20 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Biblioteca {
     private ArrayList<Pubbliczione> biblioteca;
-    private boolean isBorrowed;
 
 //constructor
     public Biblioteca(boolean isBorrowed) {
         this.biblioteca = new ArrayList<Pubbliczione>();
-        this.isBorrowed = isBorrowed;
     }
 
 //getters
     public ArrayList<Pubbliczione> getBiblioteca() {
         return biblioteca;
     }
-    public boolean isBorrowed() {
-        return isBorrowed;
-    }
-
 //setters
     public void setBiblioteca(ArrayList<Pubbliczione> biblioteca) {
         this.biblioteca = biblioteca;
-    }
-    public void setBorrowed(boolean isBorrowed) {
-        this.isBorrowed = isBorrowed;
     }
 
 //methods
@@ -69,11 +59,7 @@ public class Biblioteca {
         for(Pubbliczione p : biblioteca){
             if(p.getId() == id){
                 flag = 1;
-                if(!isBorrowed()){
-                    p.setBorrowed(true);
-                    if (p instanceof Rivista) p.setReturnDate(LocalDate.now().plusDays(30));
-                    else p.setReturnDate(LocalDate.now().plusDays(60));
-                }
+                if(p.getReturnDate() != null) p.setReturnDate();
                 else{
                     System.out.println("Pubblicazione sarà disponibile a partire dal: " + p.getReturnDate());
                 }
@@ -97,7 +83,6 @@ public class Biblioteca {
             System.out.println(e.getMessage());
             return;
         }
-        p.setBorrowed(false);
     }
 
 }
