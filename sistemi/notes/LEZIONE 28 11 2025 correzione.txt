@@ -4,4 +4,6 @@
 2. come funzionano argc e argv? --> argc is an integer that tells u how many command-line arguments were passed including th eprogram itself, argv is a char pointer containing the actual arguments argv[0] is always the program name, argv[1] through argv[argc-1] are the additional arguments
 argv[argc] is always NULL
 3. che cos'è perror()? --> is a function that printf arror messages to stderr --> when a function fails it calls errno (error number) , perror interpretates the value of errno as an error message and prints it to stderr
-4. che cos'è stderr? --> is file pointer like stdout and stdin --> standard i/o devices pointer
+4. che cos'è stderr? --> is file pointer like stdout and stdin --> standard i/o devices pointer, usually stderr prints into some log files (windows) --> we don't see the errors --> in linux we don't see even a single error 
+5. che differenza c'è tra usare fprintf o perror? --> they do the same thing, the difference is that perror does a syscall, the fprintf, instead, is not an error but prints into the stderr --> perror is a system error, fprintf is a user error
+
