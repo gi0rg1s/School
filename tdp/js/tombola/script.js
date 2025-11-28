@@ -7,3 +7,5 @@ function table(){
     tbl += `</table>`
     document.getElementById("tabella").innerHTML = tbl
 }
+
+table()

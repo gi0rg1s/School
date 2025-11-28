@@ -1,3 +1,29 @@
+
 table, th, td{
-    border: 2px solid black;
+    border: 2px solid rgb(255, 250, 244);
+    border-radius: 10px; 
+    padding: 20px;
+}
+table{
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+}
+td, th{
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+    background-color: rgb(255, 250, 244);
+}
+.tabella{
+    padding-left: 200px;
+    padding-top: 20px;
+}
+img{
+    height: 120px;
+    width: 200px;
+}
+.img{
+    padding-top: 20px;
+    padding-left: 320px;
 }
