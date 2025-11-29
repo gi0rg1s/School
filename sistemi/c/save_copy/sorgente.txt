@@ -7,3 +7,19 @@ ip = *(int *)ip_vbyte
 
 ip _ _ _ _
 ip_vbyte _ _ _ _
+
+
+struct ciccio{
+    int n;
+    float x;
+    double d;
+    char c;
+}
+
+sizeof(struct ciccio);// restituisce 24 perchè c'è il padding
+
++----------+
+|     |    |
++-----+----+
+|  |padding|
++--+-------+
