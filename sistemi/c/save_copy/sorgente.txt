@@ -1,0 +1,9 @@
+unsigned int ip;
+uint8_t ip_vbyte;
+unsigned int *ip_p = &ip;
+
+ip = *(int *)ip_vbyte
+
+
+ip _ _ _ _
+ip_vbyte _ _ _ _
