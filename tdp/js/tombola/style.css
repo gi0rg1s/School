@@ -1,29 +1,85 @@
-
-table, th, td{
-    border: 2px solid rgb(255, 250, 244);
-    border-radius: 10px; 
-    padding: 20px;
-}
-table{
-    width: 200px;
-    height: 200px;
-    background-color: antiquewhite;
-}
-td, th{
-    padding: 10px;
-    border-radius: 30px;
-    text-align: center;
-    background-color: rgb(255, 250, 244);
-}
-.tabella{
-    padding-left: 200px;
-    padding-top: 20px;
-}
 img{
-    height: 120px;
-    width: 200px;
+    height: 240px;
+    width: 400px;
 }
+
 .img{
     padding-top: 20px;
-    padding-left: 320px;
+    padding-left: 700px;
+    padding-bottom: 20px;
+}
+.tabella {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 20px;
+    width: 700px;
+    padding-left: 550px;
+    padding-top: 20px;
+}
+.cella {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: antiquewhite;
+    color: rgba(0, 0, 0, 0.5);
+}
+button{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+.animation{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: brown;
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    line-height: 200px;
+}
+.extract-number-animation{
+    padding-left: 700px;
+    align-self: center;
+}
+.container{
+    padding-left: 100px;
+}
+
+/* Highlight for the currently enlarged/extracted cell */
+.cella-estratta {
+    transform: scale(1.6);
+    transform-origin: center center;
+    transition: transform 0.25s ease;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    border-radius: 10px;
+    background-color: #fd7e7e;
+    color: #000;
+    text-align: center;
+    line-height: 60px;
+}
+.cella-drawn{
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #fd7e7e;
+    color: rgba(0, 0, 0, 0.5);
+}
+button:hover {                
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.estrai {                       
+    background-color: #22c55e;
+    color: white;
 }
