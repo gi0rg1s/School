@@ -9,18 +9,18 @@ typedef struct{
 
 int main(int argc, char *argv[]){
 
-    if(argc != 3){
-        printf("input non valido\n\n");
+    if (argc != 3) {
+        fprintf(stderr, "Usage: %s <source> <destination>\n", argv[0]);
         return 1;
     }
 
-    FILE *file_handle = fopen(argv[0], "r");
+    FILE *file_handle = fopen(argv[1], "r");
     if (file_handle == NULL) {
         perror("fopen");
         return 1;
     }
 
-    FILE *dest_handle = fopen(argv[1], "w");
+    FILE *dest_handle = fopen(argv[2], "w");
     if (dest_handle == NULL) {
         perror("fopen");
         return 1;
@@ -30,12 +30,13 @@ int main(int argc, char *argv[]){
     uint8_t buffer[256];
     size_t bytes_read = 0;
 
-    while(bytes_read) {
+    do{
         bytes_read = fread(buffer, 1, sizeof(buffer), file_handle);
         if(!bytes_read){
             copy_info.read_errors++;
             perror("fread");
-        }
+    }
+        
         
         size_t bytes_written = fwrite(buffer, 1, bytes_read, dest_handle);
         
@@ -45,9 +46,12 @@ int main(int argc, char *argv[]){
         }
         else 
             copy_info.copied_bytes += bytes_written;
-    }
+    }while (bytes_read);
 
-    fprintf(stdout, "******COPY INFO*********\ncopied bytes = %u\nreading errors = %u\nwriting errors = %u\n", copy_info.copied_bytes, copy_info.read_errors, copy_info.write_errors);
+    printf("******COPY INFO*********\ncopied bytes = %u\nreading errors = %u\nwriting errors = %u\n",
+           copy_info.copied_bytes,
+           copy_info.read_errors,
+           copy_info.write_errors);
 
     fclose(file_handle);
     fclose(dest_handle);
