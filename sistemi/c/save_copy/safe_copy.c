@@ -30,13 +30,11 @@ int main(int argc, char *argv[]){
     uint8_t buffer[256];
     size_t bytes_read = 0;
 
-    do{
-        bytes_read = fread(buffer, 1, sizeof(buffer), file_handle);
+    while ((bytes_read = fread(buffer, 1, sizeof(buffer), file_handle))){
         if(!bytes_read){
             copy_info.read_errors++;
             perror("fread");
-    }
-        
+        }
         
         size_t bytes_written = fwrite(buffer, 1, bytes_read, dest_handle);
         
@@ -46,7 +44,7 @@ int main(int argc, char *argv[]){
         }
         else 
             copy_info.copied_bytes += bytes_written;
-    }while (bytes_read);
+    }
 
     printf("******COPY INFO*********\ncopied bytes = %u\nreading errors = %u\nwriting errors = %u\n",
            copy_info.copied_bytes,
