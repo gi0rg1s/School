@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
     size_t bytes_read = 0;
 
     while ((bytes_read = fread(buffer, 1, sizeof(buffer), file_handle))){
-        if(!bytes_read){
+        if(bytes_read < 256 && !feof(file_handle)){
             copy_info.read_errors++;
             perror("fread");
         }
