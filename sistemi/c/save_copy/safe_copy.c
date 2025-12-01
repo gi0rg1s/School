@@ -9,13 +9,18 @@ typedef struct{
 
 int main(int argc, char *argv[]){
 
-    FILE *file_handle = fopen("sorgente.txt", "r");
+    if(argc != 2){
+        printf("input non valido\n\n");
+        return 1;
+    }
+
+    FILE *file_handle = fopen(argv[0], "r");
     if (file_handle == NULL) {
         perror("fopen");
         return 1;
     }
 
-    FILE *dest_handle = fopen("destinazione.txt", "w");
+    FILE *dest_handle = fopen(argv[1], "w");
     if (dest_handle == NULL) {
         perror("fopen");
         return 1;
