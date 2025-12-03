@@ -14,13 +14,13 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    FILE *file_handle = fopen(argv[1], "r");
+    FILE *file_handle = fopen(argv[1], "rb");
     if (file_handle == NULL) {
         perror("fopen");
         return 1;
     }
 
-    FILE *dest_handle = fopen(argv[2], "w");
+    FILE *dest_handle = fopen(argv[2], "wb");
     if (dest_handle == NULL) {
         perror("fopen");
         return 1;
