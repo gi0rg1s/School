@@ -21,6 +21,7 @@ int main(int argc, char *argv[]){
         return 1;
     }    
     open_info_t info = {0, 0, NULL, 0};
+    file_open_t *files = malloc(sizeof(file_open_t));
 
     while(1){
         file_open_t f;
@@ -29,6 +30,9 @@ int main(int argc, char *argv[]){
             info.aperture_fallite++;
             break;
         }
+        
+        realloc(files, sizeof(file_open_t) + sizeof(files));
+        files[info.aperture_riuscite - 1] = f;
     }
 
     fprintf(stdout, "*************FILE INFO*************");

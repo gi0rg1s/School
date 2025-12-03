@@ -1,12 +1,24 @@
 public class Main {
     public static void main(String[] args) {
-        Vettura vettura = new Vettura("AB123CD", 1001, "Fiat", "Panda", 1.2, 2020, 35.0, 5);
-        Furgone furgone = new Furgone("EF456GH", 2001, "Ford", "Transit", 2.0, 2019, 80.0, 1000.0); 
-        
-        System.out.println(vettura.toString());
-        System.out.println("Costo totale noleggio vettura: " + vettura.calcolaCostoTotale(3, 150.0, 10.0));
-        
-        System.out.println(furgone.toString());
-        System.out.println("Costo totale noleggio furgone: " + furgone.calcolaCostoTotale(2, 250.0, 20.0));
+        Autonoleggio autonoleggio = new Autonoleggio();
+
+        Vettura vettura1 = new Vettura("AB123CD", 1, "Fiat", "Panda", 1.2, 2018, 35, 5);
+        Vettura vettura2 = new Vettura("EF456GH", 2, "Ford", "Focus", 1.5, 2020, 50, 5);
+        Furgone furgone1 = new Furgone("IJ789KL", 3, "Mercedes", "Sprinter", 2.0, 2019, 70, 1000);
+
+        autonoleggio.aggiungiVeicolo(vettura1);
+        autonoleggio.aggiungiVeicolo(vettura2);
+        autonoleggio.aggiungiVeicolo(furgone1);
+
+        System.out.println(autonoleggio);
+
+        double costoNoleggioVettura = autonoleggio.noleggioVeicolo(vettura1, 3, 150, 20);
+        System.out.println("Costo noleggio vettura1: " + costoNoleggioVettura);
+
+        double costoNoleggioFurgone = autonoleggio.noleggioVeicolo(furgone1, 2, 250, 30);
+        System.out.println("Costo noleggio furgone1: " + costoNoleggioFurgone);
+
+        autonoleggio.rimuoviVeicolo(vettura2);
+        System.out.println(autonoleggio);
     }
 }

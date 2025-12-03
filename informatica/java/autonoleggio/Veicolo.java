@@ -6,6 +6,7 @@ public abstract class Veicolo {
     protected double cilindrata;
     protected int annoDiAcquisto;
     protected double capacitaSerbatoio;
+    
 //constructor
     public Veicolo(String targa, int numeroMatricola, String marca, String modello, double cilindrata, int annoDiAcquisto, double capacitaSerbatoio) {
         this.targa = targa;
