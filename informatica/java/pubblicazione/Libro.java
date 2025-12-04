@@ -5,8 +5,8 @@ public class Libro extends Pubbliczione {
     private String ISBN;
 
 //constructor
-    public Libro(String titolo, LocalDate dataPubblicazione, int numeroDiPagine, boolean isBorrowed, String autore, String ISBN){
-        super(titolo, dataPubblicazione, numeroDiPagine, isBorrowed);
+    public Libro(String titolo, LocalDate dataPubblicazione, int numeroDiPagine, boolean isBorrowed, Utente utente, String autore, String ISBN){
+        super(titolo, dataPubblicazione, numeroDiPagine, isBorrowed, utente);
         this.autore = autore;
         this.ISBN = ISBN;
     }

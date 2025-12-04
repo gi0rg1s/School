@@ -8,15 +8,17 @@ public class Pubbliczione {
     protected boolean isBorrowed;
     protected int numeroDiPagine;
     public static int num = 0;
+    protected Utente utente;
 
     //constructor
-        public Pubbliczione(String titolo, LocalDate dataPubblicazione, int numeroDiPagine, boolean isBorrowed) {
+        public Pubbliczione(String titolo, LocalDate dataPubblicazione, int numeroDiPagine, boolean isBorrowed, Utente utente) {
             this.titolo = titolo;
             num++;
             this.id = num;
             this.dataPubblicazione = dataPubblicazione;
             this.numeroDiPagine = numeroDiPagine;
             this.isBorrowed = isBorrowed;
+            this.utente = utente;
         }
 
 //getters
@@ -40,6 +42,9 @@ public class Pubbliczione {
     public boolean isBorrowed() {
         return isBorrowed;
     }
+    public Utente getUtente() {
+        return utente;
+    }
 //setters
     public void setTitolo(String titolo) {
         this.titolo = titolo;
@@ -55,6 +60,9 @@ public class Pubbliczione {
     }
     public void setReturnDate() {
         this.returnDate = null;
+    }
+    public void setBorrowed(boolean isBorrowed) {
+        this.isBorrowed = isBorrowed;
     }
     
 //methods

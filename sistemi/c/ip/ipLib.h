@@ -9,7 +9,7 @@
 
 typedef struct {
     char *ipStr;
-    uint8_t ip[4];
+    uint32_t ip;
     uint32_t netmask;
     char classe;
     char type[3];
@@ -17,6 +17,6 @@ typedef struct {
 
 void parse_cli (int argc, char* argv[]);
 
-uint8_t generate_ip (int n);
+void generate_ip (int n);
 
 #endif 

@@ -91,4 +91,14 @@ public class Biblioteca {
         }
     }
 
+    public ArrayList<Pubbliczione> cercaPerUtente(Utente utente){
+        ArrayList<Pubbliczione> risultati = new ArrayList<>();
+        for(Pubbliczione p : biblioteca){
+            if(p.getUtente().equals(utente)){
+                risultati.add(p);
+            }
+        }
+        return risultati;
+    }
+
 }
