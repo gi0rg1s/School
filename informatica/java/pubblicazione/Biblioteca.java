@@ -70,6 +70,9 @@ public class Biblioteca {
                     p.setReturnDate();
                     p.setBorrowed(true);
                     p.utente = utente;
+                    ArrayList<Pubbliczione> prestiti = utente.getPubbliczioniInPrestito();
+                    prestiti.add(p);
+                    utente.setPubbliczioniInPrestito(prestiti);
                 }
                 else{
                     return ("Pubblicazione sarà disponibile a partire dal: " + p.getReturnDate());
