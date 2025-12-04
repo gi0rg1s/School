@@ -68,6 +68,6 @@ public class Pubbliczione {
 //methods
     public String toString() {
         return "Pubbliczione [titolo=" + titolo + ", id=" + id + ", dataPubblicazione=" + dataPubblicazione
-                + ", numeroDiPagine=" + numeroDiPagine + ", isBorrowed=" + isBorrowed + ", returnDate=" + returnDate + "]";
+                + ", numeroDiPagine=" + numeroDiPagine + ", isBorrowed=" + isBorrowed + ", returnDate=" + returnDate + ", utente=" + utente + "]";
     }
 }
