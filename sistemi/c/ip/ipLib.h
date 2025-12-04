@@ -12,11 +12,15 @@ typedef struct {
     uint32_t ip;
     uint32_t netmask;
     char classe;
-    char type[3];
+    char type[4];
 }ip_t;
 
 void parse_cli (int argc, char* argv[]);
 
-void generate_ip (int n);
+void determinate_class(ip_t ip);
+
+void determinate_type(ip_t ip);
+
+void generate_ip (int n, ip_t ip);
 
 #endif 
