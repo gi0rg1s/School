@@ -65,6 +65,13 @@ public class Pubbliczione {
     }
     
 //methods
+    public void presta(Utente utente) {
+        if(!this.isBorrowed){
+            this.isBorrowed = true;
+            this.utente = utente;
+            utente.getPubbliczioniInPrestito().add(this);
+        }
+    }
     public String toString() {
         return "Pubbliczione [titolo=" + titolo + ", id=" + id + ", dataPubblicazione=" + dataPubblicazione
                 + ", numeroDiPagine=" + numeroDiPagine + ", isBorrowed=" + isBorrowed + ", returnDate=" + returnDate + ", utente=" + utente + "]";

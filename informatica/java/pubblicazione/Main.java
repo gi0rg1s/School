@@ -34,11 +34,5 @@ public class Main {
         for (Pubbliczione p : biblioteca.getBiblioteca()) {
             System.out.println(p);
         }
-
-        ArrayList<Pubbliczione> pubblicazioniUtente1 = biblioteca.cercaPerUtente(u1);
-        System.out.println("\nPubblicazioni per utente " + u1.getNome() + ":");
-        for (Pubbliczione p : pubblicazioniUtente1) {
-            System.out.println(p);
-        }
     }
 }
