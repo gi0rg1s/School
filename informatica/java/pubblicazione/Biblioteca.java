@@ -56,7 +56,7 @@ public class Biblioteca {
  * @param (int)
  * borrow a pubbliczione
  */
-    public String chiediPubblicazioneInPrestito(int id){
+    public String chiediPubblicazioneInPrestito(int id, Utente utente){
         boolean flag = false;
         try {
             if(id == 0) throw new IllegalArgumentException("Pubblicazione non trovata");
@@ -66,7 +66,11 @@ public class Biblioteca {
         for(Pubbliczione p : biblioteca){
             if(p.getId() == id){
                 flag = true;
-                if(p.getReturnDate() != null) p.setReturnDate();
+                if(p.getReturnDate() != null){
+                    p.setReturnDate();
+                    p.setBorrowed(true);
+                    p.utente = utente;
+                }
                 else{
                     return ("Pubblicazione sarà disponibile a partire dal: " + p.getReturnDate());
                 }
@@ -94,8 +98,9 @@ public class Biblioteca {
     public ArrayList<Pubbliczione> cercaPerUtente(Utente utente){
         ArrayList<Pubbliczione> risultati = new ArrayList<>();
         for(Pubbliczione p : biblioteca){
-            if(p.getUtente().equals(utente)){
-                risultati.add(p);
+            try{
+                if(p.getUtente().equals(utente)) risultati.add(p);
+            }catch(Exception e){
             }
         }
         return risultati;

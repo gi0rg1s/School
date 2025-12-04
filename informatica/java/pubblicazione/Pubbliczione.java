@@ -11,14 +11,13 @@ public class Pubbliczione {
     protected Utente utente;
 
     //constructor
-        public Pubbliczione(String titolo, LocalDate dataPubblicazione, int numeroDiPagine, boolean isBorrowed, Utente utente) {
+        public Pubbliczione(String titolo, LocalDate dataPubblicazione, int numeroDiPagine, boolean isBorrowed) {
             this.titolo = titolo;
             num++;
             this.id = num;
             this.dataPubblicazione = dataPubblicazione;
             this.numeroDiPagine = numeroDiPagine;
             this.isBorrowed = isBorrowed;
-            this.utente = utente;
         }
 
 //getters

@@ -4,8 +4,8 @@ public class Rivista extends Pubbliczione {
     private boolean isPatinata;
 
 //constructor
-    public Rivista(String titolo, LocalDate dataPubblicazione, int numeroDiPagine, boolean isPatinata, boolean isBorrowed, Utente utente){ 
-        super(titolo, dataPubblicazione, numeroDiPagine, isBorrowed, utente);
+    public Rivista(String titolo, LocalDate dataPubblicazione, int numeroDiPagine, boolean isPatinata, boolean isBorrowed){ 
+        super(titolo, dataPubblicazione, numeroDiPagine, isBorrowed);
         this.isPatinata = isPatinata;
     }
 
