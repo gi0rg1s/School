@@ -25,4 +25,11 @@ ip_t generate_ip (ip_t ip);
 
 void printIPlist(ip_t* ipList);
 
+
+
+//****************CORREZIONI************************** */
+int isReserved(uint32_t ip);
+int isPrivate(uint32_t ip);
+int isMulticast(uint32_t ip);
+
 #endif 
