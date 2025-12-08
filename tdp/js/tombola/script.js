@@ -70,6 +70,38 @@ function reset_table(){
     document.getElementById("animation").innerText = ""
 }
 
+function random_schedina(min, max){
+    let numbers = []
+    let number
+    let row
+    for(let i = 0; i < 2; i++){
+        number = Math.floor(Math.random() * (max - min + 1)) + min
+        row = Math.floor(Math.random() * 2)
+        if(!schedina[row] && !numbers.includes(number)){
+            schedina[row] = number 
+            numbers.push(number)
+        }
+        else i--
+    }
+}
+
+function init_schedine(){
+    for(let n = 0; t < 5; t++){
+        const schedina = document.createElement("div")
+        schedina.className = `schedina${n+1}`
+        for(let i = 1; i <= 3; i++){
+            for(let j = 1; j <= 9; j++){
+                const cell = document.createElement("div")
+                cell.className = `cella-${i}${j}`
+                cell.textContent = ""
+                cell.id = `tabella-${i}-cell-${j}` 
+                document.getElementById(`schedina-${n+1}`).appendChild(cell)
+            }
+        }
+        for(let k = 0; k < 15; k++) random_schedina(n*10+1, (n*10)+10)
+    }
+}
+
 estrai.addEventListener('click', print_animation)
 reset.addEventListener('click', reset_table) 
 init_table()
