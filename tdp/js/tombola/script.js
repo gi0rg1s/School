@@ -86,9 +86,11 @@ function random_schedina(column, min, max){
 }
 
 function init_schedine(){                                                           //initialize the schedina
-    for(let n = 0; t < 5; t++){
+    for(let n = 0; n < 5; n++){
         const schedina = document.createElement("div")
+        schedina.id = `schedina${n+1}`
         schedina.className = `schedina${n+1}`
+        document.getElementById("schedine").appendChild(schedina)
         for(let i = 1; i <= 3; i++){
             for(let j = 1; j <= 9; j++){
                 const cell = document.createElement("div")
@@ -103,7 +105,7 @@ function init_schedine(){                                                       
     }
 }
 
-
 estrai.addEventListener('click', print_animation)
 reset.addEventListener('click', reset_table) 
 init_table()
+init_schedine()
