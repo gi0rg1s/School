@@ -93,6 +93,20 @@ function interval_function(){
         currentCell = document.getElementById(`cell-${finalNumber}`);          
         currentCell.className = "cella-estratta";
         
+        // Highlight the number on all schedine if it exists there
+        for(let n = 0; n < 5; n++) {
+            for(let i = 0; i < 3; i++) {
+                for(let j = 0; j < 9; j++) {
+                    const index = i * 9 + j;
+                    const cellId = `sched${n+1}-cell-${index}`;
+                    const cell = document.getElementById(cellId);
+                    if(cell && schedine[n][index] === finalNumber) {
+                        cell.classList.add('matched');  // Assign the matched class to turn red
+                    }
+                }
+            }
+        }
+        
         setTimeout(time_out, 1500);                                             //time sleeping
     }
 }

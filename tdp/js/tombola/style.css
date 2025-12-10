@@ -119,8 +119,11 @@ h2{
 }
 
 .cella-schedina.matched{
-    background-color: #fd7e7e;
+    background-color: #ef4444;
     color: white;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+    transition: all 0.3s ease;
 }
 
 #schedine-container{
