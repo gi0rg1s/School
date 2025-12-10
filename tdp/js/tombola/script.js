@@ -8,7 +8,7 @@ let finalNumber
 let currentCell
 let numbers = []
 let ambo, terna, quaterna, cinquina, tombola
-let schedina = []
+let schedina = [[], [], [], [], []]                                             //array of 5 schedine
 
 function init_table(){                                              //create the table 
     board.innerHTML = ''
