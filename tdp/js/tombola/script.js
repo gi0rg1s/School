@@ -42,27 +42,37 @@ function print_animation(){
     intervalId = setInterval(interval_function, 100);                           //interval for the animation
     for(let i = 0; i < 5; i++){                                               //check for wins in each schedina
         if(!ambo) {
-            check_win(schedina[i], 2) ? ambo = false : ambo = true              //chek for wins
-            document.getElementById("messages").innerText = "Ambo nella schedina " + (i+1) + "!"
+            if(check_win(schedina[i], 2)) {
+                ambo = true
+                document.getElementById("messages").innerText = "Ambo nella schedina " + (i+1) + "!"
+            }
         }
         if(!terna) {
-            check_win(schedina[i], 3) ? terna = false : terna = true  
-            document.getElementById("messages").innerText = "Terna nella schedina " + (i+1) + "!"               
+            if(check_win(schedina[i], 3)) {
+                terna = true
+                document.getElementById("messages").innerText = "Terna nella schedina " + (i+1) + "!"
+            }
         }
         if(!quaterna){
-            check_win(schedina[i], 4) ? quaterna = false : quaterna = true
-            document.getElementById("messages").innerText = "Quaterna nella schedina " + (i+1) + "!"
+            if(check_win(schedina[i], 4)) {
+                quaterna = true
+                document.getElementById("messages").innerText = "Quaterna nella schedina " + (i+1) + "!"
+            }
         }
         if(!cinquina){
-            check_win(schedina[i], 5) ? cinquina = false : cinquina = true
-            document.getElementById("messages").innerText = "Cinquina nella schedina " + (i+1) + "!"
+            if(check_win(schedina[i], 5)) {
+                cinquina = true
+                document.getElementById("messages").innerText = "Cinquina nella schedina " + (i+1) + "!"
+            }
         }
         if(!tombola){
-            check_win(schedina[i], 15) ? tombola = false : tombola = true
-            document.getElementById("messages").innerText = "Tombola nella schedina " + (i+1) + "!"
-            return
+            if(check_win(schedina[i], 15)) {
+                tombola = true
+                document.getElementById("messages").innerText = "Tombola nella schedina " + (i+1) + "!"
+                return
+            }
         }
-}
+    }
 }
 
 function interval_function(){
@@ -96,14 +106,14 @@ function reset_table(){                                                         
     document.getElementById("animation").innerText = ""
 }
 
-function random_schedina(column, min, max){
+function random_schedina(schedIndex, column, min, max){
     let number
     let row
     for(let i = 0; i < 2; i++){
         number = Math.floor(Math.random() * (max - min + 1)) + min
-        row = Math.floor(Math.random() * 2)
-        if(!schedina[row][column] && !numbers.includes(number)){
-            schedina[row][column] = number 
+        row = Math.floor(Math.random() * 3)
+        if(!schedina[schedIndex][row * 9 + column] && !numbers.includes(number)){
+            schedina[schedIndex][row * 9 + column] = number 
             numbers.push(number)
         }
         else i--
@@ -113,7 +123,7 @@ function random_schedina(column, min, max){
 function init_schedine(){                                                           //initialize the schedina
     for(let n = 0; n < 5; n++){
         const schedina = document.createElement("div")
-        schedina.id = `schedina${n+1}`
+        schedina.id = `schedina-${n+1}`
         schedina.className = `schedina${n+1}`
         document.getElementById("schedine").appendChild(schedina)
         for(let i = 1; i <= 3; i++){
@@ -125,7 +135,7 @@ function init_schedine(){                                                       
                 document.getElementById(`schedina-${n+1}`).appendChild(cell)
             }
         }
-        for(let k = 0; k < 9; k++) random_schedina(k, k*10+1, (k*10)+10)
+        for(let k = 0; k < 9; k++) random_schedina(n, k, k*10+1, (k*10)+10)
         numbers = []                                                                 //clear the array whit extract numbers for each schedina
     }
 }
