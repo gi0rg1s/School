@@ -88,3 +88,13 @@ button:hover {
     height: 200;
     width: 300;
 }
+h2{
+    text-align: center;
+    color: brown;
+    font-size: 50px;
+}
+.schedine-container{
+    padding-left: 600px;
+    background-color: rgb(246, 232, 206);
+    border-radius: 20px;
+}
