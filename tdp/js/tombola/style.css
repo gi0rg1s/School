@@ -83,21 +83,59 @@ button:hover {
     background-color: #22c55e;
     color: white;
 }
-.schedine{
-    background-color: purple;
-    height: 200;
-    width: 300;
-}
 h2{
     text-align: center;
     color: brown;
     font-size: 50px;
 }
-.schedine-container{
-    padding-left: 600px;
+.schedina{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 5px;
+    width: 360px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cella-schedina{
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.cella-schedina.empty{
+    background-color: transparent;
+    border: none;
+}
+
+.cella-schedina.matched{
+    background-color: #22c55e;
+    color: white;
+}
+
+#schedine-container{
+    padding: 20px;
     background-color: rgb(234, 219, 192);
     border-radius: 20px;
-    width: 400px;
-    height: auto;
-    margin-bottom: 20px;
+    width: 420px;
+    margin: 20px auto;
+}
+
+#messages{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #d97706;
+    min-height: 30px;
+    margin: 10px 0;
 }
