@@ -8,7 +8,7 @@ let finalNumber
 let currentCell
 let numbers = []
 let ambo, terna, quaterna, cinquina, tombola
-let schedina = [[], [], [], [], []]                                             //array of 5 schedine
+let schedine = [[], [], [], [], []]                   //array of 5 schedine
 
 function init_table(){                                              //create the table 
     board.innerHTML = ''
@@ -121,22 +121,31 @@ function random_schedina(schedIndex, column, min, max){
 }
 
 function init_schedine(){                                                           //initialize the schedina
-    for(let n = 0; n < 5; n++){
-        const schedina = document.createElement("div")
-        schedina.id = `schedina-${n+1}`
-        schedina.className = `schedina${n+1}`
-        document.getElementById("schedine").appendChild(schedina)
-        for(let i = 1; i <= 3; i++){
-            for(let j = 1; j <= 9; j++){
-                const cell = document.createElement("div")
-                cell.className = `cella-${i}${j}`
-                cell.textContent = ""
-                cell.id = `tabella-${i}-cell-${j}` 
-                document.getElementById(`schedina-${n+1}`).appendChild(cell)
-            }
+    const schedineContainer = document.getElementById("schedine")
+    schedineContainer.innerHTML = ''
+    for(let s = 0; s < 5; s++){
+        numbers = []
+        schedina[s] = new Array(27).fill(null)  
+        for(let col = 0; col < 9; col++){
+            if(col === 0) random_schedina(s, col, 1, 9)
+            else if(col === 8) random_schedina(s, col, 80, 90)
+            else random_schedina(s, col, col * 10, col * 10 + 9)
         }
-        for(let k = 0; k < 9; k++) random_schedina(n, k, k*10+1, (k*10)+10)
-        numbers = []                                                                 //clear the array whit extract numbers for each schedina
+        const schedinaDiv = document.createElement("div")
+        schedinaDiv.className = "schedina-div"
+        for(let r = 0; r < 3; r++){
+            const rowDiv = document.createElement("div")
+            rowDiv.className = "schedina-row"
+            for(let c = 0; c < 9; c++){
+                const cellDiv = document.createElement("div")
+                cellDiv.className = "schedina-cell"
+                const number = schedina[s][r * 9 + c]
+                cellDiv.textContent = number !== null ? number : ''
+                rowDiv.appendChild(cellDiv)
+            }
+            schedinaDiv.appendChild(rowDiv)
+        }
+        schedineContainer.appendChild(schedinaDiv)
     }
 }
 
