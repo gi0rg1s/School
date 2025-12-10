@@ -112,8 +112,9 @@ function random_schedina(schedIndex, column, min, max){
     for(let i = 0; i < 2; i++){
         number = Math.floor(Math.random() * (max - min + 1)) + min
         row = Math.floor(Math.random() * 3)
-        if(!schedina[schedIndex][row * 9 + column] && !numbers.includes(number)){
-            schedina[schedIndex][row * 9 + column] = number 
+        const index = row * 9 + column
+        if(!schedine[schedIndex][index] && !numbers.includes(number)){
+            schedine[schedIndex][index] = number 
             numbers.push(number)
         }
         else i--
@@ -134,17 +135,18 @@ function init_schedine(){                                                       
         schedDiv.className = `schedina`
         document.getElementById("schedine").appendChild(schedDiv)
         
-        // Create and populate cells
+        // Create and populate cells with the generated numbers
         for(let i = 0; i < 3; i++){
             for(let j = 0; j < 9; j++){
                 const cell = document.createElement("div")
-                cell.className = `cella-${i}${j}`
-                cell.textContent = ""
-                cell.id = `tabella-${i}-cell-${j}` 
-                document.getElementById(`schedina-${n+1}`).appendChild(cell)
+                cell.className = `cella-schedina`
+                const index = i * 9 + j
+                const numValue = schedine[n][index]
+                cell.textContent = numValue !== null ? numValue : ""
+                cell.id = `sched${n+1}-cell-${index}` 
+                schedDiv.appendChild(cell)
             }
         }
-        for(let k = 0; k < 9; k++) random_schedina(n, k, k*10+1, (k*10)+10)
         numbers = []                                                                 //clear the array whit extract numbers for each schedina
     }
 }
