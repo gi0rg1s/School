@@ -7,6 +7,7 @@ let count = 0
 let finalNumber
 let currentCell
 let numbers = []
+let ambo, terna, quaterna, cinquina, tombola
 
 function init_table(){                                              //create the table 
     board.innerHTML = ''
@@ -38,6 +39,29 @@ function print_animation(){
     }
     count = 0;  
     intervalId = setInterval(interval_function, 100);                           //interval for the animation
+    for(let i = 0; i < 5; i++){                                               //check for wins in each schedina
+        if(!ambo) {
+            check_win(schedina[i], 2) ? ambo = false : ambo = true              //chek for wins
+            document.getElementById("messages").innerText = "Ambo nella schedina " + (i+1) + "!"
+        }
+        if(!terna) {
+            check_win(schedina[i], 3) ? terna = false : terna = true  
+            document.getElementById("messages").innerText = "Terna nella schedina " + (i+1) + "!"               
+        }
+        if(!quaterna){
+            check_win(schedina[i], 4) ? quaterna = false : quaterna = true
+            document.getElementById("messages").innerText = "Quaterna nella schedina " + (i+1) + "!"
+        }
+        if(!cinquina){
+            check_win(schedina[i], 5) ? cinquina = false : cinquina = true
+            document.getElementById("messages").innerText = "Cinquina nella schedina " + (i+1) + "!"
+        }
+        if(!tombola){
+            check_win(schedina[i], 15) ? tombola = false : tombola = true
+            document.getElementById("messages").innerText = "Tombola nella schedina " + (i+1) + "!"
+            return
+        }
+}
 }
 
 function interval_function(){
@@ -104,6 +128,20 @@ function init_schedine(){                                                       
         numbers = []                                                                 //clear the array whit extract numbers for each schedina
     }
 }
+
+function check_win(schedina, n){                                               //check if there is an ambo/terna/quaterna/cinquina or a tombola
+    let count = 0
+    for(let i = 0; i < drawn_numbers.length; i++){
+        for(let j = 0; j < schedina.length; j++){
+            if(drawn_numbers[i] === schedina[j]){
+                count++
+                if(count === n) return true
+            }
+        }
+    }
+    return false
+}
+
 
 estrai.addEventListener('click', print_animation)
 reset.addEventListener('click', reset_table) 
