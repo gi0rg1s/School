@@ -95,6 +95,9 @@ h2{
 }
 .schedine-container{
     padding-left: 600px;
-    background-color: rgb(246, 232, 206);
+    background-color: rgb(234, 219, 192);
     border-radius: 20px;
+    width: 400px;
+    height: auto;
+    margin-bottom: 20px;
 }
