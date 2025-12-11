@@ -7,29 +7,14 @@ img{
     margin-bottom: 20px;
 }
 
-.board-layout{
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding: 20px;
+.tabella-container{
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 750px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin: 0 auto;
 }
-
-.tombola-container{
-    align-items: center;
-}
-
-/* Layout: table and schedine side by side */
-#container{
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap; /* stack on small screens */
-    padding: 20px;
-}
-
 .tabella {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -152,6 +137,12 @@ h2{
     border-radius: 20px;
     width: 420px;
     margin: 0;
+}
+.mega-container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-bottom: 20px;
 }
 
 #messages{
