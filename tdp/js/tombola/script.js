@@ -6,7 +6,8 @@ let intervalId
 let count = 0
 let finalNumber
 let currentCell
-let numbers = []
+const ROWS = 3
+const COLS = 9
 let ambo, terna, quaterna, cinquina, tombola
 let schedine = [[], [], [], [], []]                   //array of 5 schedine
 
@@ -121,33 +122,73 @@ function reset_table(){                                                         
     document.getElementById("animation").innerText = ""
 }
 
-function random_schedina(schedIndex, column, min, max){
-    let number
-    let row
-    for(let i = 0; i < 2; i++){  // 2 numbers per row
-        number = Math.floor(Math.random() * (max - min + 1)) + min  // Random number in range
-        row = Math.floor(Math.random() * 3)  // Random row (0, 1, or 2)
-        
-        const index = row * 9 + column
-        if(!schedine[schedIndex][index] && !numbers.includes(number)){
-            schedine[schedIndex][index] = number  // Store the number
-            numbers.push(number)  // Track used numbers to avoid duplicates
-        }
-        else i--  // If cell taken or number duplicate, try again
+function shuffleArray(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[arr[i], arr[j]] = [arr[j], arr[i]]
     }
+    return arr
+}
+
+function pickNumbersForColumn(min, max, count, used){
+    const result = []
+    while(result.length < count){
+        const n = Math.floor(Math.random() * (max - min + 1)) + min
+        if(!used.has(n)){
+            used.add(n)
+            result.push(n)
+        }
+    }
+    return result.sort((a, b) => a - b)
+}
+
+function build_schedina(){
+    const rows = 3
+    const cols = 9
+    let attempts = 0
+    while(attempts < 200){
+        attempts++
+        const grid = new Array(rows * cols).fill(null)
+        const rowCounts = [0, 0, 0]
+        const colCounts = new Array(cols).fill(1)
+        shuffleArray([...Array(cols).keys()]).slice(0, 6).forEach(c => colCounts[c] = 2)
+        const used = new Set()
+        const columnNumbers = colCounts.map((count, col) => {
+            const min = col * 10 + 1
+            const max = col === 8 ? 90 : (col * 10) + 10
+            return pickNumbersForColumn(min, max, count, used)
+        })
+        let valid = true
+        for(let col = 0; col < cols && valid; col++){
+            const count = colCounts[col]
+            const availableRows = [0, 1, 2].filter(r => rowCounts[r] < 5)
+            if(availableRows.length < count){
+                valid = false
+                break
+            }
+            shuffleArray(availableRows)
+            const chosenRows = availableRows.slice(0, count).sort((a, b) => a - b)
+            for(let i = 0; i < count; i++){
+                const row = chosenRows[i]
+                const index = row * cols + col
+                grid[index] = columnNumbers[col][i]
+                rowCounts[row]++
+            }
+        }
+        if(valid && rowCounts.every(c => c === 5)) return grid
+    }
+    throw new Error("Impossibile generare una schedina valida")
 }
 
 function init_schedine(){                                                           
     // Initialize and display all 5 schedine (tombola cards)
     // Each schedina has 3 rows x 9 columns = 27 cells
-    // Each column contains 2 numbers from its decade (col 0: 1-10, col 1: 11-20, etc.)
-    
+    // Each column now has 1 or 2 numbers, and every row has exactly 5 numbers
+
+    document.getElementById("schedine").innerHTML = ""
+
     for(let n = 0; n < 5; n++){  
-        schedine[n] = new Array(27).fill(null)
-        
-        // Generate random numbers for each column schedina
-        for(let k = 0; k < 9; k++) random_schedina(n, k, k*10+1, (k*10)+10)
-        
+        schedine[n] = build_schedina()
         // Create the html container for the schedine
         const schedDiv = document.createElement("div")
         schedDiv.id = `schedina-${n+1}`
@@ -166,19 +207,20 @@ function init_schedine(){
                 schedDiv.appendChild(cell)  // Add cell to schedina div
             }
         }
-        numbers = []                                                                 //clear the array whit extract numbers for each schedina
     }
 }
 
-function check_win(schedina, n){                                               //check if there are n matching numbers between drawn and schedina
+function check_win(schedina, n){                                //check if there are n matching numbers between drawn and schedina
     let count = 0
     // Loop through each number in the schedina
-    for(let j = 0; j < schedina.length; j++){
-        // If this schedina cell has a number and it's in drawn_numbers, count it
-        if(schedina[j] !== null && schedina[j] !== undefined && drawn_numbers.includes(schedina[j])){
-            count++
-            if(count === n) return true  // Found enough matches!
+    for(let j = 0; j < ROWS; j++){
+        for(let k = 0; k < COLS; k++){
+            if(schedina[j][k] !== null && schedina[j][k] !== undefined && drawn_numbers.includes(schedina[j][k])){
+                count++
+                if(count === n) return true  // Found enough matches!
+            }
         }
+        count = 0
     }
     return false
 }
