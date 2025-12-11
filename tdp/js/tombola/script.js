@@ -41,39 +41,6 @@ function print_animation(){
     }
     count = 0;  
     intervalId = setInterval(interval_function, 100);                           //interval for the animation
-    for(let i = 0; i < 5; i++){                                               //check for wins in each schedina
-        if(!ambo) {
-            if(check_win(schedine[i], 2)) {
-                ambo = true
-                document.getElementById("messages").innerText = "Ambo nella schedina " + (i+1) + "!"
-            }
-        }
-        if(!terna) {
-            if(check_win(schedine[i], 3)) {
-                terna = true
-                document.getElementById("messages").innerText = "Terna nella schedina " + (i+1) + "!"
-            }
-        }
-        if(!quaterna){
-            if(check_win(schedine[i], 4)) {
-                quaterna = true
-                document.getElementById("messages").innerText = "Quaterna nella schedina " + (i+1) + "!"
-            }
-        }
-        if(!cinquina){
-            if(check_win(schedine[i], 5)) {
-                cinquina = true
-                document.getElementById("messages").innerText = "Cinquina nella schedina " + (i+1) + "!"
-            }
-        }
-        if(!tombola){
-            if(check_tombola(schedine[i])) {
-                tombola = true
-                document.getElementById("messages").innerText = "Tombola nella schedina " + (i+1) + "!"
-                return
-            }
-        }
-    }
 }
 
 function interval_function(){
@@ -107,6 +74,8 @@ function interval_function(){
                 }
             }
         }
+
+        evaluate_wins()
         
         setTimeout(time_out, 1500);                                             //time sleeping
     }
@@ -119,6 +88,9 @@ function time_out(){
 function reset_table(){                                                         //reset the table
     drawn_numbers = []  
     init_table()
+    init_schedine()
+    ambo = terna = quaterna = cinquina = tombola = false
+    document.getElementById("messages").innerText = ""
     document.getElementById("animation").innerText = ""
 }
 
@@ -224,11 +196,43 @@ function check_tombola(schedina){
 function check_win(schedina, n){
     // Check if ANY row has n matching numbers
     for(let row = 0; row < ROWS; row++){
-        if(check_win_row(schedina, row, n)){
-            return true
+        let matched = 0
+        const start = row * COLS
+        for(let i = start; i < start + COLS; i++){
+            const value = schedina[i]
+            if(value !== null && value !== undefined && drawn_numbers.includes(value)){
+                matched++
+                if(matched >= n) return true
+            }
         }
     }
     return false
+}
+
+function evaluate_wins(){
+    for(let i = 0; i < 5; i++){
+        if(!ambo && check_win(schedine[i], 2)){
+            ambo = true
+            document.getElementById("messages").innerText = "Ambo nella schedina " + (i+1) + "!"
+        }
+        if(!terna && check_win(schedine[i], 3)){
+            terna = true
+            document.getElementById("messages").innerText = "Terna nella schedina " + (i+1) + "!"
+        }
+        if(!quaterna && check_win(schedine[i], 4)){
+            quaterna = true
+            document.getElementById("messages").innerText = "Quaterna nella schedina " + (i+1) + "!"
+        }
+        if(!cinquina && check_win(schedine[i], 5)){
+            cinquina = true
+            document.getElementById("messages").innerText = "Cinquina nella schedina " + (i+1) + "!"
+        }
+        if(!tombola && check_tombola(schedine[i])){
+            tombola = true
+            document.getElementById("messages").innerText = "Tombola nella schedina " + (i+1) + "!"
+            return
+        }
+    }
 }
 
 
