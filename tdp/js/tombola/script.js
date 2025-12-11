@@ -67,7 +67,7 @@ function print_animation(){
             }
         }
         if(!tombola){
-            if(check_win(schedine[i], 15)) {
+            if(check_tombola(schedine[i])) {
                 tombola = true
                 document.getElementById("messages").innerText = "Tombola nella schedina " + (i+1) + "!"
                 return
@@ -210,17 +210,23 @@ function init_schedine(){
     }
 }
 
-function check_win(schedina, n){                                //check if there are n matching numbers between drawn and schedina
+function check_tombola(schedina){
+    // Check if all 15 numbers in the schedina are drawn
     let count = 0
-    // Loop through each number in the schedina
-    for(let j = 0; j < ROWS; j++){
-        for(let k = 0; k < COLS; k++){
-            if(schedina[j][k] !== null && schedina[j][k] !== undefined && drawn_numbers.includes(schedina[j][k])){
-                count++
-                if(count === n) return true  // Found enough matches!
-            }
+    for(let i = 0; i < schedina.length; i++){
+        if(schedina[i] !== null && schedina[i] !== undefined && drawn_numbers.includes(schedina[i])){
+            count++
         }
-        count = 0
+    }
+    return count === 15
+}
+
+function check_win(schedina, n){
+    // Check if ANY row has n matching numbers
+    for(let row = 0; row < ROWS; row++){
+        if(check_win_row(schedina, row, n)){
+            return true
+        }
     }
     return false
 }
