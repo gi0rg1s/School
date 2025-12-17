@@ -11,7 +11,7 @@ public class Main {
         Libro l1 = new Libro("Il Signore degli Anelli", LocalDate.of(1954, 7, 29), 1216,false,"J.R.R. Tolkien", "978-0261102385");
         Rivista r1 = new Rivista("National Geographic", LocalDate.of(2023, 5, 1), 100, false, true);
 
-        p1.presta(u1);      // == u1.setPubbliczioneInPrestito(p1);
+        p1.presta(u1);      // == u1.setPubbliczioneInPrestito(getPubbliczioneInPrestito().add(p1));
 
         Biblioteca biblioteca = new Biblioteca(false);
         biblioteca.aggiungiPubbliczione(l1);
