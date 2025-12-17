@@ -7,7 +7,8 @@ public class Utente{
     private ArrayList<Pubbliczione> pubbliczioniInPrestito = new ArrayList<Pubbliczione>();
 
 //constructor
-    public Utente( String nome, String cognome, String recapito) {
+    public Utente( String nome, String cognome, String recapito, ArrayList<Pubbliczione> pubbliczioniInPrestito){
+        this.pubbliczioniInPrestito = pubbliczioniInPrestito;
         this.nome = nome;
         this.cognome = cognome;
         this.recapito = recapito;

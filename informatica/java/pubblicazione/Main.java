@@ -3,7 +3,6 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         
-        Utente u1 = new Utente("Mario", "Rossi", "mario.rossi@example.com");
         
         Pubbliczione p1 = new Pubbliczione("bho", LocalDate.of(2025, 11, 20), 200,false);
         Pubbliczione p2 = new Pubbliczione("bho", LocalDate.of(2025, 11, 20), 200,false);
@@ -16,6 +15,8 @@ public class Main {
         biblioteca.aggiungiPubbliczione(r1);
         biblioteca.aggiungiPubbliczione(p1);
         biblioteca.aggiungiPubbliczione(p2);
+
+        Utente u1 = new Utente("Mario", "Rossi", "mario.rossi@example.com", biblioteca.getBiblioteca());
 
         System.out.println("Biblioteca contents:");
         for (Pubbliczione p : biblioteca.getBiblioteca()) {
