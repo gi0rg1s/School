@@ -13,32 +13,31 @@ typedef struct{
     int porta;
     unsigned char MAC[6];
     int age;
-}TRAFFICO; TRAFFICO* pt0; TRAFFICO* pt;
-
-typedef struct{
-    int porta;
-    unsigned char MAC[6];
-    int age;
 }FILTERINGDB; FILTERINGDB* pf0; FILTERINGDB* pf;
 
 int FromMACtoByte(char *szmac, int offs, int idx);
 int isMACequal(unsigned char *mac1, unsigned char *mac2);
 
-int main() {
+int main(int argc, char *argv[]) {
     
+    if(argc < 2){
+        printf("Usage: %s\n", argv[0]);
+        return -1;
+    }
+
     FILE *fp;
     int i, j, nT, nF;
     char szRiga[80];
 
-    printf("Traffico\n-----------------------------------------");
+    printf("Traffico\n-----------------------------------------\n");
     i = 0;
-    fp = fopen("traffic.txt", "r");
+    fp = fopen(argv[1], "r");
     fgets(szRiga, 80, fp); printf("%s", szRiga);
     while(fgets(szRiga, 80, fp) != NULL){
         printf("%s", szRiga);
         if(szRiga[0]){
             if(i == 0) {pt0 = malloc(sizeof(TRAFFICO)); pt = pt0;}
-            else {pt = realloc(pt0, (i+1)*sizeof(pt0)); pt = pt0 + 1;}
+            else {pt = realloc(pt0, (i+1)*sizeof(*pt0)); pt = pt0 + 1;}
 
             pt->porta = szRiga[0] - '0';
             for(j = 0; j < 6; j++){
@@ -50,7 +49,7 @@ int main() {
     }   
     fclose(fp);
 
-    printf("\nLearning e forwarding\n-----------------------------------------");
+    printf("\n\nLearning e forwarding\n-----------------------------------------");
     nF = 0;
     for(i = 0; i < nT; i++){
         int found = 0;
@@ -84,7 +83,6 @@ int main() {
                 if(j != (pt0 + i)->porta) printf(" %d", j);
             }
         }
-
     }
     
     printf("\n\nFiltering database\n-----------------------------------------\n");
@@ -94,6 +92,7 @@ int main() {
                (pf0 + i)->MAC[0], (pf0 + i)->MAC[1], (pf0 + i)->MAC[2],
                (pf0 + i)->MAC[3], (pf0 + i)->MAC[4], (pf0 + i)->MAC[5]);
     }
+    
     free(pt0);
     free(pf0);
     return 0;
@@ -108,8 +107,7 @@ int FromMACtoByte(char *szmac, int offs, int idx){
 }
 
 int isMACequal(unsigned char *mac1, unsigned char *mac2){
-    int i = 0;
-    for(int i = 0; i <  6; i++){
+    for(int i = 0; i < 6; i++){
         if(*mac1 != *mac2) return 0;
         mac1++; mac2++;
     }
