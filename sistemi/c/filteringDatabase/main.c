@@ -70,6 +70,8 @@ int main(int argc, char *argv[]) {
             memcpy(pf->MAC, (pt0 + i)->MACs, sizeof(pf->MAC));
         }
 
+
+
         found = 0;
         for(j = 0; j < nF; j++){
             if(isMACequal((pf0 + j)->MAC, (pt0 + i)->MACd)){
