@@ -1,0 +1,13 @@
+Main-Class: com.mokabyte.mokabook.javaBeans.photoAlbum.PhotoAlbumTest
+
+Name: com/mokabyte/mokabook/javaBeans/photoAlbum/PhotoAlbum.class
+Java-Bean: True
+
+Name: com/mokabyte/mokabook/javaBeans/photoAlbum/PhotoAlbumTest.class
+Java-Bean: False
+
+Name: com/mokabyte/mokabook/javaBeans/photoAlbum/PhotoAlbumTest$1.class
+Java-Bean: False
+
+Name: com/mokabyte/mokabook/javaBeans/photoAlbum/PhotoAlbumBeanInfo.class
+Java-Bean: False
