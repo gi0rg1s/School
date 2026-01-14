@@ -27,7 +27,7 @@ void generate_ip(ip_t *ip){
     }
 }
 void determine_class(ip_t *ip){
-    if((ip->ip & 0x80000000) == 0){
+    if((ip->ip & 0x80000000) == 0){ 
         ip->class = 'A';
         ip->netMask = 0xFF000000;
     }

@@ -10,8 +10,8 @@ int main(int argc, char* argv[]){
     
     FILE *outp = stdout;     //output file pointer
     int num = 1;    //default number of ips to generate
-    char class = ' ';
-    int index = 1;
+    char class = ' '; //initializing class variable
+    int index = 1;  //index for argument parsing
 
     while(index < argc){
         //option -h for help
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){
 
         //first option --> -o = file output
         else if(!(strcmp(*argv, "-o"))){
-            if((outp = fopen(*(++argv), "w")) == NULL){
+            if((outp = fopen(*(++argv), "w")) == NULL){         //open the file in writing mode
                 perror("error in the file opening!");
                 return 1;
             }
@@ -31,27 +31,27 @@ int main(int argc, char* argv[]){
 
         //-n --> specify the number of IPs to generate
         else if(!(strcmp(*argv, "-n"))){
-            num = atoi(*(++argv));
+            num = atoi(*(++argv));                              //convert the string to integer
             index += 2;
         }
         
         //-c --> specify the IP class
         else if(!(strcmp(*argv, "-c"))) {
-            class = *(*(++argv));
+            class = *(*(++argv));                           //get the character representing the class
             index += 2;
         }
         argv++;
 
     }
     
-    ip_t *ips = malloc(sizeof(ip_t) * num);
+    ip_t *ips = malloc(sizeof(ip_t) * num); //allocate the memory for the ips array
     ip_t *ips_start = ips; //keep the pointer to the start of the array
 
     for(int i = 0; i < num; i++){
         //generate IPs and determinate each class and netMask
         ips->class = class;
-        generate_ip(ips);
-        determine_class(ips);
+        generate_ip(ips);   //generate the ip
+        determine_class(ips);   //determinate the class and netMask
 
         //print the results
         fprintf(outp, "\n******IP n.%d******", i + 1);
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]){
                       (ips->ip >> 16) & 0xFF,(ips->ip >> 8) & 0xFF,
                        ips->ip & 0xFF);
         fprintf(outp, "\n\tclass --> %c", ips->class);
-        fprintf(outp, "\n\tnetID --> %u.%u.%u.%u\n",((ips->ip >> 24) & 0xFF) & ((ips->netMask >> 24) & 0xFF),
+        fprintf(outp, "\n\tnetID --> %u.%u.%u.%u\n",((ips->ip >> 24) & 0xFF) & ((ips->netMask >> 24) & 0xFF),   //calculate and print the netID with bitwise operations
                       ((ips->ip >> 16) & 0xFF) & ((ips->netMask >> 16) & 0xFF), ((ips->ip >> 8) & 0xFF) & ((ips->netMask >> 8) & 0xFF),
                        (ips->ip & 0xFF) & (ips->netMask & 0xFF));
         
