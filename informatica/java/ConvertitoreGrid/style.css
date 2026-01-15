@@ -1,0 +1,14 @@
+.root {
+    background-color: #c6edff; 
+}
+
+.label {
+    font-family: "Arial";
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#etxt, #dtxt {
+    font-weight: bold;
+    color: rgb(51, 50, 50);
+}
