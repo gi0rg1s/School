@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Modulo di Registrazione</h1>
+    <div class="container">
+        <div>
+            <label for="name">Nominativo: </label>
+            <input type="text" id="name" name="name"><br>
+            <p id="errNome"></p><br>
+        </div>
+
+        <div>
+            <label for="age">Età: </label>
+            <input type="number" id="age" name="age"><br><br><br>
+        </div>
+
+        <div>
+            <label for="password">Inserisci la password: </label>
+            <input type="password" id="password" name="password"><br><br><br>
+        </div>
+
+        <div class="bottom">
+            <div>
+                <label for="accept">Accetto i termini e condizioni</label>
+                <input type="checkbox" id="accept" name="accept"><br>
+            </div>
+            <button>Submit</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
