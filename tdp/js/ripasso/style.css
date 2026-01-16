@@ -1,0 +1,32 @@
+input, textarea{
+    background-color: rgb(235, 214, 255);
+}
+h1{
+    text-align: center;
+}
+.items{
+    margin: 50px;
+}
+.container{
+    background-color: rgb(214, 169, 255);
+    width: 600px;
+    height: 700px;
+    margin-left: 450px;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px grey;
+}
+.size{
+    width: 500px;
+    height: 30px;
+}
+.notes{
+    width: 500px;
+    height: 70px;
+}
+button{
+    width: 248px;
+    height: 30px;
+    background-color: rgb(179, 102, 255);
+    border-radius: 10px;
+}

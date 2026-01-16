@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Modulo di registrazione evento</h1>
+    <div class="container">
+        <div class="items">
+            <br>
+            <div>
+                <form>
+                    <label for="name_surname" class="size">Nome e cognome</label><br>
+                    <input type="text" id="name_surname" name="name_surname" value=" "><br>
+
+                    <label for="email" class="size">Email</label><br>
+                    <input type="email" id="email" name="email" value=" "><br>
+                </form>
+            </div>
+            <div>
+                <p>Genere:</p>
+                <div>
+                    <input type="radio" id="maschio" name="genere" value="maschio">
+                    <label for="maschio">Maschio</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="femmina" name="genere" value="femmina">
+                    <label for="femmina">Femmina</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="altro" name="genere" value="altro">
+                    <label for="altro">Altro</label>
+                </div>
+            </div>
+            <div>
+                <p>Preferenze:</p>
+                <div>
+                    <input type="checkbox" id="newsletter" name="preferenze" value="newsletter">
+                    <label for="newsletter">Newsletter</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="termini" name="preferenze" value="termini">
+                    <label for="termini">Termini e condizioni</label>
+                </div>
+            </div>
+
+            <div>
+                <p>Paese di provenienza</p>
+                <select name="paese" id="paese" class="size">
+                    <option value="select">- Seleziona -</option>
+                    <option value="italia">Italia</option>
+                    <option value="spagna">Spagna</option>
+                    <option value="belgio">Belgio</option>
+                    <option value="francia">Francia</option>
+                </select>
+            </div>
+
+            <div>
+                <p>Note aggiuntive: </p>
+                <textarea name="note" id="note" class="notes"></textarea>
+            </div>
+            <br>
+            <div>
+                <label for="data">Data di nascita</label><br>
+                <input type="date" id="data" name="gg/mm/aaaa" value="data">
+            </div>
+            <br>
+            <div>
+                <label for="fileInput" class="size">Carica documento (PDF o immagine)</label><br>
+                <input type="file" id="fileInput" name="Scegli file" class="size" accept=".pdf, image/*">
+            </div>
+            <br>
+            <div>
+                <button>Invia</button>
+                <button>Reset</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
