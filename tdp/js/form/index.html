@@ -9,7 +9,8 @@
 <body>
     <h1>Modulo di Registrazione</h1>
     <div class="container">
-        <div>
+        <form id="form">
+            <div>
             <label for="name">Nominativo: </label>
             <input type="text" id="name" name="name"><br>
             <p id="errNome"></p><br>
@@ -23,7 +24,8 @@
 
         <div>
             <label for="password">Inserisci la password: </label>
-            <input type="password" id="password" name="password"><br><br><br>
+            <input type="password" id="password" name="password"><br>
+            <p id="errPassword"></p><br>
         </div>
 
         <div class="bottom">
@@ -31,8 +33,10 @@
                 <label for="accept">Accetto i termini e condizioni</label>
                 <input type="checkbox" id="accept" name="accept"><br>
             </div>
-            <button>Submit</button>
-        </div>
+            <button type="submit">Submit</button>
+            <p id="submit"></p>
+            </div>
+        </form>
     </div>
     <script src="script.js"></script>
 </body>

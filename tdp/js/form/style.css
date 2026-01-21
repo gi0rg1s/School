@@ -3,7 +3,7 @@ body{
 }
 .container{
     width: 400px;
-    height: 300px;
+    min-height: 300px;
     margin: 50px auto;
     padding: 20px;
     background-color: rgb(250, 200, 255);
@@ -27,4 +27,7 @@ button{
 }
 button:hover{
     background-color: rgb(255, 102, 204) ;
+}
+#msg{
+    text-align: center;
 }
