@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include "myGraphicLib.h"
 
 int main(int argc, char* argv[]) {
     // Initialize SDL
@@ -34,10 +35,7 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        // Draw something (white rectangle)
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_Rect rect = {350, 250, 100, 100};
-        SDL_RenderFillRect(renderer, &rect);
+        menuScreen(renderer);
 
         // Sows everything on the screen
         SDL_RenderPresent(renderer);
