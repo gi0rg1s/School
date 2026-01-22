@@ -56,8 +56,7 @@ public class Convertitore extends Application {
         chiudi.setOnAction(e-> stage.close());
 
         Scene scene = new Scene(grid, 400, 200);
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-
+        scene.getStylesheets().add("file:style.css");
         stage.setScene(scene);
         stage.show();
     }
