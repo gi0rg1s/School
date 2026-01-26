@@ -25,8 +25,7 @@ public class BuonoRegalo implements MetodoPagamento {
     public boolean paga(double importo){
         try {
             if(importo > saldo || importo <= 0){
-                System.out.println("\nerrore durante l'effettuazione del pagamento con Buono Regalo. Codice Buono: " + codiceBuono + ", Importo: " + importo + ", saldo rimanente: " + saldo);
-                return false;
+                throw new Exception("\nerrore durante l'effettuazione del pagamento con Buono Regalo. Codice Buono: " + codiceBuono + ", Importo: " + importo + ", saldo rimanente: " + saldo);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
