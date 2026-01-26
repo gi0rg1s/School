@@ -21,8 +21,13 @@ public class PayPal implements MetodoPagamento {
     //methods
     @Override
     public boolean paga(double importo){
-        if(importo > saldo || importo <= 0){
-            System.out.println("\nerrore durante l'effettuazione del pagamento con PayPal. Email: " + email + ", Importo: " + importo + ", saldo rimanente: " + saldo);
+        try {
+            if(importo + 0.50 > saldo || importo <= 0){
+                System.out.println("\nerrore durante l'effettuazione del pagamento con PayPal. Email: " + email + ", Importo: " + importo + ", saldo rimanente: " + saldo);
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             return false;
         }
         saldo -= (importo + 0.50);
