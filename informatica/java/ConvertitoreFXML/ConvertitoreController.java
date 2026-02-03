@@ -27,12 +27,14 @@ public class ConvertitoreController {
 
     @FXML
     void btn_dollarEvent(ActionEvent event) {
-        
+        double euro = Double.parseDouble(txt_dollar.getText());
+        txt_euro.setText(String.format("%.2f", euro * 1.1));
     }
 
     @FXML
     void btn_euroEvent(ActionEvent event) {
-
+        double dollar = Double.parseDouble(txt_euro.getText());
+        txt_dollar.setText(String.format("%.2f", dollar / 1.1));
     }
 
 }
