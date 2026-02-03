@@ -11,3 +11,4 @@ public class CalcolaCostoProgetto {
         System.out.println("Costo totale progetto per tutti i dipendenti: " + p.calcolaCostoTotale(oreProgetto));
     }
 }
+#think i need to commit
