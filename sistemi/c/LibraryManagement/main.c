@@ -1,10 +1,18 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "myGraphicLib.h"
 
 int main(int argc, char* argv[]) {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("SDL Init Error: %s\n", SDL_GetError());
+        return 1;
+    }
+
+    // Initialize SDL_ttf
+    if (TTF_Init() == -1) {
+        printf("TTF Init Error: %s\n", TTF_GetError());
+        SDL_Quit();
         return 1;
     }
 
@@ -16,11 +24,24 @@ int main(int argc, char* argv[]) {
         800, 600,               //window size
         SDL_WINDOW_SHOWN
     );
+    if (window == NULL) {
+        printf("SDL CreateWindow Error: %s\n", SDL_GetError());
+        TTF_Quit();
+        SDL_Quit();
+        return 1;
+    }
 
     // Create renderer
     SDL_Renderer* renderer = SDL_CreateRenderer(
         window, -1, SDL_RENDERER_ACCELERATED    //-1 --> initialize the first rendering driver that supports the requested flags
     );
+    if (renderer == NULL) {
+        printf("SDL CreateRenderer Error: %s\n", SDL_GetError());
+        SDL_DestroyWindow(window);
+        TTF_Quit();
+        SDL_Quit();
+        return 1;
+    }
 
     // Main loop flag
     int running = 1;
@@ -35,6 +56,7 @@ int main(int argc, char* argv[]) {
             }
         }
 
+        clearScreen(renderer);
         menuScreen(renderer);
 
         // Sows everything on the screen
@@ -43,8 +65,10 @@ int main(int argc, char* argv[]) {
     }
 
     // Cleanup
+    menuScreenCleanup(renderer);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+    TTF_Quit();
     SDL_Quit();
 
     return 0;
