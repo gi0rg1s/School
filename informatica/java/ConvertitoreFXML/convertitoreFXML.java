@@ -8,12 +8,11 @@ public class convertitoreFXML extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("main-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Convertitore.fxml"));
         stage.setTitle("FXML Demo");
         stage.setScene(new Scene(root, 420, 220));
         stage.show();
     }
-
     public static void main(String[] args) {
         launch();
     }
