@@ -22,11 +22,16 @@ void drawFilledCircle(Circle_t* circle) {
 
 //draw a rounded rectangle
 void drawRoundedRect(Rectangle_t* rect) {
+    SDL_SetRenderDrawColor(rect->renderer, rect->color.r, rect->color.g, rect->color.b, rect->color.a);
     // Draw the four corners as circles
-    drawFilledCircle(rect->renderer, rect->x + rect->radius, rect->y + rect->radius, rect->radius);                    // Top-left
-    drawFilledCircle(rect->renderer, rect->x + rect->w - rect->radius, rect->y + rect->radius, rect->radius);          // Top-right
-    drawFilledCircle(rect->renderer, rect->x + rect->radius, rect->y + rect->h - rect->radius, rect->radius);          // Bottom-left
-    drawFilledCircle(rect->renderer, rect->x + rect->w - rect->radius, rect->y + rect->h - rect->radius, rect->radius);// Bottom-right
+    Circle_t circle = {rect->radius, rect->x + rect->radius, rect->y + rect->radius, rect->renderer, rect->color};
+    drawFilledCircle(&circle);          // Top-left
+    circle.centreX = rect->x + rect->w - rect->radius;
+    drawFilledCircle(&circle);          // Top-right
+    circle.centreY = rect->y + rect->h - rect->radius; 
+    drawFilledCircle(&circle);          // Bottom-right
+    circle.centreX = rect->x + rect->radius;
+    drawFilledCircle(&circle);          // Bottom-left
     
     // Draw the rectangles connecting the corners
     SDL_Rect topRect = {rect->x + rect->radius, rect->y, rect->w - 2 * rect->radius, rect->radius};
@@ -91,19 +96,22 @@ static void ensureMenuText(SDL_Renderer* renderer, Text_t* menuText) {
 }
 
 // Example menu screen function
-void menuScreen(SDL_Renderer* renderer) {
+void menuScreen(SDL_Renderer* renderer, Text_t* menuText) {
     // Draw something (white rectangle)
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    Rectangle_t rect = {300, 100, 200, 75, 20, {255, 255, 255, 255}, renderer};
     for(int i = 0; i < 5; i++){
-        drawRoundedRect(renderer, 275, (i *100) + 80, 200, 75, 20);
+        drawRoundedRect(&rect);
+        rect.y += 100;
     }
 
-    Text_t *menuText = {0};
+    // Ensure menu text is created and rendered
     ensureMenuText(renderer, menuText);
     if (menuText->texture == NULL) {
         return;
     }
 
+    // Render the menu text
     SDL_Rect dstRect = {375, 20, menuText->x, menuText->y};
     if (SDL_RenderCopy(renderer, menuText->texture, NULL, &dstRect) != 0) {
         printf("Error: Could not render texture. %s\n", SDL_GetError());

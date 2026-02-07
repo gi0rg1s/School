@@ -44,7 +44,7 @@ typedef struct{
 void clearScreen(SDL_Renderer* renderer);
 
 //menu screen function
-void menuScreen(SDL_Renderer* renderer);
+void menuScreen(SDL_Renderer* renderer, Text_t* menuText);
 
 //cleanup menu screen resources
 void menuScreenCleanup(Text_t* menuText);
