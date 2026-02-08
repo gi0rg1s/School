@@ -1,3 +1,4 @@
+#include <sqlite3.h>
 
 typedef struct{
     char title[50];
@@ -24,10 +25,10 @@ typedef struct{
     UserLibrary_t library;
 } User_t;
 
-int checkLogIn(char* username, char* password);
+int checkLogIn(sqlite3 *db, char* username, char* password);
 
 void menuScreen();
 
-void logInScreen();
+void logInScreen(sqlite3 *db);
 
-void signUpScreen();
+void signUpScreen(sqlite3 *db);
