@@ -95,4 +95,4 @@ INSERT INTO dbo.books(title, publication_year, genre, isbn, author_id)
 
 INSERT INTO dbo.members(name, surname, membership_date, USER_NAME, PASSWORD)
     VALUES
-    ('Giorgia', 'Folloni', '2026-02-08', 'girlBoss', 'admin123');
+    ('Giorgia', 'Folloni', '2026-02-08', 'girlBoss', 'admin123');           -- I am the only member until now, i'm my own boss yay
