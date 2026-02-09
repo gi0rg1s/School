@@ -46,6 +46,9 @@ int main(int argc, char* argv[]) {
     // Main loop flag
     int running = 1;
     SDL_Event event;
+    TTF_Font* font = TTF_OpenFont("/usr/share/fonts/TTF/Hack-Bold.ttf", 24);
+    //Text_t menuText = {10, 10, "menu", {255, 255, 255, 255}, font, NULL, renderer}; 
+    Text_t menuText = {0}; // Initialize with zeros
 
     // Game loop
     while (running) {
@@ -57,7 +60,7 @@ int main(int argc, char* argv[]) {
         }
 
         clearScreen(renderer);
-        menuScreen(renderer);
+        menuScreen(renderer, &menuText);
 
         // Sows everything on the screen
         SDL_RenderPresent(renderer);
@@ -65,7 +68,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Cleanup
-    menuScreenCleanup(renderer);
+    menuScreenCleanup(&menuText);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     TTF_Quit();
