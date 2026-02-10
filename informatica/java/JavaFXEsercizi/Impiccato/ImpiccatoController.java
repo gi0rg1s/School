@@ -33,9 +33,6 @@ public class ImpiccatoController {
 
     @FXML
     void key_event(KeyEvent event) {
-        if (targetWord == null) {
-            return;
-        }
 
         boolean guess = false;
 
@@ -68,6 +65,8 @@ public class ImpiccatoController {
             if(!guess){
                 wrongGuesses++;
 
+                //update the image
+                updateImage();
                 //game over
                 if(wrongGuesses >= 10){
                     Alert msg = new Alert(Alert.AlertType.INFORMATION);
@@ -78,8 +77,6 @@ public class ImpiccatoController {
                     updateImage();
                     return;
                 } 
-                //update the image
-                updateImage();
             }
         }
     }
