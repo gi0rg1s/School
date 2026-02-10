@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -21,6 +23,7 @@ public class ImpiccatoController {
 
     @FXML
     private Label unknown_word;
+    private List<Character> trys = new ArrayList<>();
 
     private String targetWord;
     private StringBuilder unknownWordBuilder = new StringBuilder();
@@ -33,50 +36,61 @@ public class ImpiccatoController {
 
     @FXML
     void key_event(KeyEvent event) {
-
         boolean guess = false;
 
-        //check if the player guessed a letter
-        String lowerKey = event.getText().toLowerCase();
-        if (lowerKey.matches("[a-z]")) {
+        if (targetWord == null || targetWord.isEmpty()) return;
 
-            //if the letter is in the word, it will be revealed
-            char letter = lowerKey.charAt(0);
+        String keyText = event.getCharacter();
+        if (keyText == null) keyText = "";
+        
+        keyText = keyText.toLowerCase();
+        if (keyText.isEmpty() || !keyText.matches("[a-z]")) return;
 
-            //check if the player guessed a letter in the word
-            for (int i = 0; i < targetWord.length(); i += 2) {
+        char letter = keyText.charAt(0);
+
+        //debug
+        System.out.println("pressed: " + letter);
+
+
+        if (!(trys.contains(letter))) {
+
+            trys.add(letter);
+
+            // check if the player guessed a letter in the word
+            for (int i = 0; i < targetWord.length(); i++) {
                 if (letter == targetWord.charAt(i)) {
                     guess = true;
-                    unknownWordBuilder.setCharAt(i / 2, letter);
-                    unknown_word.setText(unknownWordBuilder.toString());
-                    
-                    if(!(unknownWordBuilder.toString().contains("_"))){
-                        Alert msg = new Alert(Alert.AlertType.INFORMATION);
-                        msg.setTitle("Congratulations!");
-                        msg.setHeaderText(null);
-                        msg.setContentText("Congratulations! You guessed the word: " + targetWord);
-                        msg.showAndWait();
-                        return;
-                    }
+                    // unknownWordBuilder stores "_ " for each letter, so underscore positions are at index i*2
+                    unknownWordBuilder.setCharAt(i * 2, letter);
                 }
             }
+        }
 
-            //if not it made an error
-            if(!guess){
-                wrongGuesses++;
+        unknown_word.setText(unknownWordBuilder.toString());
 
-                //update the image
+        // winning check
+        if (!unknownWordBuilder.toString().contains("_")) {
+            Alert msg = new Alert(Alert.AlertType.INFORMATION);
+            msg.setTitle("Congratulations!");
+            msg.setHeaderText(null);
+            msg.setContentText("Congratulations! You guessed the word: " + targetWord);
+            msg.showAndWait();
+            return;
+        }
+
+        // if not guessed, count as wrong
+        if (!guess ) {
+            wrongGuesses++;
+            updateImage();
+
+            if (wrongGuesses >= 10) {
+                Alert msg = new Alert(Alert.AlertType.INFORMATION);
+                msg.setTitle("Game Over");
+                msg.setHeaderText(null);
+                msg.setContentText("Game Over! The word was: " + targetWord);
+                msg.showAndWait();
                 updateImage();
-                //game over
-                if(wrongGuesses >= 10){
-                    Alert msg = new Alert(Alert.AlertType.INFORMATION);
-                    msg.setTitle("Game Over");
-                    msg.setHeaderText(null);
-                    msg.setContentText("Game Over! The word was: " + targetWord);
-                    msg.showAndWait();
-                    updateImage();
-                    return;
-                } 
+                return;
             }
         }
     }
@@ -86,6 +100,8 @@ public class ImpiccatoController {
         targetWord = chooseRandomWord().toLowerCase();
         initializeUnknownWord(targetWord);
         updateImage();
+        // initialize tried letters list
+        if (trys == null) trys = new ArrayList<>();
         if (root != null) {
             root.requestFocus();
             root.setOnMouseClicked(e -> root.requestFocus());
