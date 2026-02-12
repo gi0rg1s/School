@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Modulo Cliente</h1>
+    <div id="form-container">
+        <label for="nome" id="nome-label">Nome: </label>
+        <input type="text" id="nome" name="nome" required>
+        <p id="nome-error"></p>
+
+        <label for="email" id="email-label">Email: </label>
+        <input type="email" id="email" name="email" required>
+        <p id="email-error"></p>
+
+        <label for="telefono" id="telefono-label">Telefono: </label>
+        <input type="tel" id="telefono" name="telefono" required>
+        <p id="telefono-error"></p>
+
+        <label for="budget" id="budget-label">Budget: </label>
+        <input type="number" id="budget" name="budget" placeholder="Inserisci il tuo budget in euro" required>
+        <p id="budget-error"></p>
+
+        <label for="servizi" id="servizi-label">Servizi richiesti: </label>
+        <select id="servizi" name="servizi" multiple size="5" required>
+            <option value="html">HTML</option>      <!-- 20 €/h -->
+            <option value="php">PHP</option>        <!-- 25 €/h -->
+            <option value="asp">ASP</option>        <!-- 30 €/h -->
+            <option value="java">Java</option>      <!-- 35 €/h -->
+            <option value="cpp">C++</option>        <!-- 40 €/h -->
+        </select>
+        <small id="servizi-hint">Seleziona più opzioni con Ctrl (Windows/Linux) o ⌘ (Mac).</small>
+        <p id="servizi-error"></p>
+
+        <button id="submit-button">Invia il modulo</button>
+        <p id="form-error"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
