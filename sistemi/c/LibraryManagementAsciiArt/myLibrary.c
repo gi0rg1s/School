@@ -1,9 +1,8 @@
 #include <sqlite3.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "myLibrary.h"
-
-static int ensureDatabase(sqlite3 *db);
 
 // ===========================================================
 //                  Menu and Screen Functions                |
@@ -14,11 +13,6 @@ void menuScreen(){
 
     if (sqlite3_open("library_db.db", &db) != SQLITE_OK) {
         fprintf(stderr, "Cannot open database: %s\n", sqlite3_errmsg(db));
-        sqlite3_close(db);
-        return;
-    }
-
-    if (ensureDatabase(db) != 0) {
         sqlite3_close(db);
         return;
     }
@@ -102,57 +96,80 @@ int checkLogIn(sqlite3 *db, char *username, char *password){
     
     return success;
 }
-/** 
-static int ensureDatabase(sqlite3 *db) {
-    const char *checkSql = "SELECT name FROM sqlite_master WHERE type='table' AND name='members';";
-    sqlite3_stmt *stmt = NULL;
-    int rc = sqlite3_prepare_v2(db, checkSql, -1, &stmt, 0);
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Failed to check schema: %s\n", sqlite3_errmsg(db));
-        return -1;
-    }
 
-    int hasMembersTable = (sqlite3_step(stmt) == SQLITE_ROW);
+//==========================================================
+//                  Sign up screen function                 |
+//==========================================================
+//check if the username already exists 
+//if not, it adds user's information to the db
+void signUpScreen(sqlite3 *db){
+
+    // Get user input for username and password
+    char name[15];
+    char surname[15];
+    char username[21];
+    char password[21];
+    printf(" +------------------------------+\n");
+    printf(" |         Sign Up Screen       |\n");
+    printf(" +------------------------------+\n");
+    printf(" |  Welcome to the new library! |\n");
+    printf(" |  Please enter your name:     |\n");
+    printf(" |  --> ");
+    scanf("%s", name);
+    printf(" |  Please enter your surname:  |\n");
+    printf(" |  --> ");
+    scanf("%s", surname);
+    printf(" |  Please enter your username: |\n");
+    printf(" |  --> ");
+    scanf("%s", username);
+    printf(" |  Please enter your password: |\n");
+    printf(" |  --> ");
+    scanf("%s", password);
+
+    // Clear the console screen
+    printf("\033[2J\033[H");
+
+    //check if the username already exists in the db
+    sqlite3_stmt *stmt;
+    const char *sql = "SELECT id FROM members WHERE USER_NAME = ?;";
+
+    sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
+
+    sqlite3_bind_text(stmt, 1 ,username, -1, SQLITE_STATIC);
+
+    int exists = (sqlite3_step(stmt) == SQLITE_ROW);
     sqlite3_finalize(stmt);
 
-    if (hasMembersTable) {
-        return 0;
+    if(exists){
+        //cls
+        printf("\033[2J\033[H");
+
+        printf("Username already exists. Please choose a different username.\n");
+        
+        //call signUpScreen again
+        signUpScreen(db);
+    } else {
+        // Insert the new user's information into the database
+        const char *insert_sql = "INSERT INTO members (name, surname, USER_NAME, PASSWORD, membership_date) VALUES (?, ?, ?, ?, ?);";
+        sqlite3_prepare_v2(db, insert_sql, -1, &stmt, 0);
+        sqlite3_bind_text(stmt, 1, name, -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 2, surname, -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 3, username, -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 4, password, -1, SQLITE_STATIC);
+
+        time_t t = time(NULL);                                      // Get the current time
+        struct tm *tm = localtime(&t);                              // Convert the time to local time structure
+        char date_string[20];
+        strftime(date_string, sizeof(date_string), "%Y-%m-%d", tm); // Form the local date
+        sqlite3_bind_text(stmt, 5, date_string, -1, SQLITE_STATIC); // Placeholder date of membership
+        
+        if (sqlite3_step(stmt) == SQLITE_DONE) {
+            printf("Sign up successful! You can now log in with your new account.\n");
+        } else {
+            printf("Error signing up. Please try again.\n");
+        }
+        
+        sqlite3_finalize(stmt);
     }
 
-    FILE *sqlFile = fopen("library_db.sql", "rb");
-    if (!sqlFile) {
-        fprintf(stderr, "Cannot open SQL schema file library_db.sql\n");
-        return -1;
-    }
-
-    fseek(sqlFile, 0, SEEK_END);
-    long size = ftell(sqlFile);
-    rewind(sqlFile);
-
-    char *sql = (char *)malloc((size_t)size + 1);
-    if (!sql) {
-        fclose(sqlFile);
-        fprintf(stderr, "Out of memory while reading SQL file\n");
-        return -1;
-    }
-
-    size_t readSize = fread(sql, 1, (size_t)size, sqlFile);
-    sql[readSize] = '\0';
-    fclose(sqlFile);
-
-    char *errMsg = NULL;
-    rc = sqlite3_exec(db, sql, NULL, NULL, &errMsg);
-    free(sql);
-
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Failed to initialize database: %s\n", errMsg ? errMsg : "Unknown error");
-        sqlite3_free(errMsg);
-        return -1;
-    }
-
-    return 0;
-}
-*/
-void signUpScreen(sqlite3 *db){
-    return;
 }
