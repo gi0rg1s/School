@@ -56,6 +56,7 @@ void logInScreen(sqlite3 *db){
     char username[21];
     char password[21];
 
+    
     printf(" +------------------------------+\n");
     printf(" |          Log In Screen       |\n");
     printf(" +------------------------------+\n");
@@ -69,11 +70,13 @@ void logInScreen(sqlite3 *db){
     printf("\033[2J\033[H");
 
     if(checkLogIn(db, username, password)){
-        printf("Login successful! Welcome, %s!\n", username);
-        // Proceed to the user's library or main menu
+        printf("\nLogin successful! Welcome, %s!\n", username);
+
+        // Proceed to the user's prifile screen
+        profileScreen(db, username);
     } else {
-        printf("Invalid username or password. Please try again.\n");
-        // Optionally, you can call logInScreen() again for another attempt
+        printf("\nInvalid username or password. Please try again.\n");
+        logInScreen(db);
     }
 }
 
@@ -164,12 +167,88 @@ void signUpScreen(sqlite3 *db){
         sqlite3_bind_text(stmt, 5, date_string, -1, SQLITE_STATIC); // Placeholder date of membership
         
         if (sqlite3_step(stmt) == SQLITE_DONE) {
+            printf("\033[2J\033[H");
             printf("Sign up successful! You can now log in with your new account.\n");
+            logInScreen(db);
         } else {
             printf("Error signing up. Please try again.\n");
         }
         
         sqlite3_finalize(stmt);
     }
-
 }
+
+// +==================================================+
+// |                Profile Screen function           |
+// +==================================================+
+//will show a display with some options 
+//show renting books status, show my books status, show my personal information, log out
+
+void profileScreen(sqlite3 *db, char* username){
+    int choice = 0;
+
+    printf(" +------------------------------+\n");
+    printf(" |         Profile Screen       |\n");
+    printf(" +------------------------------+\n");
+    printf(" |  Welcome to your profile!    |\n");
+    printf(" |  Please select an option:    |\n");
+    printf(" |  1. Show my personal info   |\n");
+    printf(" |  2. Show my books           |\n");
+    printf(" |  3. Show renting status      |\n");
+    printf(" |  4. Log out                  |\n");
+    printf(" +------------------------------+\n");
+    printf("--> ");
+    scanf("%d", &choice);
+
+    switch (choice)
+    {
+    case 1:
+        showPersonalInfo(db, username);
+        break;
+    case 2:
+        showMyBooks(db, username);
+        break;
+    case 3:
+        showRentingStatus(db, username);
+        break;
+    case 4:
+        printf("\033[2J\033[H");
+        printf("Logging out... Goodbye!\n");
+        menuScreen();
+        break;
+
+    default:
+        printf("\033[2J\033[H");
+        printf("Invalid choice. Please try again.\n");
+        profileScreen(db, username);
+        break;
+    }
+}
+
+// +==================================================+
+// |             Show personal info function          |
+// +==================================================+
+//will show the user's personal information (name, surname, date of birth, username, date of membership)
+void showPersonalInfo(sqlite3 *db, char* username){
+    printf("\033[2J\033[H");
+    printf("not implemented yet\n");
+}
+
+// +==================================================+
+// |            Show my books function                |
+// +==================================================+
+//will show the user's books (borrowed, read, want to read, currently reading)
+void showMyBooks(sqlite3 *db, char* username){
+    printf("\033[2J\033[H");
+    printf("not implemented yet\n");
+}
+
+// +==================================================+
+// |          Show renting status function            |
+// +==================================================+
+//will show the user's renting status (which books are borrowed, which books are available)
+void showRentingStatus(sqlite3 *db, char* username){
+    printf("\033[2J\033[H");
+    printf("not implemented yet\n");
+}
+

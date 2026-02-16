@@ -32,3 +32,11 @@ void menuScreen();
 void logInScreen(sqlite3 *db);
 
 void signUpScreen(sqlite3 *db);
+
+void profileScreen(sqlite3 *db, char* username);
+
+void showPersonalInfo(sqlite3 *db, char* username);
+
+void showMyBooks(sqlite3 *db, char* username);
+
+void showRentingStatus(sqlite3 *db, char* username);
