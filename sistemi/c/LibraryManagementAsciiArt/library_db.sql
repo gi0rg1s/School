@@ -43,6 +43,10 @@ CREATE TABLE IF NOT EXISTS members (
     USER_NAME TEXT UNIQUE,
     PASSWORD TEXT NOT NULL,
     membership_date DATE
+    rented_books BOOKS[],
+    FOREIGN KEY (rented_books) REFERENCES books(id),
+    my_books BOOKS[],
+    FOREIGN KEY (my_books) REFERENCES books(id)
 );
 
 -- =================================================+
