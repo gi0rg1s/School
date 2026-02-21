@@ -152,14 +152,6 @@ void signUpScreen(sqlite3 *db){
         //call signUpScreen again
         signUpScreen(db);
     } else {
-        // Insert the new user's information into the database
-        const char *insert_sql = "INSERT INTO members (name, surname, USER_NAME, PASSWORD, membership_date) VALUES (?, ?, ?, ?, ?);";
-        sqlite3_prepare_v2(db, insert_sql, -1, &stmt, 0);
-        sqlite3_bind_text(stmt, 1, name, -1, SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 2, surname, -1, SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 3, username, -1, SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 4, password, -1, SQLITE_STATIC);
-
         time_t t = time(NULL);                                      // Get the current time
         struct tm *tm = localtime(&t);                              // Convert the time to local time structure
         char date_string[20];
@@ -192,8 +184,8 @@ void profileScreen(sqlite3 *db, char* username){
     printf(" +------------------------------+\n");
     printf(" |  Welcome to your profile!    |\n");
     printf(" |  Please select an option:    |\n");
-    printf(" |  1. Show my personal info   |\n");
-    printf(" |  2. Show my books           |\n");
+    printf(" |  1. Show my personal info    |\n");
+    printf(" |  2. Show my books            |\n");
     printf(" |  3. Show renting status      |\n");
     printf(" |  4. Log out                  |\n");
     printf(" +------------------------------+\n");
@@ -231,7 +223,25 @@ void profileScreen(sqlite3 *db, char* username){
 //will show the user's personal information (name, surname, date of birth, username, date of membership)
 void showPersonalInfo(sqlite3 *db, char* username){
     printf("\033[2J\033[H");
-    printf("not implemented yet\n");
+
+    sqlite3_stmt *stmt; //create a pointer for the statement
+                                                                      
+    const char *sql = "SELECT id, name, surname, membership_date FROM members WHERE USER_NAME = ?;";  //query SQL
+    sqlite3_prepare_v2(db, sql, -1, &stmt, 0);      //prepare SQL command to be executed
+
+    sqlite3_bind_text(stmt, 1, username, -1, SQLITE_STATIC);   //substitute ? with the username
+
+    if(sqlite3_step(stmt) == SQLITE_ROW){
+        printf("+============================+\n");
+        printf("|     informazioni account   |\n");
+        printf("+============================+\n");
+        printf("| ID:        %d\n", sqlite3_column_int(stmt, 0));
+        printf("| Nome:      %s\n", sqlite3_column_text(stmt, 1));
+        printf("| Cognome:   %s\n", sqlite3_column_text(stmt, 2));
+        printf("| User name: %s\n", username);
+        printf("| Password: *********\n");
+        printf("| membership  date:     %s\n", sqlite3_column_text(stmt, 3));
+    }
 }
 
 // +==================================================+
@@ -239,7 +249,7 @@ void showPersonalInfo(sqlite3 *db, char* username){
 // +==================================================+
 //will show the user's books (borrowed, read, want to read, currently reading)
 void showMyBooks(sqlite3 *db, char* username){
-    printf("\033[2J\033[H");
+    printf("\033[2J\033[H");        
     printf("not implemented yet\n");
 }
 
