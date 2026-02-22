@@ -39,4 +39,6 @@ void showPersonalInfo(sqlite3 *db, char* username);
 
 void showMyBooks(sqlite3 *db, char* username);
 
-void showRentingStatus(sqlite3 *db, char* username);
+void showMyBookshelf(sqlite3 *db, char*username);
+
+void addNewBook(sqlite3* db);
