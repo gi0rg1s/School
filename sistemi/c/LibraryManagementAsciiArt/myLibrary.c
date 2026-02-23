@@ -199,7 +199,6 @@ void profileScreen(sqlite3 *db, char* username){
     case 2:
         showMyBooks(db, username);
         break;
-
     case 3:
         printf("\033[2J\033[H");
         printf("Logging out... Goodbye!\n");
@@ -255,7 +254,8 @@ void showMyBooks(sqlite3 *db, char* username){
     printf("+-----------------------------+\n");
     printf("| Please select an option:    |\n");
     printf("| 1. Show my bookshelf        |\n");
-    printf("| 2. Add a new book           |\n");
+    printf("| 2. Search a book            |\n");
+    printf("| 3. Rent a new book         |\n");
     printf("+-----------------------------+\n");
     printf("--> ");
     scanf("%d", &choice);
@@ -267,6 +267,9 @@ void showMyBooks(sqlite3 *db, char* username){
         break;
     case 2:
         addNewBook(db);
+        break;
+    case 3:
+        rentNewBook(db, username);
         break;
     
     default:
@@ -346,6 +349,14 @@ void showMyBookshelf(sqlite3 *db, char* username){
 // +==================================================+
 // Adds a new book to the user's bookshelf
 void addNewBook(sqlite3* db){
+    printf("\033[2J\033[H");
+    printf("not implemented yet");
+}
+// +==================================================+
+// |         Rent a new book to the bookshelf         |
+// +==================================================+
+// Rents a new book to the user's bookshelf
+void rentNewBook(sqlite3* db, char* username){
     printf("\033[2J\033[H");
     printf("not implemented yet");
 }
