@@ -284,54 +284,45 @@ void showMyBooks(sqlite3 *db, char* username){
 void showMyBookshelf(sqlite3 *db, char* username){
     printf("\033[2J\033[H");
 
-    // First, get the member_id from username
-    sqlite3_stmt *stmt_member;
-    const char *sql_member = "SELECT id FROM members WHERE USER_NAME = ?;";
+    sqlite3_stmt *stmt_username; //create a pointer for the statement
+    const char *sql_username = "SELECT id FROM members WHERE USER_NAME = ?;";  //query SQL to get the member_id from username
+    sqlite3_prepare_v2(db, sql_username, -1, &stmt_username, 0);      //prepare SQL command to be executed
+    sqlite3_bind_text(stmt_username, 1, username, -1, SQLITE_STATIC);   //substitute ? with the username and get the member_id+
     
-    // Prepare the statement to get member_id
-    sqlite3_prepare_v2(db, sql_member, -1, &stmt_member, 0);
-    sqlite3_bind_text(stmt_member, 1, username, -1, SQLITE_STATIC);
-    
-    // Execute the statement and get member_id
-    int member_id = -1;
-    if(sqlite3_step(stmt_member) == SQLITE_ROW){
-        member_id = sqlite3_column_int(stmt_member, 0);
+    // Execute the query to get the member_id
+    if(sqlite3_step(stmt_username) != SQLITE_ROW){
+        printf("Error: User not found.\n");
+        sqlite3_finalize(stmt_username);
+        return;
     }
-    sqlite3_finalize(stmt_member);
     
+    int member_id = sqlite3_column_int(stmt_username, 0);
+    sqlite3_finalize(stmt_username);
 
-    // Now query the loans with proper JOIN to authors table
-    const char *sql = 
-        "SELECT "
-        "    l.id AS loan_id, "
-        "    b.title, "
-        "    a.name, "
-        "    a.surname, "
-        "    l.loan_date, "
-        "    l.return_date "
-        "FROM loans l "
-        "JOIN books b ON l.book_id = b.id "
-        "JOIN authors a ON b.author_id = a.id "
-        "WHERE l.member_id = ? "
-        "ORDER BY l.loan_date DESC;";
-
-    sqlite3_stmt *stmt; //create a pointer for the statement
+    //Prepare the statement to get book details with proper JOIN
+    const char *sql_book = 
+        "SELECT loans.id, books.title, authors.name, authors.surname, loans.loan_date, loans.return_date "
+        "FROM loans "
+        "JOIN books ON loans.book_id = books.id "
+        "JOIN authors ON books.author_id = authors.id "
+        "WHERE loans.member_id = ?";
+    sqlite3_stmt *stmt_book;
+    sqlite3_prepare_v2(db, sql_book, -1, &stmt_book, 0);
+    sqlite3_bind_int(stmt_book, 1, member_id); // Bind the member_id to the query
     
-    sqlite3_prepare_v2(db, sql, -1, &stmt, 0);      //prepare SQL command to be executed
-    sqlite3_bind_int(stmt, 1, member_id);   //substitute ? with the member_id
-
     printf("+--------------------------+\n");
     printf("|      Your bookshelf      |\n");
     printf("+--------------------------+\n");
     
     int book_count = 0;
-    while(sqlite3_step(stmt) == SQLITE_ROW){
+    while(sqlite3_step(stmt_book) == SQLITE_ROW){
         book_count++;
-        printf("| Loan ID: %d\n", sqlite3_column_int(stmt, 0));
-        printf("| Title: %s\n", sqlite3_column_text(stmt, 1));
-        printf("| Author: %s %s\n", sqlite3_column_text(stmt, 2), sqlite3_column_text(stmt, 3));
-        printf("| Loan date: %s\n", sqlite3_column_text(stmt, 4));
-        printf("| Return date: %s\n", sqlite3_column_text(stmt, 5));
+        printf("+ %d. -------------------\n", book_count);
+        printf("| Loan ID: %d\n", sqlite3_column_int(stmt_book, 0));
+        printf("| Title: %s\n", sqlite3_column_text(stmt_book, 1));
+        printf("| Author: %s %s\n", sqlite3_column_text(stmt_book, 2), sqlite3_column_text(stmt_book, 3));
+        printf("| Loan date: %s\n", sqlite3_column_text(stmt_book, 4));
+        printf("| Return date: %s\n", sqlite3_column_text(stmt_book, 5));
         printf("+--------------------------+\n");
     }
     
@@ -340,7 +331,7 @@ void showMyBookshelf(sqlite3 *db, char* username){
         printf("+--------------------------+\n");
     }
     
-    sqlite3_finalize(stmt);
+    sqlite3_finalize(stmt_book);
     
     printf("\nPress Enter to go back...");
     getchar(); // consume leftover newline

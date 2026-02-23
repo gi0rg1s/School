@@ -42,9 +42,7 @@ CREATE TABLE IF NOT EXISTS members (
     surname TEXT NOT NULL,
     USER_NAME TEXT UNIQUE,
     PASSWORD TEXT NOT NULL,
-    membership_date DATE,
-    my_books LOANS,
-    FOREIGN KEY (my_books) REFERENCES loans(id)
+    membership_date DATE
 );
 
 -- =================================================+
