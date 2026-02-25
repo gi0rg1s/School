@@ -1,4 +1,4 @@
-//validating form
+//validating form pattern
 let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 let phonePattern = /^\d{10}$/;
 let namePattern = /^[a-zA-Z\s]{3,}$/;
@@ -34,8 +34,9 @@ function validateBudget() {
     else setError("budget-error", "");
 }
 
+//if one or more services selected
 function validateServizi() {
-    const selectedValues = Array.from(serviziSelect.selectedOptions).map(option => option.value);
+    const selectedValues = Array.from(serviziSelect.selectedOptions).map(option => option.value); // .map() to get the values of the selected option(s)
     if(selectedValues.length === 0) setError("servizi-error", "Seleziona almeno un servizio.");
     else setError("servizi-error", "");
     return selectedValues;
@@ -59,12 +60,15 @@ submitButton.addEventListener("click", function(event) {
 
     //check if there are any error messages
     const errorIds = ["nome-error", "email-error", "telefono-error", "budget-error", "servizi-error"]; 
-    const hasErrors = errorIds.some(id => document.getElementById(id).innerText !== "");
+    //.some returns true if even only one of the error messages is not empty
+    const hasErrors = errorIds.some(id => document.getElementById(id).innerText !== "");    
 
+    //valid form
     if(!hasErrors) {
         document.getElementById("form-error").innerText = "";
 
         //open new html page
+        //create query string with form data to pass them to the new page
         const queryParams = new URLSearchParams({
             nome: nomeInput.value,
             email: emailInput.value,
