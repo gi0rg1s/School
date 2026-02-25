@@ -1,4 +1,4 @@
-.btns {
+.buttons {
     background-color: rgb(205, 162, 228);
     padding: 10px;
     font-size: 14px;
@@ -19,7 +19,7 @@
     -fx-padding: 20px 0px 0px 20px;
 }
 
-.textspace {
+.risultato {
     font-size: 18px;
     padding: 10px;
 
