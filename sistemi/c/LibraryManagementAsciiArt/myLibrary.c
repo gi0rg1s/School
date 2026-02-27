@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include "myLibrary.h"
 
 // ===========================================================
@@ -366,6 +367,8 @@ void rentNewBook(sqlite3* db, char* title, char* username){
 //+==================================================+
 //will show a display with some options
 void searchBookScreen(sqlite3* db, char* username){
+
+    printf("\033[2J\033[H");
     char titleOrAuthor[50];
 
     printf("+-----------------------------+\n");
@@ -399,12 +402,13 @@ void searchBookScreen(sqlite3* db, char* username){
 // +==================================================+
 //will show a display with some options
 void searchByTitle(sqlite3* db, char* username){
-    
+    printf("\033[2J\033[H");
+
     char title[40];
     printf("Enter the title of the book: ");
     scanf(" %[^\n]", title); // Read the title with spaces
 
-    printf("\n+--------------------------------");
+    printf("\n+--------------------------------\n");
     
     // search into books title
     const char *sql_title = "SELECT id FROM books WHERE title = ?;";
@@ -423,6 +427,8 @@ void searchByTitle(sqlite3* db, char* username){
         int choice;
         scanf("%d", &choice);
 
+        // Clear the title variable to avoid confusion in the next steps
+        strcpy(title, "");
 
         switch (choice)
         {        case 1:
