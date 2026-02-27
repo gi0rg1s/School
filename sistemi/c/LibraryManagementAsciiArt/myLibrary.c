@@ -380,13 +380,11 @@ void searchBookScreen(sqlite3* db, char* username){
 
     switch (choice)
     {    case 1:
-        printf("Enter the title of the book: ");
-        scanf(" %[^\n]", titleOrAuthor); // Read the title with spaces
-        // Implement search by title functionality here
-        printf("Searching for books with title: %s\n", titleOrAuthor);
+        searchByTitle(db, username);
         break;
     case 2:
-        searchBookScreen(db, username);
+        printf("not implemented yet");
+        //searchBookScreen(db, username);
         break;
     default:
         printf("Invalid choice. Please try again.\n");
@@ -400,7 +398,7 @@ void searchBookScreen(sqlite3* db, char* username){
 // |         Search by title                          |
 // +==================================================+
 //will show a display with some options
-void searchByTitle(sqlite3* db, char* title, char* username){
+void searchByTitle(sqlite3* db, char* username){
     
     char title[40];
     printf("Enter the title of the book: ");
@@ -413,7 +411,7 @@ void searchByTitle(sqlite3* db, char* title, char* username){
     sqlite3_stmt *title_stmt;   //pointer for the statement
 
     sqlite3_prepare_v2(db, sql_title, -1, &title_stmt, 0);
-    sqlite3_bind_text(title_stmt, 1, &title, -1, SQLITE_STATIC);    //substitute ? with the title and get book id
+    sqlite3_bind_text(title_stmt, 1, title, -1, SQLITE_STATIC);    //substitute ? with the title and get book id
 
     if(sqlite3_step(title_stmt) != SQLITE_ROW){
         printf("| No books found with the title: %s\n", title);
@@ -428,7 +426,7 @@ void searchByTitle(sqlite3* db, char* title, char* username){
 
         switch (choice)
         {        case 1:
-            searchByTitle(db, title, username);
+            searchByTitle(db, username);
             break;
         case 2:
             addNewBook(db, username);
@@ -439,7 +437,7 @@ void searchByTitle(sqlite3* db, char* title, char* username){
         default:    
             printf("\033[2J\033[H");
             printf("Invalid choice. Please try again.\n");
-            searchByTitle(db, title, username);
+            searchByTitle(db, username);
             break;
         }
     }

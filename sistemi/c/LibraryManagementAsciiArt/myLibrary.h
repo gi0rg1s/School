@@ -25,4 +25,6 @@ void rentNewBook(sqlite3* db, char* title, char* username);
 
 void searchBookScreen(sqlite3* db, char* username);
 
+void searchByTitle(sqlite3* db, char* username);
+
 #endif
