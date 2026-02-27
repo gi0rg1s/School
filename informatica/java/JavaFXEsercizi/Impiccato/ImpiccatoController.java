@@ -40,16 +40,13 @@ public class ImpiccatoController {
 
         if (targetWord == null || targetWord.isEmpty()) return;
 
-        String keyText = event.getCharacter();
+        String keyText = event.getCharacter();  // get the character of the key pressed
         if (keyText == null) keyText = "";
         
-        keyText = keyText.toLowerCase();
-        if (keyText.isEmpty() || !keyText.matches("[a-z]")) return;
+        keyText = keyText.toLowerCase();    // convert to lowercase for case-insensitive comparison
+        if (keyText.isEmpty() || !keyText.matches("[a-z]")) return; // ignore non-letter keys
 
         char letter = keyText.charAt(0);
-
-        //debug
-        System.out.println("pressed: " + letter);
 
 
         if (!(trys.contains(letter))) {
@@ -124,6 +121,7 @@ public class ImpiccatoController {
         unknown_word.setText(unknownWordBuilder.toString());
     }
 
+    //update the image based on the number of wrong guesses
     private void updateImage() {
         String resourcePath = "/immaginiImpiccato/" + wrongGuesses + ".png";
         if (getClass().getResource(resourcePath) != null) {
