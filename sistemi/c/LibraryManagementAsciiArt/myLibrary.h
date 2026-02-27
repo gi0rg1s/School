@@ -1,29 +1,7 @@
+#ifndef MYLIBRARY_H
+#define MYLIBRARY_H
+
 #include <sqlite3.h>
-
-typedef struct{
-    char title[50];
-    char author[30];
-    char genre[20];
-    unsigned char rank;
-    double price;
-    unsigned char borrowed;     //0 --> available, 1 --> borrowed
-} Book_t;
-
-typedef struct{
-    Book_t* boorrowedBooks;
-    Book_t* read;
-    Book_t* wantToRead;
-    Book_t* currentlyReading;
-} UserLibrary_t;
-
-typedef struct{
-    char name[15];
-    char surname[15];
-    char dateOfBirth[11];   //max 10 chars + terminator char
-    char username[21];
-    char password[21];
-    UserLibrary_t library;
-} User_t;
 
 int checkLogIn(sqlite3 *db, char* username, char* password);
 
@@ -41,6 +19,10 @@ void showMyBooks(sqlite3 *db, char* username);
 
 void showMyBookshelf(sqlite3 *db, char*username);
 
-void addNewBook(sqlite3* db);
+void addNewBook(sqlite3* db, char* username);
 
-void rentNewBook(sqlite3* db, char* username);
+void rentNewBook(sqlite3* db, char* title, char* username);
+
+void searchBookScreen(sqlite3* db, char* username);
+
+#endif
