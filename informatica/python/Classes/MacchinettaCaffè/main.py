@@ -50,3 +50,5 @@ while(continueOrdering):
 
                 if newOrder == "n":
                     continueOrdering = False
+
+print("Exiting the machine...")
