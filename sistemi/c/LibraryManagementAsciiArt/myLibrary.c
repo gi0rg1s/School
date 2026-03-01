@@ -46,6 +46,7 @@ void menuScreen(){
             break;
         default:
             printf("Invalid choice. Please try again.\n");
+            choice = 0; // Reset choice to avoid infinite loop
             break;
         }
     }while(choice < 1 || choice > 3);
@@ -209,6 +210,7 @@ void profileScreen(sqlite3 *db, char* username){
     default:
         printf("\033[2J\033[H");
         printf("Invalid choice. Please try again.\n");
+        choice = 0; // Reset choice to avoid infinite loop
         profileScreen(db, username);
         break;
     }
@@ -276,6 +278,7 @@ void showMyBooks(sqlite3 *db, char* username){
     default:
         printf("\033[2J\033[H");
         printf("Invalid choice. Please try again.\n");
+        choice = 0; // Reset choice to avoid infinite loop
         profileScreen(db, username);
         break;
     }
@@ -377,17 +380,18 @@ void searchBookScreen(sqlite3* db, char* username){
     printf("| Please select an option     |\n");
     printf("| 1. Search by title          |\n");
     printf("| 2. Search by author         |\n");
+    printf("+-----------------------------+\n");
     printf("--> ");
     int choice;
     scanf("%d", &choice);
 
     switch (choice)
-    {    case 1:
+    {    
+    case 1:
         searchByTitle(db, username);
         break;
     case 2:
-        printf("not implemented yet");
-        //searchBookScreen(db, username);
+        searchByAuthor(db, username);
         break;
     default:
         printf("Invalid choice. Please try again.\n");
@@ -418,11 +422,14 @@ void searchByTitle(sqlite3* db, char* username){
     sqlite3_bind_text(title_stmt, 1, title, -1, SQLITE_STATIC);    //substitute ? with the title and get book id
 
     if(sqlite3_step(title_stmt) != SQLITE_ROW){
+        sqlite3_finalize(title_stmt);
+
         printf("| No books found with the title: %s\n", title);
         printf("| please select an option: \n");
         printf("| 1. Search again\n");
         printf("| 2. Add a new book with this title\n");
-        printf("|3. Go back to the profile screen\n");
+        printf("| 3. Go back to the profile screen\n");
+        printf("+--------------------------------\n");
         printf("--> ");
         int choice;
         scanf("%d", &choice);
@@ -431,7 +438,8 @@ void searchByTitle(sqlite3* db, char* username){
         strcpy(title, "");
 
         switch (choice)
-        {        case 1:
+        {        
+        case 1:
             searchByTitle(db, username);
             break;
         case 2:
@@ -443,6 +451,7 @@ void searchByTitle(sqlite3* db, char* username){
         default:    
             printf("\033[2J\033[H");
             printf("Invalid choice. Please try again.\n");
+            choice = 0; // Reset choice to avoid infinite loop
             searchByTitle(db, username);
             break;
         }
@@ -468,6 +477,8 @@ void searchByTitle(sqlite3* db, char* username){
         printf("| Publication Year: %d\n", sqlite3_column_int(book_stmt, 5));
         printf("+--------------------------------\n");
 
+        sqlite3_finalize(book_stmt);
+
         printf("Please select an option: \n");
         printf("1. Rent this book\n");
         printf("2. Go back to the profile screen\n");
@@ -488,11 +499,108 @@ void searchByTitle(sqlite3* db, char* username){
             break;
         
         default:
+            printf("\033[2J\033[H");
+            printf("invalid choice, please try again.");
+            choice = 0; // Reset choice to avoid infinite loop
+            searchByTitle(db, username);
             break;
         }
     } else {
         printf("| No details found for the book with title: %s\n", title);
         printf("+--------------------------------\n");
     }
+
+}
+
+// +==================================================+
+// |         Search by author                         |
+// +==================================================+
+//will show a display with some options
+
+void searchByAuthor(sqlite3 *db, char *username){
+
+    printf("+-----------------------------+\n");
+    printf("|       Search by author      |\n");
+    printf("+-----------------------------+\n");
+    char author_name[20], author_surname[20];
+
+    printf("| Enter the author's name: \n");
+    getchar(); // Consume the newline
+    scanf("%19[^\n]", author_name);
+    
+    printf("| Enter the author's surname: \n");
+    getchar(); // Consume the newline
+    scanf("%19[^\n]", author_surname);
+    
+
+    // First, find the author's ID by name and surname
+    sqlite3_stmt *stmt_find_author;   //pointer for finding author
+    const char *sql_find_author = "SELECT id FROM authors WHERE name = ? AND surname = ?;";
+    
+    sqlite3_prepare_v2(db, sql_find_author, -1, &stmt_find_author, 0);
+    sqlite3_bind_text(stmt_find_author, 1, author_name, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt_find_author, 2, author_surname, -1, SQLITE_STATIC);
+    
+    if(sqlite3_step(stmt_find_author) != SQLITE_ROW){
+        printf("\033[2J\033[H");
+        printf("| No books found for the author: %s %s\n", author_name, author_surname);
+        printf("+------------------------------+\n");
+        printf("| Please select an option:     |\n");
+        printf("| 1. Search again              |\n");
+        printf("| 2. Go back to the profile screen |\n");
+        printf("+------------------------------+\n");
+        printf("--> ");
+        int choice;
+        scanf("%d", &choice);
+        
+        sqlite3_finalize(stmt_find_author);
+        
+        switch (choice)
+        {        
+        case 1:
+            searchByAuthor(db, username);
+            break;
+        case 2:
+            profileScreen(db, username);
+            break;
+        default:
+            printf("\033[2J\033[H");
+            printf("Invalid choice. Please try again.\n");
+            choice = 0; // Reset choice to avoid infinite loop
+            searchByAuthor(db, username);
+            break;
+        }
+        return;
+    }
+    
+    int author_id = sqlite3_column_int(stmt_find_author, 0);
+    sqlite3_finalize(stmt_find_author);
+
+    // Now query books by this author ID
+    sqlite3_stmt *stmt_author;   //pointer for the statement
+    const char *sql_author = "SELECT books.title, authors.name, authors.surname, books.genre, books.isbn, books.publication_year "
+                             "FROM books "
+                             "JOIN authors ON books.author_id = authors.id "
+                             "WHERE authors.id = ?;";
+
+    sqlite3_prepare_v2(db, sql_author, -1, &stmt_author, 0);
+    sqlite3_bind_int(stmt_author, 1, author_id);
+
+    printf("\033[2J\033[H");
+    printf("Found some books by the author %s %s:\n", author_name, author_surname);
+
+    int book_count = 0;
+    while(sqlite3_step(stmt_author) == SQLITE_ROW){
+        book_count++;
+        printf("+ %d. -------------------\n", book_count);
+        printf("| Title: %s\n", sqlite3_column_text(stmt_author, 0));
+        printf("| Author: %s %s\n", sqlite3_column_text(stmt_author, 1), sqlite3_column_text(stmt_author, 2));
+        printf("| Genre: %s\n", sqlite3_column_text(stmt_author, 3));
+        printf("| ISBN: %.2f\n", sqlite3_column_text(stmt_author, 4));
+        printf("| Publication Year: %d\n", sqlite3_column_int(stmt_author, 5));
+        printf("+--------------------------+\n");
+    }
+
+    sqlite3_finalize(stmt_author);
 
 }

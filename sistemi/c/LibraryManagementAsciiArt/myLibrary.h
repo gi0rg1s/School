@@ -27,4 +27,6 @@ void searchBookScreen(sqlite3* db, char* username);
 
 void searchByTitle(sqlite3* db, char* username);
 
+void searchByAuthor(sqlite3 *db, char *username);
+
 #endif
