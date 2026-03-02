@@ -188,10 +188,9 @@ void signUpScreen(sqlite3 *db){
             printf("\nSign up successful! You can now log in with your new account.\n");
             sqlite3_finalize(stmt_insert);
             logInScreen(db);
-        } else {
-            printf("Error signing up: %s\n", sqlite3_errmsg(db));
-            sqlite3_finalize(stmt_insert);
-        }
+        } else printf("Error signing up: %s\n", sqlite3_errmsg(db));
+        sqlite3_finalize(stmt_insert);
+
     }
 }
 
@@ -416,6 +415,16 @@ void addNewBook(sqlite3* db, int user_id){
         sqlite3_finalize(stmt_insert_author);
     }
 
+        // Validate author_id before inserting book
+        if (author_id == -1) {
+            printf("\nError: Could not determine author ID\n");
+            printf("\nPress Enter to go back...");
+            getchar();
+            getchar();
+            profileScreen(db, user_id);
+            return;
+        }
+
     const char *sql_insert_book = "INSERT INTO books(title, publication_year, genre, isbn, author_id) VALUES (?, ?, ?, ?, ?);";
     sqlite3_stmt *stmt_insert_book;
     sqlite3_prepare_v2(db, sql_insert_book, -1, &stmt_insert_book, 0);
@@ -425,14 +434,16 @@ void addNewBook(sqlite3* db, int user_id){
     sqlite3_bind_text(stmt_insert_book, 4, isbn, -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt_insert_book, 5, author_id);
 
-    if (sqlite3_step(stmt_insert_book) == SQLITE_DONE) {
-            printf("\033[2J\033[H");
-            printf("\nBook added successfully!\n");
-            sqlite3_finalize(stmt_insert_book);
-        } else {
-            printf("\nError during book insertion: %s\n", sqlite3_errmsg(db));
-            sqlite3_finalize(stmt_insert_book);
-        }
+    int step_result = sqlite3_step(stmt_insert_book);
+    if (step_result == SQLITE_DONE) {
+        printf("\033[2J\033[H");
+        printf("\n\nBook added successfully!\n");
+    } else {
+        printf("\033[2J\033[H");
+        printf("\n\nError during book insertion: %s (Error code: %d)\n", sqlite3_errmsg(db), sqlite3_extended_errcode(db));
+    }
+
+    sqlite3_finalize(stmt_insert_book);
 
     printf("\033[2J\033[H");
     printf("Press Enter to go back...");
@@ -475,7 +486,6 @@ void rentNewBook(sqlite3* db, int title_id, int user_id){
     printf("\nPress Enter to go back...");
     getchar(); // consume leftover newline
     getchar(); // wait for user input
-    printf("\033[2J\033[H");
     profileScreen(db, user_id);
 }
 
@@ -579,7 +589,7 @@ void searchByTitle(sqlite3* db, int user_id){
     //print book details
     const char *sql_book = "SELECT books.title, authors.name, authors.surname, books.genre, books.isbn, books.publication_year "
                             "FROM books "
-                            "JOIN authors ON books.author_id = authors.id "
+                            "LEFT JOIN authors ON books.author_id = authors.id "
                             "WHERE books.id = ?;";
     sqlite3_stmt *book_stmt;
     sqlite3_prepare_v2(db, sql_book, -1, &book_stmt, 0);
@@ -587,9 +597,11 @@ void searchByTitle(sqlite3* db, int user_id){
 
     if(sqlite3_step(book_stmt) == SQLITE_ROW){
         printf("| Title: %s\n", sqlite3_column_text(book_stmt, 0));
-        printf("| Author: %s %s\n", sqlite3_column_text(book_stmt, 1), sqlite3_column_text(book_stmt, 2));
+        const unsigned char *name = sqlite3_column_text(book_stmt, 1);
+        const unsigned char *surname = sqlite3_column_text(book_stmt, 2);
+        printf("| Author: %s %s\n", name ? (const char*)name : "Unknown", surname ? (const char*)surname : "");
         printf("| Genre: %s\n", sqlite3_column_text(book_stmt, 3));
-        printf("| ISBN: %.2f\n", sqlite3_column_text(book_stmt, 4));
+        printf("| ISBN: %s\n", sqlite3_column_text(book_stmt, 4));
         printf("| Publication Year: %d\n", sqlite3_column_int(book_stmt, 5));
         printf("+--------------------------------\n");
 
@@ -711,7 +723,7 @@ void searchByAuthor(sqlite3 *db, int user_id){
         printf("| Title: %s\n", sqlite3_column_text(stmt_author, 0));
         printf("| Author: %s %s\n", sqlite3_column_text(stmt_author, 1), sqlite3_column_text(stmt_author, 2));
         printf("| Genre: %s\n", sqlite3_column_text(stmt_author, 3));
-        printf("| ISBN: %.2f\n", sqlite3_column_text(stmt_author, 4));
+        printf("| ISBN: %s\n", sqlite3_column_text(stmt_author, 4));
         printf("| Publication Year: %d\n", sqlite3_column_int(stmt_author, 5));
         printf("+--------------------------+\n");
     }
