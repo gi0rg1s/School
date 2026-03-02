@@ -42,10 +42,10 @@ void menuScreen(){
             signUpScreen(db);
             break;
         case 3:
-            printf("Exiting the program... Goodbye!\n");
+            printf("\nExiting the program... Goodbye!\n");
             break;
         default:
-            printf("Invalid choice. Please try again.\n");
+            printf("\nInvalid choice. Please try again.\n");
             choice = 0; // Reset choice to avoid infinite loop
             break;
         }
@@ -162,8 +162,7 @@ void signUpScreen(sqlite3 *db){
     if(exists){
         //cls
         printf("\033[2J\033[H");
-
-        printf("Username already exists. Please choose a different username.\n");
+        printf("\nUsername already exists. Please choose a different username.\n");
         
         //call signUpScreen again
         signUpScreen(db);
@@ -186,7 +185,7 @@ void signUpScreen(sqlite3 *db){
         
         if (sqlite3_step(stmt_insert) == SQLITE_DONE) {
             printf("\033[2J\033[H");
-            printf("Sign up successful! You can now log in with your new account.\n");
+            printf("\nSign up successful! You can now log in with your new account.\n");
             sqlite3_finalize(stmt_insert);
             logInScreen(db);
         } else {
@@ -227,13 +226,13 @@ void profileScreen(sqlite3 *db, int user_id){
         break;
     case 3:
         printf("\033[2J\033[H");
-        printf("Logging out... Goodbye!\n");
+        printf("\nLogging out... Goodbye!\n");
         menuScreen();
         break;
 
     default:
         printf("\033[2J\033[H");
-        printf("Invalid choice. Please try again.\n");
+        printf("\nInvalid choice. Please try again.\n");
         choice = 0; // Reset choice to avoid infinite loop
         profileScreen(db, user_id);
         break;
@@ -358,12 +357,90 @@ void showMyBookshelf(sqlite3 *db, int user_id){
 }
 
 // +==================================================+
-// |         Add a new book to the bookshelf          |
+// |         Add a new book to the database           |
 // +==================================================+
 // Adds a new book to the db
 void addNewBook(sqlite3* db, int user_id){
     printf("\033[2J\033[H");
-    printf("not implemented yet");
+    
+    printf("+-----------------------------+\n");
+    printf("|         Add a new book      |\n");
+    printf("+-----------------------------+\n");
+    char title[40], author_name[20], author_surname[20], genre[20], isbn[20];
+    int publication_year;
+    printf("| Enter the title of the book: ");
+    scanf(" %[^\n]", title); // Read the title with spaces
+    printf("| Enter the author's name: ");
+    scanf(" %[^\n]", author_name);
+    printf("| Enter the author's surname: ");
+    scanf(" %[^\n]", author_surname);
+    printf("| Enter the genre of the book: ");
+    scanf(" %[^\n]", genre);
+    printf("| Enter the ISBN of the book: ");
+    scanf(" %[^\n]", isbn);
+    printf("| Enter the publication year: ");
+    scanf("%d", &publication_year);
+
+    int author_id = -1;
+    sqlite3_stmt *author_stmt;
+    const char *sql_find_author = "SELECT id FROM authors WHERE name = ? AND surname = ?;";
+
+    sqlite3_prepare_v2(db, sql_find_author, -1, &author_stmt, 0);
+    sqlite3_bind_text(author_stmt, 1, author_name, -1, SQLITE_STATIC);
+    sqlite3_bind_text(author_stmt, 2, author_surname, -1, SQLITE_STATIC);
+
+    if (sqlite3_step(author_stmt) == SQLITE_ROW) {
+        author_id = sqlite3_column_int(author_stmt, 0);
+        sqlite3_finalize(author_stmt);
+    } else {
+        sqlite3_finalize(author_stmt);
+
+        sqlite3_stmt *stmt_insert_author;
+        const char *sql_insert_author = "INSERT INTO authors(name, surname) VALUES (?, ?);";
+        sqlite3_prepare_v2(db, sql_insert_author, -1, &stmt_insert_author, 0);
+        sqlite3_bind_text(stmt_insert_author, 1, author_name, -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt_insert_author, 2, author_surname, -1, SQLITE_STATIC);
+
+        // Insert the new author into the database
+        if (sqlite3_step(stmt_insert_author) == SQLITE_DONE) {
+            author_id = (int)sqlite3_last_insert_rowid(db);
+        } else {
+            printf("\nError during author insertion: %s\n", sqlite3_errmsg(db));
+            sqlite3_finalize(stmt_insert_author);
+            printf("\nPress Enter to go back...");
+            getchar();
+            getchar();
+            profileScreen(db, user_id);
+            return;
+        }
+        sqlite3_finalize(stmt_insert_author);
+    }
+
+    const char *sql_insert_book = "INSERT INTO books(title, publication_year, genre, isbn, author_id) VALUES (?, ?, ?, ?, ?);";
+    sqlite3_stmt *stmt_insert_book;
+    sqlite3_prepare_v2(db, sql_insert_book, -1, &stmt_insert_book, 0);
+    sqlite3_bind_text(stmt_insert_book, 1, title, -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt_insert_book, 2, publication_year);
+    sqlite3_bind_text(stmt_insert_book, 3, genre, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt_insert_book, 4, isbn, -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt_insert_book, 5, author_id);
+
+    if (sqlite3_step(stmt_insert_book) == SQLITE_DONE) {
+            printf("\033[2J\033[H");
+            printf("\nBook added successfully!\n");
+            sqlite3_finalize(stmt_insert_book);
+        } else {
+            printf("\nError during book insertion: %s\n", sqlite3_errmsg(db));
+            sqlite3_finalize(stmt_insert_book);
+        }
+
+    printf("\033[2J\033[H");
+    printf("Press Enter to go back...");
+    getchar(); // consume leftover newline
+    getchar(); // wait for user input
+
+    profileScreen(db, user_id);
+
 }
 
 
@@ -409,6 +486,7 @@ void rentNewBook(sqlite3* db, int title_id, int user_id){
 //will show a display with some options
 void searchBookScreen(sqlite3* db, int user_id){
 
+    printf("\033[2J\033[H");
     char titleOrAuthor[50];
 
     printf("+-----------------------------+\n");
@@ -447,7 +525,7 @@ void searchBookScreen(sqlite3* db, int user_id){
 void searchByTitle(sqlite3* db, int user_id){
 
     char title[40];
-    printf("Enter the title of the book: ");
+    printf("\nEnter the title of the book: ");
     scanf(" %[^\n]", title); // Read the title with spaces
 
     printf("\n+--------------------------------\n");
