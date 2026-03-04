@@ -15,49 +15,29 @@ import javafx.application.Application;
 
 public class TorneoWinxLoader extends Application {
 
-    @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("TorneoWinxFXML.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        // Creo i maghi
+        ArrayList<Winx> maghi = new ArrayList<>();
+        maghi.add(new Winx("Stella", "Fata del Sole", 100, 100, 80, 70, 60, "Magic Winx"));
+        maghi.add(new Winx("Bloom", "Fata del fuoco", 80, 80, 90, 60, 70, "Enchantix"));
+        maghi.add(new Winx("Flora", "Fata dei fiori", 90, 90, 70, 80, 85, "Magic Winx"));
+        maghi.add(new Winx("Musa", "Fata della Musica", 70, 70, 95, 50, 60, "Sirenix"));
+        maghi.add(new Winx  ("Aisha", "Fata dell'Acqua", 85, 85, 85, 75, 75, "Magic Winx"));
+        
+        // Spezzo il loader, così posso passare i maghi al controller
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TorneoWinxFXML.fxml"));
+        Parent root = loader.load();
+        
+        // Estraggo il controller e passo i maghi
+        TorneoWinxFXML controller = loader.getController();
+        controller.initialize(maghi);
+        
+        stage.setTitle("Arena dei Maghi");
+        stage.setScene(new Scene(root, 620, 420));
         stage.show();
     }
-
-    public void initialize(ArrayList<Winx> winxs) {
-
-        // scroll the winx arraylist and create a block for each winx
-        for (Winx w : winxs) {
-            // Create an hbox for each winx
-            HBox blocchetto = new HBox(15);
-            blocchetto.setPadding(new Insets(10));
-            blocchetto.setStyle("-fx-border-color: #333; -fx-border-width: 1; -fx-background-color: #f0f0f0;");
-            
-            // ImageView per for the winx img (placeholder)
-            ImageView image = new ImageView();
-            image.setFitWidth(80);
-            image.setFitHeight(80);
-            image.setStyle("-fx-background-color: #cccccc;");
-            
-            // VBox for the winx attributes
-            VBox attributi = new VBox(5);
-            attributi.getChildren().addAll(
-                new Label("Nome: " + w.getNome()),
-                new Label("HP: " + w.getHp() + "/" + w.getHp()),
-                new Label("Mana: " + w.getMana() + "/" + w.getMana()),
-                new Label("Potenza Magica: " + w.getPotenzaMagica()),
-                new Label("Difesa: " + w.getDifesaMagica()),
-                new Label("Velocità: " + w.getSpeed())
-            );
-            
-            // add the image and the attributes to the hbox
-            blocchetto.getChildren().addAll(image, attributi);
-        
-            // add the hbox to the main container
-            winxContainer.getChildren().add(blocchetto);
-        }
-    }
-
     public static void main(String[] args) {
         launch();
     }
+    
 }
