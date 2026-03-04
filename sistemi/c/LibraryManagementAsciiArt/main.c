@@ -4,7 +4,6 @@
 #include "myLibrary.h"
 
 int main() {
-    
     menuScreen();
     return 0;
 }
