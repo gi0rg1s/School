@@ -69,26 +69,47 @@ p {
 	margin: 10px 0 6px;
 }
 
-input[type="radio"] {
-	margin: 7px 8px 7px 0;
-	accent-color: #e84393;
-}
-
-input[type="radio"] + label {
-	margin: 0;
-	font-weight: 500;
-	color: #6f2c50;
-}
-
 #error-name,
 #error-email,
 #error-question1,
 #error-question2,
-#error-question3 {
+#error-question3,
+#button-error {
 	min-height: 18px;
 	margin: 4px 0 10px;
 	color: #d63384;
 	font-size: 0.9rem;
+}
+
+button {
+	display: inline-block;
+	width: 700px;
+	margin-top: 20px;
+	padding: 12px 32px;
+	background: linear-gradient(135deg, #e84393 0%, #d63384 100%);
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	font-weight: 600;
+	font-size: 20px;
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 4px 12px rgba(230, 67, 147, 0.3);
+}
+
+button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 18px rgba(230, 67, 147, 0.4);
+}
+
+button:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 8px rgba(230, 67, 147, 0.3);
+}
+
+button:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(231, 84, 167, 0.3);
 }
 
 @media (max-width: 640px) {
@@ -102,3 +123,5 @@ input[type="radio"] + label {
 		font-size: 1.6rem;
 	}
 }
+
+

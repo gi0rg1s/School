@@ -24,9 +24,9 @@
         <h2>Domande</h2>
         <hr>
         <p>1. Qual è la capitale della Francia?</p>
-        <input type="radio" id="madrid" value="Madrid">
+        <input type="radio" id="madrid" name="question1" value="Madrid">
         <label for="madrid">Madrid</label><br>
-        <input type="radio" id="berlin" value="Berlino">
+        <input type="radio" id="berlin" name="question1" value="Berlino">
         <label for="berlin">Berlino</label><br>
         <input type="radio" id="paris" name="question1" value="Parigi">
         <label for="paris">Parigi</label><br>
@@ -35,26 +35,34 @@
         <p id="error-question1"></p>
 
         <p>2. Quale pianeta è conosciuto come il Pianeta Rosso?</p>
-        <input type="radio" id="marte" value="Marte">
+        <input type="radio" id="marte" name="question2" value="Marte">
         <label for="marte">Marte</label><br>
-        <input type="radio" id="venere" value="Venere">
+        <input type="radio" id="venere" name="question2" value="Venere">
         <label for="venere">Venere</label><br>
-        <input type="radio" id="giove" value="Giove">
+        <input type="radio" id="giove" name="question2" value="Giove">
         <label for="giove">Giove</label><br>
-        <input type="radio" id="saturno" value="Saturno">
+        <input type="radio" id="saturno" name="question2" value="Saturno">
         <label for="saturno">Saturno</label><br>
         <p id="error-question2"></p>
 
         <p>3. Quando fa 5 x 6?</p>
-        <input type="radio" id="25" value="25">
+        <input type="radio" id="25" name="question3" value="25">
         <label for="25">25</label><br>
-        <input type="radio" id="30" value="30">
+        <input type="radio" id="30" name="question3" value="30">
         <label for="30">30</label><br>
-        <input type="radio" id="35" value="35">
+        <input type="radio" id="35" name="question3" value="35">
         <label for="35">35</label><br>
-        <input type="radio" id="40" value="40">
+        <input type="radio" id="40" name="question3" value="40">
         <label for="40">40</label><br>
         <p id="error-question3"></p>
+
+
+        <button>Invia</button>
+        <p id="button-error"></p>
     </div>
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>
