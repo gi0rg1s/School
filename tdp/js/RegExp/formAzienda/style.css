@@ -86,3 +86,14 @@ button {
 button:hover {
     background-color: #00aa55;
 }
+
+#riepilogo {
+    margin-top: 20px;
+    padding: 15px;
+    color: #333;
+    font-size: 12px;
+    font: italic;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    white-space: pre-wrap;
+}

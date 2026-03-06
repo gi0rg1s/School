@@ -1,10 +1,10 @@
 //validator regExp
 let usernameValidator = /^[a-zA-Z0-9_]{5,20}$/;
 let passwordValidator = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-let phoneValidator = /^\d{10}$/;
-let sitoValidator = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*\/?$/;
+let phoneValidator = /^\d{10,}$/;
 let businessNameValidator = /^[a-zA-Z\s]+$/;
 let ambitoValidator = /^[a-zA-Z\s]+$/;
+let websiteValidator = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}(\/[^\s]*)?$/;
 
 
 let username = document.getElementById('username');
@@ -18,7 +18,6 @@ let button = document.getElementById('submit');
 
 //validate function
 function validateForm() {
-    let isValid = true;
 
     validateUsername();
     validatePassword();
@@ -31,9 +30,13 @@ function validateForm() {
     let errorIDs = ['username-error', 'password-error', 'phone-error', 'sito-error', 'business-name-error', 'ambito-error', 'data-error'];
     const hasErrors = errorIDs.some(id => document.getElementById(id).innerText !== "");    
 
-    if (hasErrors) document.getElementById('invia-form').textContent = 'Il form contiene errori. Per favore correggili prima di inviare.';
-    else document.getElementById('invia-form').textContent = '';
-    
+    if (hasErrors) {
+        document.getElementById('invia-form').textContent = 'Il form contiene errori. Per favore correggili prima di inviare.';
+        document.getElementById('riepilogo').textContent = '';
+    } else {
+        document.getElementById('invia-form').textContent = '';
+        document.getElementById('riepilogo').textContent = `Riepilogo richiesta:\nUsername: ${username.value}\nSito web: ${sito.value}\nNome Azienda: ${businessName.value}\nAmbito: ${ambito.value}\nData: ${date.value}`;
+    }
     return !hasErrors;
 }
 
@@ -66,9 +69,9 @@ function validatePhone() {
     } else document.getElementById('phone-error').textContent = '';
 }
 
-//validating sito
+//validating site
 function validateSito() {
-    if (!sitoValidator.test(sito.value)) {
+    if (!websiteValidator.test(sito.value)) {
         document.getElementById('sito-error').textContent = 'URL non valido. Deve essere un URL valido (es. http://www.example.com).';
     } else document.getElementById('sito-error').textContent = '';
 }
@@ -93,7 +96,9 @@ function validateDate() {
     let today = new Date();
     if (isNaN(dateValue.getTime()) || dateValue < today) {
         document.getElementById('data-error').textContent = 'Data non valida. Deve essere una data futura.';
-    } else document.getElementById('data-error').textContent = '';
+    } else {
+        document.getElementById('data-error').textContent = '';
+    }
 }
 
 username.addEventListener('change', validateUsername);
