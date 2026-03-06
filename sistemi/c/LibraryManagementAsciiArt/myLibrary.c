@@ -52,6 +52,7 @@ void menuScreen(){
     }while(choice < 1 || choice > 3);
 
     sqlite3_close(db);
+    return;
 }
 
 void logInScreen(sqlite3 *db){
@@ -176,6 +177,7 @@ void signUpScreen(sqlite3 *db){
         const char *sql_insert = "INSERT INTO members(name, surname, USER_NAME, PASSWORD, membership_date) VALUES (?, ?, ?, ?, ?);";
         sqlite3_stmt *stmt_insert;
         
+        //substitute ? with the username and get all other datas
         sqlite3_prepare_v2(db, sql_insert, -1, &stmt_insert, 0);
         sqlite3_bind_text(stmt_insert, 1, name, -1, SQLITE_STATIC);
         sqlite3_bind_text(stmt_insert, 2, surname, -1, SQLITE_STATIC);
@@ -183,14 +185,16 @@ void signUpScreen(sqlite3 *db){
         sqlite3_bind_text(stmt_insert, 4, password, -1, SQLITE_STATIC);
         sqlite3_bind_text(stmt_insert, 5, date_string, -1, SQLITE_STATIC);
         
+        printf("\033[2J\033[H");
+
         if (sqlite3_step(stmt_insert) == SQLITE_DONE) {
-            printf("\033[2J\033[H");
             printf("\nSign up successful! You can now log in with your new account.\n");
             sqlite3_finalize(stmt_insert);
             logInScreen(db);
-        } else printf("Error signing up: %s\n", sqlite3_errmsg(db));
+        } 
+        printf("Error signing up: %s\n", sqlite3_errmsg(db));
         sqlite3_finalize(stmt_insert);
-
+        signUpScreen(db);
     }
 }
 
@@ -262,6 +266,16 @@ void showPersonalInfo(sqlite3 *db, int user_id){
         printf("| User name: %s\n", sqlite3_column_text(stmt, 2));
         printf("| Password: *********\n");
         printf("| membership  date:     %s\n", sqlite3_column_text(stmt, 3));
+
+        sqlite3_finalize(stmt); //finalize statement to release resources associated with it
+
+        printf("+----------------------------+\n");
+        printf("\nPress Enter to go back...");
+        getchar(); // consume leftover newline
+        getchar(); // wait for user input
+
+        printf("\033[2J\033[H");
+        profileScreen(db, user_id);
     }
 }
 
@@ -281,6 +295,7 @@ void showMyBooks(sqlite3 *db, int user_id){
     printf("| 1. Show my bookshelf        |\n");
     printf("| 2. Add a book               |\n");
     printf("| 3. Rent a new book          |\n");
+    printf("| 4. Go back                  |\n");
     printf("+-----------------------------+\n");
     printf("--> ");
     scanf("%d", &choice);
@@ -295,6 +310,11 @@ void showMyBooks(sqlite3 *db, int user_id){
         break;
     case 3:
         searchBookScreen(db, user_id);
+        break;
+
+    case 4:
+        printf("\033[2J\033[H");
+        profileScreen(db, user_id);
         break;
     
     default:
@@ -425,10 +445,11 @@ void addNewBook(sqlite3* db, int user_id){
             return;
         }
 
-    const char *sql_insert_book = "INSERT INTO books(title, publication_year, genre, isbn, author_id) VALUES (?, ?, ?, ?, ?);";
+    // Insert the new book into the database
+    const char *sql_insert_book = "INSERT INTO books(title, publication_year, genre, isbn, author_id) VALUES (?, ?, ?, ?, ?);"; // SQL query to insert a new book
     sqlite3_stmt *stmt_insert_book;
     sqlite3_prepare_v2(db, sql_insert_book, -1, &stmt_insert_book, 0);
-    sqlite3_bind_text(stmt_insert_book, 1, title, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt_insert_book, 1, title, -1, SQLITE_STATIC);       // substitute ? with the title
     sqlite3_bind_int(stmt_insert_book, 2, publication_year);
     sqlite3_bind_text(stmt_insert_book, 3, genre, -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt_insert_book, 4, isbn, -1, SQLITE_STATIC);
@@ -477,9 +498,7 @@ void rentNewBook(sqlite3* db, int title_id, int user_id){
     
     if(sqlite3_step(stmt_insert) == SQLITE_DONE) {
         printf("Book rented successfully!\n");
-    } else {
-        printf("Error renting book: %s\n", sqlite3_errmsg(db));
-    }
+    } else printf("Error renting book: %s\n", sqlite3_errmsg(db));
     
     sqlite3_finalize(stmt_insert);
     
@@ -505,6 +524,7 @@ void searchBookScreen(sqlite3* db, int user_id){
     printf("| Please select an option     |\n");
     printf("| 1. Search by title          |\n");
     printf("| 2. Search by author         |\n");
+    printf("| 3. Go back to the profile   |\n");
     printf("+-----------------------------+\n");
     printf("--> ");
     int choice;
@@ -519,6 +539,9 @@ void searchBookScreen(sqlite3* db, int user_id){
         break;
     case 2:
         searchByAuthor(db, user_id);
+        break;
+    case 3:
+        profileScreen(db, user_id);
         break;
     default:
         printf("Invalid choice. Please try again.\n");
@@ -632,11 +655,7 @@ void searchByTitle(sqlite3* db, int user_id){
             searchByTitle(db, user_id);
             break;
         }
-    } else {
-        printf("| No details found for the book with title: %s\n", title);
-        printf("+--------------------------------\n");
     }
-
 }
 
 // +==================================================+
@@ -728,6 +747,12 @@ void searchByAuthor(sqlite3 *db, int user_id){
         printf("+--------------------------+\n");
     }
 
-    sqlite3_finalize(stmt_author);
 
+    printf("\nPress Enter to go back...");
+    getchar(); // consume leftover newline
+    getchar(); // wait for user input
+
+
+    sqlite3_finalize(stmt_author);
+    profileScreen(db, user_id);
 }
