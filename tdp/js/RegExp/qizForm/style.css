@@ -5,32 +5,40 @@
 body {
 	margin: 0;
 	font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
-	background: linear-gradient(180deg, #ffeaf4 0%, #fff6fb 100%);
+	background: radial-gradient(circle at top left, #ffe7f5 0%, #fff6fb 45%, #fdfcff 100%);
 	color: #5a2a43;
 	line-height: 1.5;
 }
 
 .quiz-container {
 	width: min(92%, 760px);
-	margin: 40px auto;
-	padding: 28px;
+	margin: 36px auto 20px;
+	padding: 30px;
 	background: #fff;
-	border: 1px solid #ffd3e6;
-	border-radius: 16px;
-	box-shadow: 0 10px 28px rgba(214, 51, 132, 0.14);
+	border: 1px solid #ffc6e2;
+	border-radius: 18px;
+	box-shadow: 0 14px 34px rgba(214, 51, 132, 0.16);
 }
 
 h1 {
 	margin: 0 0 8px;
-	font-size: 1.9rem;
+	font-size: 30px;
 	color: #c22578;
 	letter-spacing: 0.4px;
 }
 
 h2 {
-	margin: 26px 0 8px;
-	font-size: 1.2rem;
+	margin: 32px 0 8px;
+	font-size: 22px;
 	color: #b03074;
+	padding-top: 12px;
+	border-top: 2px solid #ffd6e7;
+}
+
+h2:first-of-type {
+	margin-top: 20px;
+	padding-top: 0;
+	border-top: none;
 }
 
 hr {
@@ -54,7 +62,7 @@ input[type="email"] {
 	border: 1px solid #f3b7d1;
 	border-radius: 10px;
 	background: #fff;
-	font-size: 0.95rem;
+	font-size: 15px;
 	transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -69,23 +77,50 @@ p {
 	margin: 10px 0 6px;
 }
 
+/* Stile per le domande del quiz */
+.quiz-container > p:nth-of-type(n+2) {
+	margin-top: 24px;
+	margin-bottom: 10px;
+	padding: 10px 12px;
+	background: #fff1f8;
+	border: 1px solid #ffd8ea;
+	border-radius: 10px;
+	font-weight: 600;
+	color: #933d68;
+	font-size: 17px;
+}
+
+/* Stili per le opzioni radio */
+input[type="radio"] {
+	margin: 9px 8px 9px 14px;
+	cursor: pointer;
+	accent-color: #e84393;
+}
+
+
 #error-name,
-#error-email,
+#error-class,
 #error-question1,
 #error-question2,
 #error-question3,
 #button-error {
 	min-height: 18px;
 	margin: 4px 0 10px;
+	padding: 0;
+	background: transparent;
+	border: none;
+	border-radius: 0;
 	color: #d63384;
-	font-size: 0.9rem;
+	font-size: 14px;
+	font-weight: 600;
 }
 
 button {
-	display: inline-block;
-	width: 700px;
-	margin-top: 20px;
-	padding: 12px 32px;
+	display: block;
+	width: 100%;
+	max-width: 420px;
+	margin: 30px auto 14px;
+	padding: 14px 32px;
 	background: linear-gradient(135deg, #e84393 0%, #d63384 100%);
 	color: #fff;
 	border: none;
@@ -99,7 +134,7 @@ button {
 
 button:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 6px 18px rgba(230, 67, 147, 0.4);
+	box-shadow: 0 8px 20px rgba(230, 67, 147, 0.42);
 }
 
 button:active {
@@ -112,16 +147,58 @@ button:focus {
 	box-shadow: 0 0 0 3px rgba(231, 84, 167, 0.3);
 }
 
-@media (max-width: 640px) {
-	.quiz-container {
-		margin: 20px auto;
-		padding: 18px;
-		border-radius: 10px;
-	}
-
-	h1 {
-		font-size: 1.6rem;
-	}
+.form-inviato {
+	width: min(92%, 760px);
+	margin: 0 auto 34px;
+	padding: 22px;
+	background: #fff;
+	border: 1px solid #ffd3e6;
+	border-radius: 14px;
+	box-shadow: 0 8px 24px rgba(214, 51, 132, 0.12);
 }
 
+.form-inviato h2 {
+	margin: 0 0 10px;
+	padding-top: 0;
+	border-top: none;
+	color: #c22578;
+}
 
+.form-inviato hr {
+	margin: 14px 0;
+}
+
+#form-inviato {
+	margin: 0;
+}
+
+#form-inviato p {
+	margin: 10px 0;
+	padding: 10px 12px;
+	background: #fff6fb;
+	border: 1px solid #ffe0ee;
+	border-radius: 8px;
+}
+/* Stile per il riepilogo del form */
+#form-inviato {
+	width: min(92%, 760px);
+	margin: 20px auto 40px;
+	padding: 24px;
+	background: #fff;
+	border: 1px solid #ffd3e6;
+	border-radius: 12px;
+	box-shadow: 0 6px 18px rgba(214, 51, 132, 0.1);
+}
+
+#form-inviato h2 {
+	color: #c22578;
+	margin-top: 0;
+	border-top: none;
+	padding-top: 0;
+}
+
+#form-inviato p {
+	font-size: 16px;
+	color: #5a2a43;
+	margin: 12px 0;
+}
