@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz</h1>
+        <p>Benvenuto nel quiz! Rispondi correttamente alle domande: </p>
+
+        <h2>Informazioni personali</h2>
+        <hr>
+        <label for="name">Inserisci nome e cognome: </label>
+        <input type="text" id="name" name="name" required>
+        <p id="error-name"></p>
+
+        <label for="email">Inserisci la tua classe: </label>
+        <input type="text" id="class" name="classe" required>
+        <p id="error-class"></p>
+
+        <h2>Domande</h2>
+        <hr>
+        <p>1. Qual è la capitale della Francia?</p>
+        <input type="radio" id="madrid" name="question1" value="Madrid">
+        <label for="madrid">Madrid</label><br>
+        <input type="radio" id="berlin" name="question1" value="Berlino">
+        <label for="berlin">Berlino</label><br>
+        <input type="radio" id="paris" name="question1" value="Parigi">
+        <label for="paris">Parigi</label><br>
+        <input type="radio" id="rome" name="question1" value="Roma">
+        <label for="rome">Roma</label><br>
+        <p id="error-question1"></p>
+
+        <p>2. Quale pianeta è conosciuto come il Pianeta Rosso?</p>
+        <input type="radio" id="marte" name="question2" value="Marte">
+        <label for="marte">Marte</label><br>
+        <input type="radio" id="venere" name="question2" value="Venere">
+        <label for="venere">Venere</label><br>
+        <input type="radio" id="giove" name="question2" value="Giove">
+        <label for="giove">Giove</label><br>
+        <input type="radio" id="saturno" name="question2" value="Saturno">
+        <label for="saturno">Saturno</label><br>
+        <p id="error-question2"></p>
+
+        <p>3. Quando fa 5 x 6?</p>
+        <input type="radio" id="25" name="question3" value="25">
+        <label for="25">25</label><br>
+        <input type="radio" id="30" name="question3" value="30">
+        <label for="30">30</label><br>
+        <input type="radio" id="35" name="question3" value="35">
+        <label for="35">35</label><br>
+        <input type="radio" id="40" name="question3" value="40">
+        <label for="40">40</label><br>
+        <p id="error-question3"></p>
+
+
+        <button>Invia</button>
+        <p id="button-error"></p>
+    </div>
+    <hr>
+    <div class="form-inviato">
+            <h2>Riepilogo degli invii del form: </h2>
+            <p id="form-inviato"></p>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

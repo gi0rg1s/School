@@ -12,7 +12,7 @@
     <h1>Modulo organizzazione</h1>
     <div id="container">
 
-        <h2>Credenziali</h2>
+        <h2>Credenziali: </h2>
         <label for="username" id="username-label">Nome utente: </label>
         <input type="text" id="username" name="username" required>
         <p id="username-error"></p>
@@ -21,7 +21,7 @@
         <input type="password" id="password" name="password" required>
         <p id="password-error"></p>
 
-        <h2>Contatti</h2>
+        <h2>Contatti: </h2>
         <label for="phone" id="phone-label">Numero di telefono</label>
         <input type="text" id="phone" name="phone" required>
         <p id="phone-error"></p>
@@ -30,13 +30,33 @@
         <input type="text" id="sito" name="sito" required>
         <p id="sito-error"></p>
         
-        <h2>Dettagli organizzazione</h2>
+        <h2>Dettagli organizzazione: </h2>
         <label for="nome" id="nome-label">Nome dell'ente o azienda richiedentte: </label>
-        <input type="text" id="phone" name="phone" required>
-        <p id="phone-error"></p>
+        <input type="text" id="nome" name="nome" required>
+        <p id="business-name-error"></p>
 
+        <h2>Ambito di consulenza: </h2>
+        <label for="ambito" id="ambito-label">Ambito di consulenza: </label>
+        <select id="ambito" name="ambito" required>
+            <option value="">Seleziona un ambito</option>
+            <option value="ambito1">Linux</option>
+            <option value="ambito2">Windows</option>
+            <option value="ambito3">Android</option>
+            <option value="ambito4">Database</option>
+        </select>
+        <p id="ambito-error"></p>
+
+        <h2>Temppistiche: </h2>
+        <input type="date" id="data" name="data" required>
+        <p id="data-error"></p>
+
+
+        <button id="submit">Invia Form</button>
+        <p id="invia-form"></p>
     </div>
 
+    <h3>Riepilogo richiesta</h3>
+    <p id="riepilogo"></p>
 </body>
 
     <script src="script.js"></script>
