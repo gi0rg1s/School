@@ -6,9 +6,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Current File",
+            "name": "Run TorneoWinxLoader (JavaFX)",
             "request": "launch",
-            "mainClass": "",
+            "mainClass": "TorneoWinxLoader",
             "vmArgs": "--module-path \"C:/javafx-sdk-25.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]

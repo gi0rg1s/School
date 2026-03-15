@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.TilePane?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TorneoWinxFXML">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TorneoWinxController">
    <bottom>
       <Button fx:id="close_btn" mnemonicParsing="false" onAction="#close_stage" text="Chiudi" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -16,9 +16,9 @@
       </Button>
    </bottom>
    <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <TilePane fx:id="winxContainer" prefHeight="200.0" prefWidth="200.0" />
+            <TilePane fx:id="winxContainer" hgap="12.0" prefColumns="3" prefHeight="200.0" prefWidth="200.0" vgap="12.0" />
          </content>
       </ScrollPane>
    </center>

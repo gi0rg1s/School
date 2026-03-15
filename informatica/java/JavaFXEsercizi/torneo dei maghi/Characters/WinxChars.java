@@ -1,5 +1,4 @@
 package Characters;
-
 import java.util.ArrayList;
 
 public class WinxChars {
