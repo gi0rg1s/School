@@ -5,8 +5,8 @@ public class Trix extends Fata {
     public static String[] possibleTransformations = {"Darkarix", "Darkarix Sirenix", "Darkarix Bloomix", "Darkarix Mythix", "Darkarix Butterflix", "Darkarix Tynix", "Darkarix Cosmix"};
     protected String transformation;
 
-    public Trix(String nome, String type, int hp, int mana, int potenzaMagica, int difesaMagica, int speed, String transformation) {
-        super(nome, type, hp, mana, potenzaMagica, difesaMagica, speed);
+    public Trix(String nome, String type, String transformation) {
+        super(nome, type);
         this.transformation = transformation;
     }
 

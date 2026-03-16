@@ -20,8 +20,8 @@ public class TorneoWinxLoader extends Application {
         // Estraggo il controller e passo i maghi
         TorneoWinxController controller = loader.getController();
         controller.initialize(winxChars);
-        
-        stage.setTitle("Arena dei Maghi");
+
+        stage.setTitle("Alfea");
         stage.setScene(new Scene(root, 620, 420));
         stage.show();
     }

@@ -6,8 +6,8 @@ public class Winx extends Fata {
 
 
     protected String tranformation;
-    public Winx(String nome, String type, int hp, int mana, int potenzaMagica, int difesaMagica, int speed, String tranformation) {
-        super(nome, type, hp, mana, potenzaMagica, difesaMagica, speed);
+    public Winx(String nome, String type, String tranformation) {
+        super(nome, type);
         this.tranformation = tranformation;
     }
 

@@ -5,6 +5,8 @@ public abstract class Fata {
     protected String nome;
     protected String type;
 
+    protected int hpMax;
+    protected int manaMax;
     protected int hp;
     protected int mana;
     protected int potenzaMagica;
@@ -12,14 +14,16 @@ public abstract class Fata {
     protected int speed;
 
 //constructor
-    public Fata(String nome, String type, int hp, int mana, int potenzaMagica, int difesaMagica, int speed) {
+    public Fata(String nome, String type) {
         this.nome = nome;
         this.type = type;
-        this.hp = hp;
-        this.mana = mana;
-        this.potenzaMagica = potenzaMagica;
-        this.difesaMagica = difesaMagica;
-        this.speed = speed;
+        this.hpMax = this.hp = (int) (Math.random() * 20) + 40;
+        this.manaMax = (int) (Math.random() * 20) + 20;
+        this.mana = this.manaMax;
+        this.hp = this.hpMax;
+        this.potenzaMagica = (int) (Math.random() * 20) + 50;
+        this.difesaMagica = (int) (Math.random() * 20) + 50;
+        this.speed = (int) (Math.random() * 20) + speed;
     }
 
 //getters
@@ -43,6 +47,12 @@ public abstract class Fata {
     }
     public int getSpeed() {
         return speed;
+    }
+    public int getHpMax() {
+        return hpMax;
+    }
+    public int getManaMax() {
+        return manaMax;
     }
 
 //setters
