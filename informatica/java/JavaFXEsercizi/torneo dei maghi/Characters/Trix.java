@@ -1,23 +1,11 @@
 package Characters;
 
+import java.util.ArrayList;
+
 public class Trix extends Fata {
 
-    public static String[] possibleTransformations = {"Darkarix", "Darkarix Sirenix", "Darkarix Bloomix", "Darkarix Mythix", "Darkarix Butterflix", "Darkarix Tynix", "Darkarix Cosmix"};
-    protected String transformation;
-
-    public Trix(String nome, String type, String transformation) {
-        super(nome, type);
-        this.transformation = transformation;
-    }
-
-    //getters
-    public String getTransformation() {
-        return transformation;
-    }
-
-    //setters
-    public void chooseTransformation(int t) {
-        this.transformation = possibleTransformations[t];
+    public Trix(String nome, String type, ArrayList<Incantesimo> incantesimi) {
+        super(nome, type, incantesimi);
     }
 
     @Override
@@ -30,7 +18,7 @@ public class Trix extends Fata {
                 ", potenzaMagica=" + potenzaMagica +
                 ", difesaMagica=" + difesaMagica +
                 ", speed=" + speed +
-                ", transformation=" + transformation +
+                ", incantesimi=" + incantesimi +
                 '}';
     }
     

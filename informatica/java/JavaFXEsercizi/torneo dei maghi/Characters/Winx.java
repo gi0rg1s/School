@@ -1,24 +1,10 @@
 package Characters;
+import java.util.ArrayList;
 
 public class Winx extends Fata {
 
-    public static String[] possibleTransformations = {"Magic Winx", "Charmix", "Enchantix", "Believix", "Sirenix", "Bloomix", "Mythix", "Butterflix", "Tynix", "Cosmix"};
-
-
-    protected String tranformation;
-    public Winx(String nome, String type, String tranformation) {
-        super(nome, type);
-        this.tranformation = tranformation;
-    }
-
-    //getters
-    public String getTranformation() {
-        return tranformation;
-    }
-
-    //setters
-    public void chooseTransformation(int t) {
-        this.tranformation = possibleTransformations[t];
+    public Winx(String nome, String type, ArrayList<Incantesimo> incantesimi) {
+        super(nome, type, incantesimi);
     }
 
     @Override
@@ -31,7 +17,7 @@ public class Winx extends Fata {
                 ", potenzaMagica=" + potenzaMagica +
                 ", difesaMagica=" + difesaMagica +
                 ", speed=" + speed +
-                ", transformations=" + tranformation +
+                ", incantesimi=" + incantesimi +
                 '}';
     }
     
