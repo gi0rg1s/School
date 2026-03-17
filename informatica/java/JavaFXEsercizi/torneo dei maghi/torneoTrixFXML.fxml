@@ -25,7 +25,7 @@
    <bottom>
       <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="selectedButton" disable="true" mnemonicParsing="false" text="Combatti" />
+            <Button fx:id="selectedButton" disable="true" mnemonicParsing="false" onAction="#onSelectedButtonClicked" text="Combatti" />
             <Button fx:id="close_btn" mnemonicParsing="false" onAction="#close_stage" text="Chiudi" />
          </children>
          <BorderPane.margin>

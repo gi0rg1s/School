@@ -1,15 +1,21 @@
+import java.io.IOException;
+
 import Characters.Trix;
 import Characters.Winx;
 import Characters.TrixChars;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class TrixController {
     private static final String CARD_DEFAULT_STYLE = "-fx-border-color: #333; -fx-border-width: 1; -fx-background-color: #f0f0f0;";
@@ -20,6 +26,23 @@ public class TrixController {
 
     @FXML
     private Button selectedButton;
+
+    @FXML
+    public void onSelectedButtonClicked(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("gameFXML.fxml"));
+        Parent root = loader.load();
+
+        GameController gameController = new GameController();
+        gameController = loader.getController();
+
+        gameController.initialize(selectedWinx, selectedTrix);
+
+        Stage stage = (Stage) selectedButton.getScene().getWindow();
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     private TilePane trixContainer;
@@ -88,16 +111,15 @@ public class TrixController {
 
             //on clock select the card and enable the button
             block.setOnMouseClicked(event -> onTrixSelected(t, block));
-    }
-}
-
-public void onTrixSelected(Trix t, VBox card) {
-        if (selectedCard != null) selectedCard.setStyle(CARD_DEFAULT_STYLE);
-        selectedCard = card;
-        selectedCard.setStyle(CARD_SELECTED_STYLE);
-        selectedTrix = t;
-        System.out.println("Selected Trix: " + selectedTrix.getNome());
-        selectedButton.setDisable(false);
+        }
     }
 
+    public void onTrixSelected(Trix t, VBox card) {
+            if (selectedCard != null) selectedCard.setStyle(CARD_DEFAULT_STYLE);
+            selectedCard = card;
+            selectedCard.setStyle(CARD_SELECTED_STYLE);
+            selectedTrix = t;
+            System.out.println("Selected Trix: " + selectedTrix.getNome());
+            selectedButton.setDisable(false);
+    }
 }
