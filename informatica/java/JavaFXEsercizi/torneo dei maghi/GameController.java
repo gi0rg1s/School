@@ -102,6 +102,7 @@ public class GameController {
     }
 
     private void endFight() {
+        updateStatsLabel();
         if (selectedWinx.getHp() <= 0 && selectedTrix.getHp() <= 0) {
             txt_label.setText("Pareggio");
         } else if (selectedWinx.getHp() <= 0) {
@@ -112,6 +113,7 @@ public class GameController {
 
         attack_btn.setDisable(true);
         cura_btn.setDisable(true);
+        rest_btn.setDisable(true);
     }
     
     //set status labels
