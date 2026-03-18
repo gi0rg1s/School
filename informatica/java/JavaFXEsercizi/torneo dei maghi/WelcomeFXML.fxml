@@ -21,6 +21,7 @@
             <Label style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #ffffff;" text="Benvenuta ad Alfea!" />
             <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #fff6fb;" text="Inizia il torneo delle maghe" />
             <Button mnemonicParsing="false" onAction="#onStartClicked" style="-fx-background-color: #f585d8; -fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 10 24;" text="Vai alla scelta Winx" />
+            <Button mnemonicParsing="false" onAction="#onAllVsAllClicked" style="-fx-background-color: #3c52d9; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 10 24;" text="Modalità tutti contro tutti" />
          </children>
          <padding>
             <Insets bottom="28.0" left="34.0" right="34.0" top="28.0" />
