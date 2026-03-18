@@ -1,13 +1,16 @@
-import javafx.event.ActionEvent;
+import Characters.Fata;
+import Characters.Trix;
+import Characters.Winx;
+
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import Characters.Fata;
-import Characters.Trix;
-import Characters.Winx;
 
 public class GameController {
 
@@ -18,7 +21,13 @@ public class GameController {
     private Button cura_btn;
 
     @FXML
+    private Button rest_btn;
+
+    @FXML
     private Label txt_label;
+
+    @FXML
+    private VBox statsContainer;
 
     @FXML
     private ImageView trix_img;
@@ -35,23 +44,34 @@ public class GameController {
         if (this.selectedWinx != null) System.out.println("Winx ricevuta: " + this.selectedWinx.getNome());
         if (this.selectedTrix != null) System.out.println("Trix ricevuta: " + this.selectedTrix.getNome());
 
-        // set imgs
-         winx_img.setImage(new Image(getClass().getResourceAsStream("/sprites/" + selectedWinx.getNome() + ".png")));
+        // Set images
+        winx_img.setImage(new Image(getClass().getResourceAsStream("/sprites/" + selectedWinx.getNome() + ".png")));
         trix_img.setImage(new Image(getClass().getResourceAsStream("/sprites/" + selectedTrix.getNome() + ".png")));
-        
+
+        attack_btn.setStyle("-fx-background-color: #ff72b4; -fx-text-fill: #2e2e2e; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;");
+        cura_btn.setStyle("-fx-background-color: #ff94c7; -fx-text-fill: #2e2e2e; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;");
+        rest_btn.setStyle("-fx-background-color: #ffc4df; -fx-text-fill: #2e2e2e; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;");
+        txt_label.setStyle("-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #2e2e2e; -fx-padding: 12;");
+
         updateStatsLabel();
         txt_label.setText("Turno Winx: scegli un'azione");
 
         // match buttons actions
         //attack button: Winx attacks and calls afterPlayerAction to let Trix play
         attack_btn.setOnAction(e -> {
-            attack(e, selectedWinx, selectedTrix);
+            attack(selectedWinx, selectedTrix);
             afterPlayerAction();
         });
 
         //cura button: Winx heals and calls afterPlayerAction to let Trix play
         cura_btn.setOnAction(e -> {
-            cura(e, selectedWinx);
+            cura(selectedWinx);
+            afterPlayerAction();
+        });
+
+        //rest button: Winx rests and calls afterPlayerAction to let Trix play
+        rest_btn.setOnAction(e -> {
+            rest(selectedWinx);
             afterPlayerAction();
         });
     }
@@ -63,14 +83,17 @@ public class GameController {
         }
 
         txt_label.setText("Turno Trix: " + selectedTrix.getNome() + " sta pensando...");
-        // Trix AI: heal at low HP, otherwise attack.
-        if (selectedTrix.getHp() < (selectedTrix.getHpMax() * 0.3)){
+
+        // Trix AI: heal at low HP, otherwise attack
+        if (selectedTrix.getHp() < (selectedTrix.getHpMax() * 0.3)) {
             txt_label.setText("Turno Trix: " + selectedTrix.getNome() + " si sta curando...");
-            cura(null, selectedTrix);
-        }
-        else{
+            cura(selectedTrix);
+        } else if(selectedTrix.getMana() < (selectedTrix.getManaMax() * 0.2)) {
+            txt_label.setText("Turno Trix: " + selectedTrix.getNome() + " si sta riposando...");
+            rest(selectedTrix);
+        }else {
             txt_label.setText("Turno Trix: " + selectedTrix.getNome() + " ti sta attaccando...");
-            attack(null, selectedTrix, selectedWinx);
+            attack(selectedTrix, selectedWinx);
         }
 
         updateStatsLabel();
@@ -79,9 +102,13 @@ public class GameController {
     }
 
     private void endFight() {
-        if (selectedWinx.getHp() <= 0 && selectedTrix.getHp() <= 0) txt_label.setText("Pareggio");
-        else if (selectedWinx.getHp() <= 0) txt_label.setText("Hai perso");
-        else txt_label.setText("Hai vinto");
+        if (selectedWinx.getHp() <= 0 && selectedTrix.getHp() <= 0) {
+            txt_label.setText("Pareggio");
+        } else if (selectedWinx.getHp() <= 0) {
+            txt_label.setText("Hai perso");
+        } else {
+            txt_label.setText("Hai vinto");
+        }
 
         attack_btn.setDisable(true);
         cura_btn.setDisable(true);
@@ -89,20 +116,64 @@ public class GameController {
     
     //set status labels
     private void updateStatsLabel() {
-        Label winx_lbl = new Label(selectedWinx.getNome() + " - HP: " + selectedWinx.getHp() + "/" + selectedWinx.getHpMax() + " - MAG: " + selectedWinx.getPotenzaMagica());
-        Label trix_lbl = new Label(selectedTrix.getNome() + " - HP: " + selectedTrix.getHp() + "/" + selectedTrix.getHpMax() + " - MAG: " + selectedTrix.getPotenzaMagica());
-        txt_label.setGraphic(new VBox(winx_lbl, trix_lbl));
+        // Winx stats
+        VBox winxStats = new VBox(5);
+        winxStats.setAlignment(Pos.CENTER);
+        winxStats.setStyle("-fx-background-color: #fff1f8; -fx-background-radius: 8; -fx-padding: 8;");
+        Label winxTitle = new Label("Winx: " + selectedWinx.getNome());
+        winxTitle.setStyle("-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #d10078;");
+        winxStats.getChildren().addAll(
+            winxTitle,
+            new Label("HP: " + selectedWinx.getHp() + "/" + selectedWinx.getHpMax()),
+            new Label("Potenza Magica: " + selectedWinx.getPotenzaMagica()),
+            new Label("Mana: " + selectedWinx.getMana() + "/" + selectedWinx.getManaMax())
+        );
+
+        // Trix stats
+        VBox trixStats = new VBox(5);
+        trixStats.setAlignment(Pos.CENTER);
+        trixStats.setStyle("-fx-background-color: #eaf1ff; -fx-background-radius: 8; -fx-padding: 8;");
+        Label trixTitle = new Label("Trix: " + selectedTrix.getNome());
+        trixTitle.setStyle("-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #3c52d9;");
+        trixStats.getChildren().addAll(
+            trixTitle,
+            new Label("HP: " + selectedTrix.getHp() + "/" + selectedTrix.getHpMax()),
+            new Label("Potenza Magica: " + selectedTrix.getPotenzaMagica()),
+            new Label("Mana: " + selectedTrix.getMana() + "/" + selectedTrix.getManaMax())
+        );
+
+        // Stats row
+        HBox statsRow = new HBox(20);
+        statsRow.setAlignment(Pos.CENTER);
+        statsRow.setPadding(new Insets(10));
+        statsRow.setStyle("-fx-border-color: #ffc2dd; -fx-border-width: 1; -fx-background-color: #fff1f8; -fx-background-radius: 10; -fx-border-radius: 10;");
+        statsRow.getChildren().addAll(winxStats, trixStats);
+
+        // Images row
+        HBox imagesRow = new HBox(20);
+        imagesRow.setAlignment(Pos.CENTER);
+        imagesRow.setPadding(new Insets(10));
+        imagesRow.getChildren().addAll(winx_img, trix_img);
+
+        // Put everything into the dedicated statsContainer (NOT txt_label)
+        statsContainer.getChildren().setAll(statsRow, imagesRow);
     }
 
     //attack methods
-    public void attack(ActionEvent event, Fata caster, Fata target) {
+    public void attack(Fata caster, Fata target) {
         // Fata attacks the other fata with first incantesimo
         caster.castIncantesimo(caster.getIncantesimi().get(0), target);
     }
 
     //heal method
-    public void cura(ActionEvent event, Fata caster) {
+    public void cura(Fata caster) {
         // Fata heals herself with second incantesimo
-        caster.castIncantesimo(caster.getIncantesimi().get(1), caster);
+        caster.castIncantesimo(caster.getIncantesimi().get(1), null);
+    }
+
+    //rest method
+    public void rest(Fata caster) {
+        // Fata rests and recovers some HP
+        caster.rest();
     }
 }

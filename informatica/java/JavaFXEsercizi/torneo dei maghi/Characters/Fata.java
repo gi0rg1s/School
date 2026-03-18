@@ -120,6 +120,11 @@ public abstract class Fata {
         
     }
 
+    public void rest() {
+        setMana(getMana() + 5); // Fata recovers 5 Mana when resting
+        if(getMana() > getManaMax()) setMana(getManaMax());
+    }
+
 //to string
     public abstract String toString();
 }

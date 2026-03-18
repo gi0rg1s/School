@@ -19,9 +19,9 @@ import javafx.scene.image.ImageView;
 
 public class TorneoWinxController {
 
-    private static final String CARD_DEFAULT_STYLE = "-fx-border-color: #333; -fx-border-width: 1; -fx-background-color: #f0f0f0;";
-    private static final String CARD_SELECTED_STYLE = "-fx-border-color: #ff0090; -fx-border-width: 2; -fx-background-color: #fff2fa;";
-
+    private static final String CARD_DEFAULT_STYLE = "-fx-border-color: #f5a3c7; -fx-border-width: 1; -fx-background-color: #fff7fb; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-color: #2e2e2e;";
+    private static final String CARD_SELECTED_STYLE = "-fx-border-color: #ff4fa3; -fx-border-width: 2; -fx-background-color: #ffe6f3; -fx-background-radius: 10; -fx-border-radius: 10; -fx-text-color: #2e2e2e;";
+    
     @FXML
     private Button close_btn;
 
@@ -87,7 +87,7 @@ public class TorneoWinxController {
             
             // VBox for the winx attributes
             VBox attributes = new VBox(5);
-            attributes.getChildren().addAll(
+            for (Label lbl : new Label[] {
                 new Label("Nome: " + w.getNome()),
                 new Label(w.getType()),
                 new Label("HP: " + w.getHp() + "/" + w.getHp()),
@@ -95,7 +95,10 @@ public class TorneoWinxController {
                 new Label("Potenza Magica: " + w.getPotenzaMagica()),
                 new Label("Difesa: " + w.getDifesaMagica()),
                 new Label("Velocità: " + w.getSpeed())
-            );
+            }) {
+                lbl.setStyle("-fx-text-fill: black;");
+                attributes.getChildren().add(lbl);
+            }
             
             // add image and attributes to the card
             block.getChildren().addAll(image, attributes);
