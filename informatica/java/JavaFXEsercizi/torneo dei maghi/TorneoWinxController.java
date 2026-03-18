@@ -120,8 +120,6 @@ public class TorneoWinxController {
 
         selectedCard.setStyle(CARD_SELECTED_STYLE);
         selectedButton.setDisable(false);
-        System.out.println("Selected Winx: " + selectedWinx.getNome());
-
     }
 }
 

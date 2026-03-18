@@ -41,9 +41,7 @@ public class GameController {
     public void initialize(Winx selectedWinx, Trix selectedTrix) {
         this.selectedWinx = selectedWinx;
         this.selectedTrix = selectedTrix;
-        if (this.selectedWinx != null) System.out.println("Winx ricevuta: " + this.selectedWinx.getNome());
-        if (this.selectedTrix != null) System.out.println("Trix ricevuta: " + this.selectedTrix.getNome());
-
+    
         // Set images
         winx_img.setImage(new Image(getClass().getResourceAsStream("/sprites/" + selectedWinx.getNome() + ".png")));
         trix_img.setImage(new Image(getClass().getResourceAsStream("/sprites/" + selectedTrix.getNome() + ".png")));

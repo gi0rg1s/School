@@ -58,7 +58,6 @@ public class TrixController {
 
 	public void initialize(Winx selectedWinx, TrixChars trixChars) {
         this.selectedWinx = selectedWinx;
-        if (this.selectedWinx != null) System.out.println("Winx ricevuta: " + this.selectedWinx.getNome());
         
         selectedButton.setDisable(true);
 
@@ -122,7 +121,6 @@ public class TrixController {
             selectedCard = card;
             selectedCard.setStyle(CARD_SELECTED_STYLE);
             selectedTrix = t;
-            System.out.println("Selected Trix: " + selectedTrix.getNome());
             selectedButton.setDisable(false);
     }
 }
