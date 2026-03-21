@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<StackPane prefHeight="420.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeController">
+   <children>
+      <ImageView fitHeight="420.0" fitWidth="620.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@sprites/Alfea.jpeg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" spacing="16.0" StackPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #ffffff;" text="Benvenuta ad Alfea!" />
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #fff6fb;" text="Inizia il torneo delle maghe" />
+            <Button mnemonicParsing="false" onAction="#onStartClicked" style="-fx-background-color: #f585d8; -fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 10 24;" text="Vai alla scelta Winx" />
+            <Button mnemonicParsing="false" onAction="#onAllVsAllClicked" style="-fx-background-color: #3c52d9; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 10 24;" text="Modalità tutti contro tutti" />
+         </children>
+         <padding>
+            <Insets bottom="28.0" left="34.0" right="34.0" top="28.0" />
+         </padding>
+      </VBox>
+   </children>
+</StackPane>
