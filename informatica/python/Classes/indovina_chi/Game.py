@@ -58,13 +58,12 @@ class Game:
         if ans.lower().strip() == self.personaggio_segreto.nome.lower():
             print("Corretto! Hai indovinato il personaggio!")
             return True
-        else:
-            print("Hai sbagliato!")
-            return False
+        
+        print("Hai sbagliato!")
+        return False
 
     def play(self):
         self.scegli_personaggio()
-        print(self.personaggio_segreto.nome)  # DEBUG
         var = True
         while var:
             if self.next_question():
