@@ -1,40 +1,49 @@
 from abc import ABC, abstractmethod
 
 class ContoBancario(ABC):
+    def __init__(self, saldo):
+        self.saldo = saldo
+
     @abstractmethod
-    def deposita(self):
-        pass
+    def deposita(self, n): pass
     
     @abstractmethod
-    def preleva(self):
-        pass
+    def preleva(self, n): pass
+        
     
     @abstractmethod
     def saldo(self):
         pass
 
 class ContoCorrente(ContoBancario):
-    def deposita(self):
-        return "Hai depositato nel conto corrente"
+    def __init__(self, saldo):
+        super().__init__(saldo)
+
+    def deposita(self, n):
+        self.saldo += n
     
-    def preleva(self):
-        return "Hai prelevato dal conto corrente"
+    def preleva(self, n):
+        if(n > self.saldo): return (f"non hai abbastanza saldo per prelevare {n}€ dal conto corrente")
     
     def saldo(self):
-        return "Hai 1000€ sul tuo conto corrente"
+        return (f"Hai {self.saldo}€ sul tuo conto corrente")
     
 class ContoDiRisparmio(ContoBancario):
-    def deposita(self):
-        return "Hai depositato nel conto di risparmio"
+    def __init__(self, saldo, prelievi_mensili):
+        super().__init__(saldo)
+        self.prelievi_mensili = prelievi_mensili
+
+    def deposita(self, n):
+        self.saldo += n
     
-    def preleva(self):
-        return "Hai prelevato dal conto di risparmio"
+    def preleva(self, n):
+        if(n > self.saldo): return (f"non hai abbastanza saldo per prelevare {n}€ dal conto bancario")
     
     def saldo(self):
-        return "Hai 1000€ sul tuo conto di risparmio"
+        return (f"Hai {self.saldo}€ sul tuo conto bancario")
     
     def prelieviMensili(self):
-        return "Hai un limite di prelievi mensili pari a: 10"
+        return (f"Hai {self.prelievi_mensili} prelievi ancora a disposizione fino al prossimo mese")
 
 
 
