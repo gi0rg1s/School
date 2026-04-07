@@ -47,6 +47,7 @@ public class GameController {
     private boolean allVsAllMode = false;
     private boolean winxTurn = true;
 
+    // Initializes the 1v1 mode: sets selected characters, button styles, handlers, and starts with Winx action
     public void initialize(Winx selectedWinx, Trix selectedTrix) {
         allVsAllMode = false;
         this.selectedWinx = selectedWinx;
@@ -83,6 +84,7 @@ public class GameController {
         });
     }
 
+    // Initializes the all vs all mode: sets up the lists of characters, buttons, and starts with the first Winx action
     public void initializeAllVsAll(WinxChars winxChars, TrixChars trixChars) {
         allVsAllMode = true;
         winxTurn = true;
@@ -96,6 +98,7 @@ public class GameController {
         cura_btn.setDisable(false);
         rest_btn.setDisable(false);
 
+        // Set styles for all vs all mode
         attack_btn.setStyle("-fx-background-color: #ff72b4; -fx-text-fill: #2e2e2e; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;");
         cura_btn.setStyle("-fx-background-color: #ff94c7; -fx-text-fill: #2e2e2e; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;");
         rest_btn.setStyle("-fx-background-color: #ffc4df; -fx-text-fill: #2e2e2e; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;");
@@ -110,6 +113,7 @@ public class GameController {
         txt_label.setText("Modalita tutti contro tutti: turno Winx, scegli un'azione");
     }
 
+    //Button handlers for all vs all mode
     private void setupButtonsHandlers() {
         attack_btn.setOnAction(e -> {
             if (allVsAllMode) {
@@ -180,6 +184,7 @@ public class GameController {
 
         updateStatsLabel();
 
+        // After player action, check if fight is over before letting Trix play
         if (getAliveWinx().isEmpty() || getAliveTrix().isEmpty()) {
             endAllVsAllFight();
             return;
@@ -189,7 +194,9 @@ public class GameController {
         runAllVsAllTrixTurn();
     }
 
+    // Trix AI turn in all vs all mode: chooses action based on HP and mana, then lets player choose next Winx action
     private void runAllVsAllTrixTurn() {
+        // Check if fight is already over before letting Trix play
         if (getAliveWinx().isEmpty() || getAliveTrix().isEmpty()) {
             endAllVsAllFight();
             return;
@@ -203,7 +210,7 @@ public class GameController {
         }
 
         setCharacterImages(selectedWinx, selectedTrix);
-        applyAiAction(selectedTrix, selectedWinx, "Trix");
+        applyAiAction(selectedTrix, selectedWinx);
         updateStatsLabel();
 
         if (getAliveWinx().isEmpty() || getAliveTrix().isEmpty()) {
@@ -211,6 +218,7 @@ public class GameController {
             return;
         }
 
+        // After Trix plays, switch back to Winx turn and let player choose next action
         winxTurn = true;
         selectedWinx = chooseWinxWithHighestMana();
         selectedTrix = chooseTrixWithLowestHp();
@@ -244,19 +252,21 @@ public class GameController {
         if (selectedWinx.getHp() <= 0 || selectedTrix.getHp() <= 0) endFight();
     }
 
-    private void applyAiAction(Fata caster, Fata target, String teamName) {
+    // AI logic for all vs all mode: heal if low HP, rest if low mana, otherwise attack
+    private void applyAiAction(Fata caster, Fata target) {
         if (caster.getHp() < (caster.getHpMax() * 0.3)) {
-            txt_label.setText("Turno " + teamName + ": " + caster.getNome() + " si sta curando...");
+            txt_label.setText("Turno Trix: " + caster.getNome() + " si sta curando...");
             cura(caster);
         } else if (caster.getMana() < (caster.getManaMax() * 0.2)) {
-            txt_label.setText("Turno " + teamName + ": " + caster.getNome() + " si sta riposando...");
+            txt_label.setText("Turno Trix: " + caster.getNome() + " si sta riposando...");
             rest(caster);
         } else {
-            txt_label.setText("Turno " + teamName + ": " + caster.getNome() + " attacca " + target.getNome());
+            txt_label.setText("Turno Trix: " + caster.getNome() + " attacca " + target.getNome());
             attack(caster, target);
         }
     }
 
+    //helper methods for all vs all mode
     private ArrayList<Winx> getAliveWinx() {
         ArrayList<Winx> aliveWinx = new ArrayList<>();
         for (Winx w : allWinx) {
@@ -265,6 +275,7 @@ public class GameController {
         return aliveWinx;
     }
 
+    //helper method to get alive trix
     private ArrayList<Trix> getAliveTrix() {
         ArrayList<Trix> aliveTrix = new ArrayList<>();
         for (Trix t : allTrix) {
@@ -292,6 +303,7 @@ public class GameController {
         return bestTrix;
     }
 
+    // end all vs all fight
     private void endAllVsAllFight() {
 
         updateStatsLabel();
@@ -309,6 +321,7 @@ public class GameController {
         rest_btn.setDisable(true);
     }
 
+    // Set character images based on their names
     private void setCharacterImages(Winx winx, Trix trix) {
         if (winx != null) {
             winx_img.setImage(new Image(getClass().getResourceAsStream("/sprites/" + winx.getNome() + ".png")));
@@ -318,6 +331,7 @@ public class GameController {
         }
     }
 
+    // Ends the fight in 1v1 mode
     private void endFight() {
         updateStatsLabel();
         if (selectedWinx.getHp() <= 0 && selectedTrix.getHp() <= 0) {
@@ -381,7 +395,7 @@ public class GameController {
         imagesRow.setPadding(new Insets(10));
         imagesRow.getChildren().addAll(winx_img, trix_img);
 
-        // Put everything into the dedicated statsContainer (NOT txt_label)
+        // Put everything into the dedicated statsContainer
         statsContainer.getChildren().setAll(statsRow, imagesRow);
     }
 
