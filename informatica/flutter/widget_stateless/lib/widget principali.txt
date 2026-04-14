@@ -1,0 +1,54 @@
+Widget principali di flutter più usati, suddivisi per categoria:
+
+1. Widget per il Layout (Struttura)
+    Scaffold	La "struttura base" di una pagina (AppBar, Body, BottomNavigationBar, ecc.).
+    Container	Un box personalizzabile (padding, margini, bordi, colore, dimensioni).
+    Row / Column	Disposizione orizzontale (Row) o verticale (Column) di widget figli.
+    ListView	Lista scrollabile (verticale/orizzontale).
+    GridView	Griglia scrollabile con elementi organizzati in celle.
+    Stack	Sovrappone widget (es. testo su un'immagine).
+    Padding	Aggiunge spazio attorno a un widget.
+    Expanded	Occupa lo spazio disponibile in Row/Column.
+    SizedBox	Widget con dimensioni fisse (o spazio vuoto).
+2. Widget per il Testo e Input
+    Text	Visualizza testo semplice o formattato.
+    TextField	Campo di input per testo (con validazione, hint, ecc.).
+    RichText	Testo con stili multipli (es. parole in bold e italic).
+    TextButton / ElevatedButton / OutlinedButton	Pulsanti con stili diversi.
+3. Widget per la Navigazione
+    Navigator	Gestisce lo stack di pagine (push/pop).
+    MaterialPageRoute	Definisce una transizione tra pagine (con animazione predefinita).
+    BottomNavigationBar	Barra di navigazione inferiore (es. come in Instagram).
+    TabBar + TabView	Interfaccia a schede (tipo browser).
+4. Widget per Immagini e Icone
+    Image	Carica immagini da asset, rete o memoria (Image.asset(), Image.network()).
+    Icon	Mostra un'icona da Icons (Material Design) o CupertinoIcons.
+    CircleAvatar	Immagine circolare (utile per profili).
+    FadeInImage	Immagine con placeholder durante il caricamento.
+5. Widget per lo Stato (State Management)
+    StatefulWidget	Widget che può cambiare stato (es. contatore).
+    StatelessWidget	Widget immutabile (senza stato interno).
+    InheritedWidget	Condivide dati con widget discendenti (base per provider, bloc, ecc.).
+    ValueListenableBuilder	Ricostruisce l'UI quando un valore cambia.
+6. Widget per Animazioni
+    AnimatedContainer	Container con animazioni automatiche quando cambiano le proprietà.
+    Hero	Animazione di transizione tra pagine (es. ingrandimento di un'immagine).
+    AnimationController	Controlla animazioni complesse (con Tween, Curve, ecc.).
+7. Widget per Grafici e Decorazioni
+    Card	Riquadro con ombreggiatura e bordi arrotondati (es. per liste).
+    Divider	Linea di separazione orizzontale.
+    ClipRRect	Ritaglia un widget con bordi arrotondati (es. per immagini).
+    LinearProgressIndicator	Barra di progresso lineare.
+8. Widget per la Responsività (Layout Adattivo)
+    MediaQuery	Ottiene dimensioni dello schermo/orientamento.
+    LayoutBuilder	Adatta il layout in base alle dimensioni disponibili.
+    AspectRatio	Forza un rapporto d'aspetto specifico (es. 16:9).
+
+
+Scaffold, AppBar, ListView sono essenziali per l'UI di base.
+
+Row/Column e Expanded gestiscono il 90% dei layout.
+
+StatefulWidget è cruciale per la logica dinamica.
+
+Navigator e BottomNavigationBar sono fondamentali per la navigazione.
