@@ -72,4 +72,3 @@ void main() {
     print("Stipendio calcolato: ${dipendente.getStipendio().toStringAsFixed(2)} euro\n");
   }
 }
-
