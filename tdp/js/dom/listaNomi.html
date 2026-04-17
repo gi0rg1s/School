@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista di nomi</title>
+    <style>
+        .sfondo{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista di nomi</h1>
+    <div>
+        <label for="insert">Inserisci un nome</label>
+        <input type="text" name="insert" id="insert">
+        <button id="add-button">Aggiungi</button>
+    </div>
+
+    <button id="svuota">Svuota la lista</button>
+
+    <div id="Lista-container">
+        <ul id="Lista"></ul>
+    </div>
+
+</body>
+    <script>
+        let bottone = document.getElementById("add-button")
+        let svuotaBtn = document.getElementById("svuota")
+        const lista = document.getElementById("Lista")
+        function aggiungi(){
+            let nome = document.getElementById("insert").value
+
+            const li = document.createElement('li')
+            const span = document.createElement('span')
+            span.textContent = nome
+            
+            const delBtn = document.createElement('button');
+            delBtn.textContent = 'Elimina'
+            delBtn.addEventListener('click', ()=>{
+                lista.removeChild(li)
+            })
+            li.appendChild(span)
+            li.appendChild(delBtn)
+            lista.appendChild(li)
+
+            li.addEventListener('mouseover', ()=>{
+                li.classList.add('sfondo')
+            })
+            li.addEventListener('mouseout', ()=>{
+                li.classList.remove('sfondo')
+            })
+        }
+        function svuota(){
+            while(lista.firstChild) {
+                lista.removeChild(lista.firstChild)
+            }
+        }
+
+        svuotaBtn.addEventListener('click', svuota)
+        bottone.addEventListener('click', aggiungi)
+    </script>
+</html>
