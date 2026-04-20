@@ -29,6 +29,7 @@ public class TorneoWinxController {
     private Button selectedButton;
 
     @FXML
+    // Handler for when the user presses the "selected" button that takes u to another page
     void onSelectedButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TorneoTrixFXML.fxml"));
         Parent root = loader.load();

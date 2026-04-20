@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crea tabella</title>
+    <style>
+        td{
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+            width: 30px;
+            height: 20px;
+        }
+        .negative{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>Benvenuto nella creazione della tabella!</h1>
+
+    <label for="colonne">Inserisci il numero di colonne:</label>
+    <input type="text" id="colonne"><br>
+
+    <label for="righe">Inserisi il numero di righe:</label>
+    <input type="text" id="righe"><br>
+
+    <button id="crea">Crea tabella</button>
+    <button id="colora">colora negativi</button>
+
+    <div id="table-container"></div>
+</body>
+    <script>
+        const c = document.getElementById("table-container")
+        const tabella = document.createElement('table')
+
+
+        function creaTable(){
+            const righe = document.getElementById("righe").value
+            const colonne = document.getElementById("colonne").value
+            
+            for(let i = 0; i < righe; i++){
+                let riga = document.createElement('tr')
+                for(let j = 0; j < colonne; j++){
+                    let col = document.createElement('td')
+                    col.textContent = Math.floor((Math.random() * 200) - 100)
+                    riga.appendChild(col)
+                }
+                tabella.appendChild(riga)
+            }
+            c.appendChild(tabella)
+        }
+        function coloraNegativi() {
+            const celle = tabella.querySelectorAll('td')
+            celle.forEach(cella => {
+                if (parseInt(cella.textContent) < 0) {
+                    cella.classList.add('negative')
+                } else {
+                    cella.classList.remove('negative') // rimuove il colore se positivo
+                }
+            })
+        }
+
+    
+
+        document.getElementById("crea").addEventListener('click', creaTable)
+    </script>
+</html>
