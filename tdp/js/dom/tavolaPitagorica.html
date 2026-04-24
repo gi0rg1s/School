@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>crea tabella</title>
+        <style>
+            th, tr{
+                height: 40px;
+                width: 50px;
+                border: 1px solid black;
+            }
+            .odd{
+                background-color: pink;
+            }
+            .even{
+                background-color: rgb(214, 167, 214);
+            }
+            .empty{
+                background-color: white;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tavola pitagorica</h1>
+        <div id="table-container"></div>
+
+        <div id="somma"></div>
+    </body>
+    <script>
+        const c = document.getElementById("table-container")
+        const table = document.createElement("table")
+
+        const para = document.createElement('p')
+        para.textContent = '0'
+        const sum = document.getElementById("somma").appendChild(para)
+
+        for (let i  = 0; i  < 15; i++){
+            let tr = document.createElement("tr")
+            for(let j = 0; j < 15; j++){
+                let th = document.createElement("th")
+                th.textContent = `${(i + 1) * (j + 1)}`
+                if((i + j) % 2 == 0){
+                    th.className = 'even'
+                }else {
+                    th.className = 'odd'
+                }
+                th.addEventListener('click', ()=>{
+                    sum.textContent = `${parseInt(sum.innerText) + parseInt(th.textContent)}`
+                    th.textContent = '0'
+                    th.className = 'empty'
+                })
+                tr.appendChild(th)
+            }
+            table.appendChild(tr)
+        }
+        
+        c.appendChild(table)
+
+    </script>
+</html>
