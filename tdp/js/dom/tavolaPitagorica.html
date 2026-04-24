@@ -5,20 +5,67 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>crea tabella</title>
         <style>
-            th, tr{
-                height: 40px;
+            body {
+                margin: 0;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                background: #f6f6f6;
+                color: #222;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 700;
+            }
+
+            #table-container {
+                display: flex;
+                justify-content: center;
+            }
+
+            table {
+                border-collapse: collapse;
+                margin: 0 auto;
+            }
+
+            th {
                 width: 50px;
-                border: 1px solid black;
+                height: 40px;
+                border: 1px solid #444;
+                text-align: center;
+                vertical-align: middle;
+                font-weight: 600;
             }
-            .odd{
-                background-color: pink;
+
+            .odd {
+                background-color: #f3c6d1;
             }
-            .even{
-                background-color: rgb(214, 167, 214);
+
+            .even {
+                background-color: #d8c7ef;
             }
-            .empty{
-                background-color: white;
-                color: white;
+
+            .empty {
+                background-color: #ffffff;
+                color: #ffffff;
+            }
+
+            #somma {
+                min-width: 100px;
+                padding: 10px 14px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background: #fff;
+                text-align: center;
+                font-size: 1rem;
+                font-weight: 600;
             }
         </style>
     </head>
