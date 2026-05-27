@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-  
+
   final String title;
 
   @override
@@ -38,7 +40,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int tentativi = 0;
   final List<int> _numbers = [-12, 44, 56, 72, 17, 28, 66, 88, 100];
-  final List<bool> _scoperti = [false, false, false, false, false, false, false, false, false];
+  final List<bool> _scoperti = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
   int _secretNumber = 0;
   bool _gameOver = false;
 
@@ -47,12 +59,17 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _secretNumber = _numbers[Random().nextInt(_numbers.length)];
   }
-  bool checkWin(int index){
+
+  bool checkWin(int index) {
     return (_numbers[index] == _secretNumber) && tentativi < 3;
   }
 
-  bool checkDeath(){
+  bool checkDeath() {
     return tentativi >= 3;
+  }
+
+  void noPress() {
+    return;
   }
 
   @override
@@ -70,22 +87,30 @@ class _MyHomePageState extends State<MyHomePage> {
           return ElevatedButton(
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
-              backgroundColor: const Color.fromARGB(255, 236, 188, 231),
+              backgroundColor: (_gameOver && _numbers[index] == _secretNumber)
+                  ? Colors.red
+                  : Colors.white,
               surfaceTintColor: Colors.white,
             ),
-            onPressed: _gameOver ? null : () { setState(() {
-              _scoperti[index] = true;
-              if (!checkWin(index)) tentativi++;
-              else {
-                _gameOver = true;
-                print("congratulazioni hai vinto!");
-                }
-              if (checkDeath()){
-                _gameOver = true;
-                print("mi spiace hai perso!, il numero era $_secretNumber" );
-              }
-            });
-            },
+            onPressed: _gameOver
+                ? () => noPress()
+                : () {
+                    setState(() {
+                      _scoperti[index] = true;
+                      if (!checkWin(index))
+                        tentativi++;
+                      else {
+                        _gameOver = true;
+                        print("congratulazioni hai vinto!");
+                      }
+                      if (checkDeath()) {
+                        _gameOver = true;
+                        print(
+                          "mi spiace hai perso!, il numero era $_secretNumber",
+                        );
+                      }
+                    });
+                  },
             child: Text(_scoperti[index] ? _numbers[index].toString() : '?'),
           );
         },
