@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #fff7fc, #ffe6f2);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+   <center>
+      <VBox fx:id="statsContainer" alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <ImageView fx:id="winx_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="trix_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="12.0" style="-fx-padding: 10;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="attack_btn" mnemonicParsing="false" style="-fx-background-color: #ff72b4; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;" text="Attacca" />
+            <Button fx:id="cura_btn" mnemonicParsing="false" style="-fx-background-color: #ff94c7; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;" text="Cura" />
+            <Button fx:id="rest_btn" mnemonicParsing="false" style="-fx-background-color: #ffc4df; -fx-text-fill: #7a234f; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 8 16;" text="Riposa" />
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <Label fx:id="txt_label" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #d10078; -fx-padding: 12;" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>

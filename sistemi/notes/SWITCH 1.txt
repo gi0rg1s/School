@@ -1,0 +1,18 @@
+SWITCH 1
+
+MAC 		porta 		aging time	comportamento
+
+F		4		1		flooding
+E		4		2		flooding
+A		1		3		flooding
+D		4		4		flooding
+B		2		6		forwarding
+
+SWITCH 2
+MAC 		porta 		aging time	comportamento
+
+F		4		1		flooding
+E		3		2		flooding
+A		1		3		flooding
+D		2		4		flooding
+B		1		5		forwarding

@@ -1,0 +1,30 @@
+.root {
+    background-color: #c6edff;
+    -fx-background-color: #c6edff; 
+}
+
+.label {
+    font-family: Arial, Helvetica, sans-serif;
+    -fx-font-family: "Arial";
+
+    font-weight: bold;
+    -fx-font-weight: bold;
+
+    font-size: 14px;
+    -fx-font-size: 14px;
+}
+
+#etxt, #dtxt {
+    font-weight: bold;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(51, 50, 50);
+}
+
+.button {
+    background-color: #4da6ff;
+    -fx-background-color: #4da6ff;
+    -fx-text-fill: white;
+
+    font-weight: bold;
+    -fx-font-weight: bold;
+}

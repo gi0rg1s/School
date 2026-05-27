@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphics Generator</title>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+</head>
+<body>
+    <main class="container">
+        <h1>Visualizzatore di funzioni</h1>
+        <div id="getting-params">
+            <label for="param-a">Inerisci il parametro a</label>
+            <input type="number" id="param-a">
+
+            <label for="param-b">Inerisci il parametro b</label>
+            <input type="number" id="param-b">
+
+            <label for="param-c">Inerisci il parametro c</label>
+            <input type="number" id="param-c">
+        </div>
+        <div id="range">
+            <h3>range</h3>
+            <label for="max-n">Inserisci x massimo</label>
+            <input type="number" id="max-n">
+
+            <label for="min-n">Inserisci x minimo</label>
+            <input type="number" id="min-n">
+
+            <label for="n">Inserisci il numero di punti</label>
+            <input type="number" id="n">
+        </div>
+        <div id="chart_div" style="width: 100%; height: 400px;"></div>
+        <script src="main.js"></script>
+    </main>
+</body>
+</html>

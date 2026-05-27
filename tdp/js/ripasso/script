@@ -1,0 +1,8 @@
+document.querySelector('form').addEventListener('submit', function(e) { 
+    const email = document.getElementById('email').value; // ottieni il valore inserito nel campo email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  //espressione per verificare la validità di una indirizzo mail
+    if (!emailPattern.test(email)) {
+        e.preventDefault();                             // impedisce l'invio del form
+        alert('Inserisci un indirizzo email valido.');  //stampa messaggio di errore
+    }
+});

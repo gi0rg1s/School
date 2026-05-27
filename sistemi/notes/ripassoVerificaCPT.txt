@@ -1,0 +1,24 @@
+Wi-Fi
+placement dispositivi generali
+ip singolo WRC300N
+VLAN db negli switch
+AAA(Authentication Autorization Accounting) server 
+configure DHCP and other things on WRT300N
+once it is connected, go on the gui of pc and ask for an ip
+
+
+LACP & STP
+placement dispositivi in generale
+tutti gli switch --> spanning-tree mode rapid-pvst
+porte in access --> portfast +BPDUGUARD
+	priorità:
+		- tier1 : spanning-tree vlan 1 priority primary
+			  spanning-tree vlan 1 priority 4096
+			  spanning-tree vlan 1 priority secondary
+			  spanning-tree vlan 1 priority 4096
+		- tier2 : spanning-tree vlan 1 priority 8192
+		- tier3 : spanning-tree vlan1 priority 12288
+
+
+configure channel-group n mode desiderable su entrambi gli switch
+configure groups in order to reach the main router
