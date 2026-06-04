@@ -41,6 +41,22 @@ k.scene("game", ()=> {
         k.z(1)                      //layer 1 (over the bg)
     ])
 
+    //-----SCORE------
+
+    let score = 0
+    k.loop(1, () =>{
+        score++
+    })
+
+    const scoreText = k.add([
+        k.text("Score: ", {score: 32}),
+        k.pos(20, 20),
+        k.z(10)
+    ])
+    scoreText.onUpdate(() => {
+        scoreText.text = `Score: ${score}`;
+    });
+
     //-----PLAYER-----
     const player = k.add([
         k.sprite("fluttershy"),
@@ -102,7 +118,7 @@ k.scene("game", ()=> {
     //----COLLISION DETECTION-------
     player.onCollide("obstacle", () => {
         k.paused = true
-        k.go("gameover")
+        k.go("gameover", score)
     })
 
     spawnFlower()
@@ -110,7 +126,7 @@ k.scene("game", ()=> {
 
 })
 
-k.scene("gameover", () => {
+k.scene("gameover", (score) => {
 
     // load bg
     const bg = k.add([
@@ -126,8 +142,8 @@ k.scene("gameover", () => {
     );
 
     k.add([
-        k.text("GAME OVER!", {size: 64}),
-        k.color(k.Color.fromHex('#ffc5d3')),
+        k.text(`GAME OVER!\nScore: ${score}`, {size: 64}),
+        k.color(k.Color.fromHex('#000000')),
         k.pos(k.center()),
         k.anchor("center")
     ])
