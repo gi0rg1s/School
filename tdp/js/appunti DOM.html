@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il DOM - Document Object Model</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        
+        .schema {
+            background-color: #e8f4f8;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        .code {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        .code-html {
+            border-left-color: #e74c3c;
+        }
+        
+        .code-js {
+            border-left-color: #f39c12;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c7254e;
+        }
+        
+        .box {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .box-info {
+            background-color: #d1ecf1;
+            border-color: #17a2b8;
+        }
+        
+        ul, ol {
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .esempio-completo {
+            background-color: #f0f0f0;
+            border: 2px solid #666;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .riassunto {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Il DOM (Document Object Model)</h1>
+        
+        <h2>Cos'è il DOM?</h2>
+        <p>Il <strong>DOM</strong> (Document Object Model) è una rappresentazione ad albero della struttura di una pagina HTML. Quando il browser carica una pagina web, crea automaticamente un modello del documento che può essere manipolato tramite JavaScript.</p>
+        <p>Pensa al DOM come a un ponte tra il codice HTML statico e JavaScript dinamico: permette di leggere, modificare, aggiungere o eliminare elementi della pagina in tempo reale.</p>
+        
+        <h2>La Struttura ad Albero</h2>
+        <p>Ogni elemento HTML diventa un <strong>nodo</strong> nell'albero del DOM. Ecco un esempio visivo:</p>
+        
+        <div class="schema">Codice HTML:
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;La mia pagina&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Benvenuto&lt;/h1&gt;
+    &lt;p&gt;Questo è un paragrafo&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+Albero DOM corrispondente:
+
+                    document
+                       |
+                    &lt;html&gt;
+                    /     \
+              &lt;head&gt;       &lt;body&gt;
+                 |         /     \
+              &lt;title&gt;   &lt;h1&gt;     &lt;p&gt;
+                 |       |        |
+            "La mia   "Benvenuto" "Questo è
+             pagina"               un paragrafo"</div>
+        
+        <h3>Tipi di Nodi</h3>
+        <ol>
+            <li><strong>Element Node</strong>: gli elementi HTML (<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, ecc.)</li>
+            <li><strong>Text Node</strong>: il contenuto testuale dentro gli elementi</li>
+            <li><strong>Attribute Node</strong>: gli attributi degli elementi (class, id, src, ecc.)</li>
+            <li><strong>Document Node</strong>: la radice dell'albero (l'oggetto <code>document</code>)</li>
+        </ol>
+        
+        <h2>Accedere agli Elementi</h2>
+        <p>JavaScript offre diversi metodi per selezionare elementi nel DOM:</p>
+        
+        <div class="code code-js">// Seleziona per ID
+let elemento = document.getElementById("mioId");
+
+// Seleziona per classe (restituisce una collezione)
+let elementi = document.getElementsByClassName("miaClasse");
+
+// Seleziona per tag (restituisce una collezione)
+let paragrafi = document.getElementsByTagName("p");
+
+// Query selector (più moderno e flessibile)
+let primo = document.querySelector(".miaClasse"); 
+// primo elemento
+let tutti = document.querySelectorAll(".miaClasse"); 
+// tutti gli elementi</div>
+        
+        <h2>Manipolare il DOM</h2>
+        <p>Una volta selezionato un elemento, puoi modificarlo in vari modi:</p>
+        
+        <h3>Modificare il Contenuto</h3>
+        <div class="code code-js">// Cambiare il testo
+elemento.textContent = "Nuovo testo";
+
+// Cambiare HTML interno
+elemento.innerHTML = "&lt;strong&gt;Testo in grassetto&lt;/strong&gt;";</div>
+        
+        <h3>Modificare gli Attributi</h3>
+        <div class="code code-js">// Leggere un attributo
+let valore = elemento.getAttribute("src");
+
+// Impostare un attributo
+elemento.setAttribute("class", "nuovaClasse");
+
+// Attributi comuni hanno proprietà dedicate
+elemento.id = "nuovoId";
+elemento.className = "classe1 classe2";</div>
+        
+        <h3>Modificare lo Stile</h3>
+        <div class="code code-js">// Cambiare proprietà CSS
+elemento.style.color = "red";
+elemento.style.backgroundColor = "yellow";
+elemento.style.fontSize = "20px";
+
+// Aggiungere/rimuovere classi CSS
+elemento.classList.add("attiva");
+elemento.classList.remove("nascosta");
+elemento.classList.toggle("evidenziata");</div>
+        
+        <h3>Creare e Aggiungere Elementi</h3>
+        <div class="code code-js">// Creare un nuovo elemento
+let nuovoDiv = document.createElement("div");
+nuovoDiv.textContent = "Sono un nuovo div";
+
+// Aggiungere l'elemento al DOM
+document.body.appendChild(nuovoDiv);
+
+// Inserire prima di un altro elemento
+let riferimento = document.getElementById("rifId");
+document.body.insertBefore(nuovoDiv, riferimento);</div>
+        
+        <h3>Rimuovere Elementi</h3>
+        <div class="code code-js">// Rimuovere un elemento
+elemento.remove();
+
+// O dalla prospettiva del genitore
+let genitore = document.getElementById("contenitore");
+let figlio = document.getElementById("daCancellare");
+genitore.removeChild(figlio);</div>
+        
+        <h2>Navigare nel DOM</h2>
+        <p>Puoi spostarti tra i nodi usando le proprietà di relazione:</p>
+        
+        <div class="code code-js">let elemento = document.getElementById("mioId");
+
+// Nodi genitore e figli
+elemento.parentNode;
+// nodo genitore
+elemento.childNodes;
+// tutti i nodi figli
+elemento.firstChild;
+// primo figlio
+elemento.lastChild;
+// ultimo figlio
+
+// Solo elementi (ignora nodi di testo)
+elemento.parentElement;
+// elemento genitore
+elemento.children;
+// elementi figli
+elemento.firstElementChild;
+// primo elemento figlio
+elemento.lastElementChild;
+// ultimo elemento figlio
+
+// Fratelli (siblings)
+elemento.nextSibling;
+// nodo successivo
+elemento.previousSibling;
+// nodo precedente
+elemento.nextElementSibling;
+// elemento successivo
+elemento.previousElementSibling;
+// elemento precedente</div>
+        
+        <h2>Eventi e Interazione</h2>
+        <p>Il DOM permette di rispondere alle azioni dell'utente tramite gli eventi:</p>
+        
+        <div class="code code-js">// Aggiungere un event listener
+let bottone = document.getElementById("mioBottone");
+
+bottone.addEventListener("click", function() {
+    alert("Bottone cliccato!");
+});
+
+// Eventi comuni:
+// - click: clic del mouse
+// - mouseover: mouse sopra l'elemento
+// - mouseout: mouse esce dall'elemento
+// - keydown: tasto premuto
+// - keyup: tasto rilasciato
+// - submit: invio di un form
+// - change: cambio di valore in input
+// - load: caricamento completato</div>
+        
+        <h2>Esempio Pratico Completo</h2>
+        <div class="esempio-completo">
+            <div class="code code-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Esempio DOM&lt;/title&gt;
+    &lt;style&gt;
+        .evidenziato { background-color: yellow; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id="titolo"&gt;Lista della Spesa&lt;/h1&gt;
+    &lt;ul id="lista"&gt;
+        &lt;li&gt;Pane&lt;/li&gt;
+        &lt;li&gt;Latte&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;input type="text" id="nuovoItem" placeholder="Nuovo elemento"&gt;
+    &lt;button id="aggiungi"&gt;Aggiungi&lt;/button&gt;
+
+    &lt;script&gt;
+        // Seleziona elementi
+        let bottone = document.getElementById("aggiungi");
+        let input = document.getElementById("nuovoItem");
+        let lista = document.getElementById("lista");
+
+        // Aggiungi evento al bottone
+        bottone.addEventListener("click", function() {
+            // Leggi il valore dell'input
+            let testo = input.value;
+            
+            if (testo !== "") {
+                // Crea nuovo elemento li
+                let nuovoLi = document.createElement("li");
+                nuovoLi.textContent = testo;
+                
+                // Aggiungi alla lista
+                lista.appendChild(nuovoLi);
+                
+                // Pulisci l'input
+                input.value = "";
+            }
+        });
+        
+        // Evidenzia il titolo al passaggio del mouse
+        let titolo = document.getElementById("titolo");
+        titolo.addEventListener("mouseover", function() {
+            titolo.classList.add("evidenziato");
+        });
+        titolo.addEventListener("mouseout", function() {
+            titolo.classList.remove("evidenziato");
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+        </div>
+        
+        <h2>Schema Riassuntivo: Flusso di Lavoro con il DOM</h2>
+        <div class="schema">1. SELEZIONA
+   ↓
+   document.getElementById()
+   document.querySelector()
+   
+2. MANIPOLA
+   ↓
+   .textContent = "..."
+   .innerHTML = "..."
+   .style.color = "..."
+   .classList.add("...")
+   
+3. CREA/AGGIUNGI
+   ↓
+   document.createElement()
+   .appendChild()
+   
+4. ASCOLTA EVENTI
+   ↓
+   .addEventListener("click", function)</div>
+        
+        <h2>Punti Chiave da Ricordare</h2>
+        <div class="riassunto">
+            <ul>
+                <li>Il DOM è una rappresentazione ad albero del documento HTML</li>
+                <li><code>document</code> è l'oggetto principale per accedere al DOM</li>
+                <li>Gli elementi possono essere selezionati, modificati, creati e rimossi</li>
+                <li>JavaScript rende le pagine web dinamiche e interattive tramite il DOM</li>
+                <li>Gli eventi permettono di reagire alle azioni dell'utente</li>
+                <li>Ogni modifica al DOM si riflette immediatamente nella pagina visualizzata</li>
+            </ul>
+        </div>
+        
+        <div class="box box-info">
+            <strong>Consiglio didattico:</strong> Fai provare agli studenti esempi pratici, modificando elementi in tempo reale nella console del browser (F12) per vedere immediatamente i risultati!
+        </div>
+    </div>
+</body>
+</html>

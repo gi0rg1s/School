@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Manipolazione del DOM — Esempi didattici</title>
+  <style>
+    /* ===== STILI BASE PAGINA (non riguardano la manipolazione DOM) ===== */
+    body {
+      font-family: monospace;
+      max-width: 900px;
+      margin: 30px auto;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    h1 {
+      border-bottom: 3px solid #333;
+      padding-bottom: 8px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      background: #333;
+      color: #fff;
+      padding: 6px 12px;
+    }
+
+    section {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 16px;
+      margin-top: 12px;
+    }
+
+    button {
+      padding: 6px 14px;
+      margin: 4px;
+      cursor: pointer;
+      font-family: monospace;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 12px;
+      overflow-x: auto;
+      border-left: 4px solid #888;
+      font-size: 13px;
+    }
+
+    .output-box {
+      border: 1px dashed #999;
+      padding: 10px;
+      margin-top: 10px;
+      min-height: 40px;
+    }
+
+    /* ===== CLASSI USATE NEGLI ESEMPI DI MANIPOLAZIONE DOM ===== */
+    .evidenziato {
+      background: yellow;
+      font-weight: bold;
+    }
+
+    .rosso {
+      color: red;
+    }
+
+    .grande {
+      font-size: 1.5em;
+    }
+
+    .nascosto {
+      display: none;
+    }
+
+    .bordo-verde {
+      border: 3px solid green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Manipolazione del DOM — Esempi Didattici</h1>
+  <p>Ogni sezione mostra il codice JavaScript usato e un'area interattiva per testarlo.</p>
+
+
+  <!-- ============================================================ -->
+  <h2>1. getElementById e modifica del testo</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+// Seleziona un elemento tramite id e ne modifica il contenuto testuale
+const titolo = document.getElementById("titolo-demo");
+titolo.textContent = "Testo modificato!";
+titolo.style.color = "blue";</pre>
+    <p id="titolo-demo">Questo è il testo originale.</p>
+    <button onclick="
+    const el = document.getElementById('titolo-demo');
+    el.textContent = 'Testo modificato dal JavaScript!';
+    el.style.color = 'blue';
+  ">Modifica testo</button>
+    <button onclick="
+    const el = document.getElementById('titolo-demo');
+    el.textContent = 'Questo è il testo originale.';
+    el.style.color = '';
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>2. querySelector e querySelectorAll</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+// querySelector → restituisce il PRIMO elemento che corrisponde al selettore CSS
+const primo = document.querySelector(".frutto");
+primo.style.background = "orange";
+
+// querySelectorAll → restituisce una NodeList con TUTTI gli elementi corrispondenti
+const tutti = document.querySelectorAll(".frutto");
+tutti.forEach(function(el) {
+    el.style.fontWeight = "bold";
+});</pre>
+    <ul id="lista-frutti">
+      <li class="frutto">Mela</li>
+      <li class="frutto">Banana</li>
+      <li class="frutto">Ciliegia</li>
+      <li class="frutto">Limone</li>
+    </ul>
+    <button onclick="
+    const primo = document.querySelector('#lista-frutti .frutto');
+    primo.style.background = 'orange';
+  ">querySelector (primo elemento)</button>
+    <button onclick="
+    const tutti = document.querySelectorAll('#lista-frutti .frutto');
+    tutti.forEach(function(el) { el.style.fontWeight = 'bold'; });
+  ">querySelectorAll (tutti)</button>
+    <button onclick="
+    const tutti = document.querySelectorAll('#lista-frutti .frutto');
+    tutti.forEach(function(el) { el.style.background = ''; el.style.fontWeight = ''; });
+  ">Ripristina</button>
+  </section>
+
+  <!-- ============================================================ -->
+  <h2>2bis. querySelectorAll</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+// querySelectorAll → restituisce una NodeList con TUTTI gli elementi corrispondenti
+    const elementi = document.querySelectorAll('#lista-frutti-2 .frutto');
+    const terzoElemento = elementi[2]; // accede al terzo elemento (indice 2, zero-based)
+    terzoElemento.style.background = 'lightgreen';
+</pre>
+    <ul id="lista-frutti-2">
+      <li class="frutto">Mela</li>
+      <li class="frutto">Banana</li>
+      <li class="frutto">Ciliegia</li>
+      <li class="frutto">Limone</li>
+    </ul>
+    <button onclick="
+    const elementi = document.querySelectorAll('#lista-frutti-2 .frutto');
+    const terzoElemento = elementi[2];
+    terzoElemento.style.background = 'lightgreen';
+    
+  ">querySelector (terzo elemento)</button>
+    <button onclick="
+    const tutti = document.querySelectorAll('#lista-frutti-2 .frutto');
+    tutti.forEach(function(el) { el.style.background = ''; el.style.fontWeight = ''; });
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>3. classList — add, remove, toggle, contains</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+const box = document.getElementById("box-classe");
+
+box.classList.add("evidenziato");      // aggiunge una classe
+box.classList.remove("evidenziato");   // rimuove una classe
+box.classList.toggle("rosso");         // aggiunge se non c'è, rimuove se c'è
+box.classList.contains("grande");      // restituisce true / false</pre>
+    <p id="box-classe">Questo paragrafo può ricevere e perdere classi CSS.</p>
+    <button onclick="document.getElementById('box-classe').classList.add('evidenziato')">add("evidenziato")</button>
+    <button
+      onclick="document.getElementById('box-classe').classList.remove('evidenziato')">remove("evidenziato")</button>
+    <button onclick="document.getElementById('box-classe').classList.toggle('rosso')">toggle("rosso")</button>
+    <button onclick="document.getElementById('box-classe').classList.toggle('grande')">toggle("grande")</button>
+    <button onclick="
+    const ha = document.getElementById('box-classe').classList.contains('grande');
+    alert('Classe \" grande\" presente: ' + ha);
+  ">contains("grande")?</button>
+  <button onclick="document.getElementById(' box-classe').className=''">Rimuovi tutte le classi</button>
+</section>
+
+
+<!-- ============================================================ -->
+<h2>4. Selettori strutturali: first-child, last-child, nth-child</h2>
+<!-- ============================================================ -->
+<section>
+  <pre>
+const lista = document.getElementById(" lista-colori"); // Primo figlio
+      lista.querySelector("li:first-child").classList.add("bordo-verde"); // Ultimo figlio
+      lista.querySelector("li:last-child").classList.add("rosso"); // N-esimo figlio (es: il terzo)
+      lista.querySelector("li:nth-child(3)").classList.add("evidenziato"); // Tutti i figli dispari
+      lista.querySelectorAll("li:nth-child(odd)").forEach(function(el) { el.classList.add("grande"); });</pre>
+      <ul id="lista-colori">
+        <li>Voce 1</li>
+        <li>Voce 2</li>
+        <li>Voce 3</li>
+        <li>Voce 4</li>
+        <li>Voce 5</li>
+      </ul>
+      <button
+        onclick="document.querySelector('#lista-colori li:first-child').classList.add('bordo-verde')">first-child</button>
+      <button onclick="document.querySelector('#lista-colori li:last-child').classList.add('rosso')">last-child</button>
+      <button
+        onclick="document.querySelector('#lista-colori li:nth-child(3)').classList.add('evidenziato')">nth-child(3)</button>
+      <button onclick="
+    document.querySelectorAll('#lista-colori li:nth-child(odd)').forEach(function(el) {
+      el.classList.add('grande');
+    });
+  ">nth-child(odd)</button>
+      <button onclick="
+    document.querySelectorAll('#lista-colori li').forEach(function(el) { el.className = ''; });
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>5. Navigare il DOM: parentNode, children, firstElementChild, lastElementChild, nextElementSibling</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+const el = document.getElementById("nodo-centrale");
+
+el.parentNode                      // nodo genitore
+el.parentNode.children             // tutti i figli del genitore (HTMLCollection)
+el.parentNode.firstElementChild    // primo figlio elemento
+el.parentNode.lastElementChild     // ultimo figlio elemento
+el.nextElementSibling              // fratello successivo
+el.previousElementSibling         // fratello precedente</pre>
+    <div id="contenitore-nav" style="border:1px solid #ccc; padding:8px;">
+      <p>Paragrafo A</p>
+      <p id="nodo-centrale">Paragrafo B (nodo centrale)</p>
+      <p>Paragrafo C</p>
+    </div>
+    <div class="output-box" id="output-nav">I risultati appariranno qui.</div>
+    <button onclick="
+    const el = document.getElementById('nodo-centrale');
+    document.getElementById('output-nav').textContent = 'parentNode.tagName: ' + el.parentNode.tagName;
+  ">parentNode</button>
+    <button onclick="
+    const el = document.getElementById('nodo-centrale');
+    document.getElementById('output-nav').textContent = 'children.length: ' + el.parentNode.children.length;
+  ">children.length</button>
+    <button onclick="
+    const el = document.getElementById('nodo-centrale');
+    const primo = el.parentNode.firstElementChild;
+    primo.classList.toggle('evidenziato');
+    document.getElementById('output-nav').textContent = 'firstElementChild: ' + primo.textContent.trim();
+  ">firstElementChild</button>
+    <button onclick="
+    const el = document.getElementById('nodo-centrale');
+    const ultimo = el.parentNode.lastElementChild;
+    ultimo.classList.toggle('rosso');
+    document.getElementById('output-nav').textContent = 'lastElementChild: ' + ultimo.textContent.trim();
+  ">lastElementChild</button>
+    <button onclick="
+    const el = document.getElementById('nodo-centrale');
+    const succ = el.nextElementSibling;
+    succ.classList.toggle('grande');
+    document.getElementById('output-nav').textContent = 'nextElementSibling: ' + succ.textContent.trim();
+  ">nextElementSibling</button>
+    <button onclick="
+    const el = document.getElementById('nodo-centrale');
+    const prec = el.previousElementSibling;
+    prec.classList.toggle('bordo-verde');
+    document.getElementById('output-nav').textContent = 'previousElementSibling: ' + prec.textContent.trim();
+  ">previousElementSibling</button>
+    <button onclick="
+    document.querySelectorAll('#contenitore-nav p').forEach(function(p) { p.className = ''; });
+    document.getElementById('output-nav').textContent = 'I risultati appariranno qui.';
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>6. Creare e inserire elementi: createElement, appendChild, insertBefore</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+const lista = document.getElementById("lista-dinamica");
+
+// Crea un nuovo elemento
+const nuovo = document.createElement("li");
+nuovo.textContent = "Elemento aggiunto";
+nuovo.classList.add("evidenziato");
+
+// Aggiunge in fondo alla lista
+lista.appendChild(nuovo);
+
+// Inserisce PRIMA di un elemento esistente
+const primoFiglio = lista.firstElementChild;
+lista.insertBefore(nuovo, primoFiglio);</pre>
+    <ul id="lista-dinamica">
+      <li>Elemento 1</li>
+      <li>Elemento 2</li>
+      <li>Elemento 3</li>
+    </ul>
+    <button onclick="
+    const lista = document.getElementById('lista-dinamica');
+    const nuovo = document.createElement('li');
+    nuovo.textContent = 'Aggiunto con appendChild';
+    nuovo.classList.add('evidenziato');
+    lista.appendChild(nuovo);
+  ">appendChild</button>
+    <button onclick="
+    const lista = document.getElementById('lista-dinamica');
+    const nuovo = document.createElement('li');
+    nuovo.textContent = 'Inserito con insertBefore (in cima)';
+    nuovo.classList.add('bordo-verde');
+    lista.insertBefore(nuovo, lista.firstElementChild);
+  ">insertBefore (in cima)</button>
+    <button onclick="
+    document.getElementById('lista-dinamica').innerHTML =
+      '<li>Elemento 1</li><li>Elemento 2</li><li>Elemento 3</li>';
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>7. Rimuovere elementi: removeChild e remove()</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+const lista = document.getElementById("lista-rimozione");
+
+// Metodo classico: il genitore rimuove il figlio
+const ultimo = lista.lastElementChild;
+lista.removeChild(ultimo);
+
+// Metodo moderno: l'elemento si auto-rimuove
+document.querySelector("#lista-rimozione li:first-child").remove();</pre>
+    <ul id="lista-rimozione">
+      <li>Voce A</li>
+      <li>Voce B</li>
+      <li>Voce C</li>
+      <li>Voce D</li>
+    </ul>
+    <button onclick="
+    const lista = document.getElementById('lista-rimozione');
+    if (lista.lastElementChild) lista.removeChild(lista.lastElementChild);
+  ">removeChild (ultimo)</button>
+    <button onclick="
+    const primo = document.querySelector('#lista-rimozione li:first-child');
+    if (primo) primo.remove();
+  ">remove() (primo)</button>
+    <button onclick="
+    document.getElementById('lista-rimozione').innerHTML =
+      '<li>Voce A</li><li>Voce B</li><li>Voce C</li><li>Voce D</li>';
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>8. Attributi: getAttribute, setAttribute, removeAttribute</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+const link = document.getElementById("link-demo");
+
+link.getAttribute("href");                        // legge l'attributo
+link.setAttribute("href", "https://...");         // imposta / sovrascrive
+link.setAttribute("target", "_blank");            // aggiunge un nuovo attributo
+link.removeAttribute("target");                   // rimuove un attributo</pre>
+    <p><a id="link-demo" href="https://www.google.it">Link originale (google.it)</a></p>
+    <div class="output-box" id="output-attr">I risultati appariranno qui.</div>
+    <button onclick="
+    const link = document.getElementById('link-demo');
+    document.getElementById('output-attr').textContent = 'href corrente: ' + link.getAttribute('href');
+  ">getAttribute("href")</button>
+    <button onclick="
+    const link = document.getElementById('link-demo');
+    link.setAttribute('href', 'https://www.wikipedia.org');
+    link.textContent = 'Link cambiato (wikipedia.org)';
+    document.getElementById('output-attr').textContent = 'href modificato in: https://www.wikipedia.org';
+  ">setAttribute → wikipedia</button>
+    <button onclick="
+    const link = document.getElementById('link-demo');
+    link.setAttribute('target', '_blank');
+    document.getElementById('output-attr').textContent = 'Aggiunto attributo target=\"
+      _blank\"'; ">setAttribute target=" _blank"</button>
+      <button onclick="
+    const link = document.getElementById('link-demo');
+    link.removeAttribute('target');
+    document.getElementById('output-attr').textContent = 'Attributo target rimosso.';
+  ">removeAttribute("target")</button>
+      <button onclick="
+    const link = document.getElementById('link-demo');
+    link.setAttribute('href','https://www.google.it');
+    link.textContent = 'Link originale (google.it)';
+    link.removeAttribute('target');
+    document.getElementById('output-attr').textContent = 'I risultati appariranno qui.';
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>9. addEventListener e removeEventListener</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+const box = document.getElementById("box-eventi");
+
+// La funzione handler deve essere definita separatamente
+// per poterla rimuovere in seguito con removeEventListener
+function cambiaColore() {
+    box.classList.toggle("evidenziato");
+}
+
+box.addEventListener("click", cambiaColore);    // aggiunge il listener
+box.removeEventListener("click", cambiaColore); // rimuove lo stesso listener
+
+// Altri eventi comuni: "mouseover", "mouseout", "keydown", "submit", "change"</pre>
+    <div id="box-eventi" style="border:2px dashed #999; padding:20px; text-align:center; cursor:pointer;">
+      Clicca qui (dopo aver aggiunto il listener)
+    </div>
+    <div class="output-box" id="output-eventi">I risultati appariranno qui.</div>
+
+    <script>
+      function cambiaColoreBox() {
+        document.getElementById("box-eventi").classList.toggle("evidenziato");
+        document.getElementById("output-eventi").textContent = "Click rilevato! Classe 'evidenziato' toggled.";
+      }
+    </script>
+
+    <button onclick="
+    document.getElementById('box-eventi').addEventListener('click', cambiaColoreBox);
+    document.getElementById('output-eventi').textContent = 'addEventListener aggiunto. Prova a cliccare il box.';
+  ">addEventListener("click")</button>
+    <button onclick="
+    document.getElementById('box-eventi').removeEventListener('click', cambiaColoreBox);
+    document.getElementById('output-eventi').textContent = 'removeEventListener eseguito. Il click non risponde più.';
+  ">removeEventListener("click")</button>
+    <button onclick="
+    document.getElementById('box-eventi').className = '';
+    document.getElementById('box-eventi').removeEventListener('click', cambiaColoreBox);
+    document.getElementById('output-eventi').textContent = 'I risultati appariranno qui.';
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>10. innerHTML e textContent — differenze chiave</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+const box = document.getElementById("box-content");
+
+// textContent → testo puro, i tag HTML non vengono interpretati (sicuro)
+box.textContent = "&lt;strong&gt;Non viene interpretato&lt;/strong&gt;";
+
+// innerHTML → interpreta il markup HTML (potente, ma attenzione all'XSS)
+box.innerHTML = "&lt;strong&gt;Viene interpretato&lt;/strong&gt;";</pre>
+    <div id="box-content" class="output-box">Contenuto originale del box.</div>
+    <button onclick="
+    document.getElementById('box-content').textContent =
+      '<strong>Tag non interpretato</strong> — è solo testo.';
+  ">textContent (testo puro)</button>
+    <button onclick="
+    document.getElementById('box-content').innerHTML =
+      '<strong>Tag interpretato</strong> — questo è in grassetto.';
+  ">innerHTML (markup HTML)</button>
+    <button onclick="
+    document.getElementById('box-content').textContent = 'Contenuto originale del box.';
+  ">Ripristina</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>11. Mostrare e nascondere elementi</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+const pannello = document.getElementById("pannello");
+
+// Metodo 1: modifica diretta dello stile inline
+pannello.style.display = "none";     // nasconde
+pannello.style.display = "block";    // mostra
+
+// Metodo 2: tramite classe CSS  (.nascosto { display: none; })
+pannello.classList.add("nascosto");
+pannello.classList.remove("nascosto");
+pannello.classList.toggle("nascosto");</pre>
+    <div id="pannello" style="border:2px solid #333; padding:16px; margin:8px 0; background:#eef;">
+      Questo è il pannello che può essere mostrato o nascosto.
+    </div>
+    <button onclick="document.getElementById('pannello').style.display = 'none'">style.display = "none"</button>
+    <button onclick="document.getElementById('pannello').style.display = 'block'">style.display = "block"</button>
+    <button
+      onclick="document.getElementById('pannello').classList.toggle('nascosto')">classList.toggle("nascosto")</button>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <h2>12. Iterare una NodeList con forEach</h2>
+  <!-- ============================================================ -->
+  <section>
+    <pre>
+// querySelectorAll restituisce una NodeList
+// NodeList supporta forEach direttamente (a differenza di HTMLCollection)
+const celle = document.querySelectorAll("#tabella-demo td");
+
+celle.forEach(function(cella, indice) {
+    cella.textContent = "Cella " + indice;
+    if (indice % 2 === 0) {
+        cella.classList.add("evidenziato");
+    }
+});</pre>
+    <table id="tabella-demo" border="1" cellpadding="8" style="border-collapse:collapse;">
+      <tr>
+        <td>A1</td>
+        <td>A2</td>
+        <td>A3</td>
+      </tr>
+      <tr>
+        <td>B1</td>
+        <td>B2</td>
+        <td>B3</td>
+      </tr>
+      <tr>
+        <td>C1</td>
+        <td>C2</td>
+        <td>C3</td>
+      </tr>
+    </table>
+    <button onclick="
+    const celle = document.querySelectorAll('#tabella-demo td');
+    celle.forEach(function(cella, i) {
+      cella.textContent = 'Cella ' + i;
+      if (i % 2 === 0) cella.classList.add('evidenziato');
+    });
+  ">Applica forEach</button>
+    <button onclick="
+    const originali = ['A1','A2','A3','B1','B2','B3','C1','C2','C3'];
+    document.querySelectorAll('#tabella-demo td').forEach(function(cella, i) {
+      cella.textContent = originali[i];
+      cella.className = '';
+    });
+  ">Ripristina</button>
+  </section>
+
+</body>
+
+</html>
