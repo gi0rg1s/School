@@ -29,10 +29,12 @@ def dottedToDecimal(a, b, c, d):
     return (a * 0x1000000) + (b * 0x10000) + (c * 0x100) + d
 
 if __name__ == '__main__':
+    #simulate a table on the terminal
     print('Address\tMask\t\tGateway\t\tUse')
     for host in tdiHost:
         print(f'{host.ia}.{host.ib}.{host.ic}.{host.id}\t{host.ma}.{host.mb}.{host.mc}.{host.md}\t{host.ga}.{host.gb}.{host.gc}.{host.gd}\t{host.ua}.{host.ub}.{host.uc}.{host.ud}\t')
 
+#hard coded ip
     a = 196
     b = 13
     c = 2
@@ -42,7 +44,7 @@ if __name__ == '__main__':
     for host in tdiHost:
         rules += 1
         print(f'Rule n.{rules} for {a}.{b}.{c}.{d}')
-
+        #check rules
         u = dottedToDecimal(host.ma, host.mb, host.mc, host.md) & dottedToDecimal(a, b, c, d)
 
         if u == dottedToDecimal(host.ia, host.ib, host.ic, host.id): print('True')

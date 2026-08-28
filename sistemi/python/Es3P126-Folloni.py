@@ -18,13 +18,13 @@ class ipInfo:
 if __name__ == '__main__':
 
     classiIp = [Classful(0x80, 0x00, 0xff000000), Classful(0xc0, 0x80, 0xffff0000), Classful(0xe0, 0xc0, 0xffffff00)]
-    
     ips = [ipInfo(10, 1, 0, 3), ipInfo(192, 168, 0, 1), ipInfo(137, 168, 0, 1), ipInfo(137, 168, 249, 17)]
-
 
     for ip in ips:
         counter = 0
+        #ip to long
         ip.ip = (ip.a * 0x1000000) + (ip.b  * 0x10000) + (ip.c * 0x100) + ip.d
+        #determinate the ip class
         for ipClass in classiIp:
             if(ip.a & ipClass.mask) == ipClass.leading:
                 ip.netId = ip.ip & ipClass.netmask
@@ -34,6 +34,6 @@ if __name__ == '__main__':
 
     for ip in ips:
         for ip2 in ips:
-
+            #check if two ips are on the same network
             if ip.netId == ip2.netId:
                 print(f'{ip.a}.{ip.b}.{ip.c}.{ip.d} and {ip2.a}.{ip2.b}.{ip2.c}.{ip2.d} are in the same network')
