@@ -1,6 +1,7 @@
 const fs = require('fs')
 
 //LETTURA FILE BLOCCANTE (SINCRONA)
+//il thread principale viene bloccato per leggere il file
 console.log('--- TEST BLOCCANTE ---')
 console.log('start')
 
@@ -11,6 +12,7 @@ console.log('End')
 
 
 //LETTURA FILE NON BLOCCANTE (ASINCRONA)
+//il thread principale non viene bloccato
 console.log('\n--- TEST NON BLOCCANTE ---')
 console.log('start')
 
