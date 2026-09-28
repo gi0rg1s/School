@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Veicolo {
+public abstract class Veicolo {
 
-    public string Targa { get; set; } = string.Empty;
-    public string Marca { get; set; } = string.Empty;
-    public string Modello { get; set; } = string.Empty;
-    public double ChilometriPercorsi { get; set; }
+    protected string targa { get; set; } = string.Empty;
+    protected string marca { get; set; } = string.Empty;
+    protected string modello { get; set; } = string.Empty;
+    protected double chilometriPercorsi { get; set; }
 
     //constructor
     public Veicolo(string targa, string marca, string modello, double chilometriPercorsi)
     {
-        Targa = targa;
-        Marca = marca;
-        Modello = modello;
-        ChilometriPercorsi = chilometriPercorsi;
+        this.targa = targa;
+        this.marca = marca;
+        this.modello = modello;
+        this.chilometriPercorsi = chilometriPercorsi;
     }
 
     //methods
@@ -22,92 +22,92 @@ public class Veicolo {
     /// return specifiers of the veichle
     /// </summary>
     /// <returns></returns>
-    public virtual string StampaDettagli()
+    public virtual string stampaDettagli()
     {
-        return ($"Veicolo [Targa: {this.Targa}, Marca: {this.Marca}, Modello: {this.Modello}, Chilometri percorsi: {this.ChilometriPercorsi}]");
+        return ($"Veicolo [Targa: {this.targa}, Marca: {this.marca}, Modello: {this.modello}, Chilometri percorsi: {this.chilometriPercorsi}]");
     } 
     /// <summary>
     /// calculates cost for mantainance
     /// </summary>
     /// <returns></returns>
-    public virtual double CalcolaCostoManutenzione()
+    public virtual double calcolaCostoManutenzione()
     {
-        return 0.05 * this.ChilometriPercorsi;
+        return 0.05 * this.chilometriPercorsi;
     }
 }
 
 public class Auto : Veicolo
 {
-    public int NumeroPorte { get; set; }
+    private int numeroPorte { get; set; }
     //constructor
     public Auto(string targa, string marca, string modello, double chilometriPercorsi, int numeroPorte) : base(targa, marca, modello, chilometriPercorsi)
     {
-        this.Targa = targa;
-        this.Marca = marca;
-        this.Modello = modello;
-        this.ChilometriPercorsi = (double)chilometriPercorsi;
-        this.NumeroPorte = numeroPorte;
+        this.targa = targa;
+        this.marca = marca;
+        this.modello = modello;
+        this.chilometriPercorsi = (double)chilometriPercorsi;
+        this.numeroPorte = numeroPorte;
     }
 
     /// <summary>
     /// return a string with all auto's specifiers
     /// </summary>
     /// <returns></returns>
-    public override string StampaDettagli()
+    public override string stampaDettagli()
     {
-        return ($"Auto[Targa: {this.Targa}, Marca: {this.Marca}, Modello: {this.Modello}, Chilometri percorsi: {this.ChilometriPercorsi}, Numero porte: {this.NumeroPorte}]");
+        return ($"Auto[Targa: {this.targa}, Marca: {this.marca}, Modello: {this.modello}, Chilometri percorsi: {this.chilometriPercorsi}, Numero porte: {this.numeroPorte}]");
     }
 
     /// <summary>
     /// calculates cost for mantainance
     /// </summary>
     /// <returns></returns>
-    public override double CalcolaCostoManutenzione()
+    public override double calcolaCostoManutenzione()
     {
-        return base.CalcolaCostoManutenzione() + 100;
+        return base.calcolaCostoManutenzione() + 100;
     }
 }
 
 public class Camion : Veicolo
 {
-    public double CapacitaCarico { get; set; }
+    private double capacitaCarico { get; set; }
     //constructor
     public Camion(string targa, string marca, string modello, double chilometriPercorsi, int capacitaCarico) : base(targa, marca, modello, chilometriPercorsi)
     {
-        this.Targa = targa;
-        this.Marca = marca;
-        this.Modello = modello;
-        this.ChilometriPercorsi = (double)chilometriPercorsi;
-        this.CapacitaCarico = capacitaCarico;
+        this.targa = targa;
+        this.marca = marca;
+        this.modello = modello;
+        this.chilometriPercorsi = (double)chilometriPercorsi;
+        this.capacitaCarico = capacitaCarico;
     }
 
     /// <summary>
     /// return a string with all camion's specifiers
     /// </summary>
     /// <returns></returns>
-    public override string StampaDettagli()
+    public override string stampaDettagli()
     {
-        return ($"Camion[Targa: {this.Targa}, Marca: {this.Marca}, Modello: {this.Modello}, Chilometri percorsi: {this.ChilometriPercorsi}, Capacità carico: {this.CapacitaCarico}]");
+        return ($"Camion[Targa: {this.targa}, Marca: {this.marca}, Modello: {this.modello}, Chilometri percorsi: {this.chilometriPercorsi}, Capacità carico: {this.capacitaCarico}]");
     }
 
     /// <summary>
     /// calculates cost for mantainance
     /// </summary>
     /// <returns></returns>
-    public override double CalcolaCostoManutenzione()
+    public override double calcolaCostoManutenzione()
     {
-        return (0.15 * this.ChilometriPercorsi) + (50 * this.CapacitaCarico);
+        return (0.15 * this.chilometriPercorsi) + (50 * this.capacitaCarico);
     }
 }
 
 public class Flotta
 {
-    List<Veicolo> VeicoloList { get; set; }
+    private List<Veicolo> veicoloList { get; set; }
 
     //constructor
     public Flotta()
     {
-        VeicoloList = new List<Veicolo>();
+        this.veicoloList = new List<Veicolo>();
     }
 
     /// <summary>
@@ -116,19 +116,19 @@ public class Flotta
     /// <param name="v"></param>
     public void aggiungiVeicolo(Veicolo v)
     {
-        this.VeicoloList.Add(v);
+        this.veicoloList.Add(v);
     }
 
     /// <summary>
     /// returns a string with all veichles specifiers
     /// </summary>
     /// <returns></returns>
-    public String VisualizzaLista()
+    public String visualizzaLista()
     {
         string str = "";
-        foreach(Veicolo v in this.VeicoloList)
+        foreach(Veicolo v in this.veicoloList)
         {
-            str += v.StampaDettagli() + "\n";
+            str += v.stampaDettagli() + "\n";
         }
         return str;
     }
@@ -137,14 +137,9 @@ public class Flotta
     /// calculates the total cost of all the veichles mantainance
     /// </summary>
     /// <returns></returns>
-    public double CalcolaCostoTotaleManutenzione()
+    public double calcolaCostoTotaleManutenzione()
     {
-        double cost = 0;
-        foreach(Veicolo v in this.VeicoloList)
-        {
-            cost += v.CalcolaCostoManutenzione();
-        }
-        return cost;
+       return veicoloList.Sum(v => v.calcolaCostoManutenzione());
     }
 }
 
@@ -154,23 +149,16 @@ class Program
     {
         Flotta flotta = new Flotta();
 
-        // 1. Inserire una nuova Auto
         Auto auto1 = new Auto("AB123CD", "Fiat", "Panda", 45000, 5);
         flotta.aggiungiVeicolo(auto1);
 
-        // 2. Inserire un nuovo Camion
         Camion camion1 = new Camion("EF456GH", "Iveco", "Daily", 120000, 8);
         flotta.aggiungiVeicolo(camion1);
 
-        // 3. Visualizzare tutti i veicoli della flotta
         Console.WriteLine("=== Flotta Veicoli ===");
-        Console.WriteLine(flotta.VisualizzaLista());
+        Console.WriteLine(flotta.visualizzaLista());
 
-        // 4. Visualizzare il costo totale di manutenzione
-        Console.WriteLine($"Costo totale manutenzione: {flotta.CalcolaCostoTotaleManutenzione():C2}");
+        Console.WriteLine($"Costo totale manutenzione: {flotta.calcolaCostoTotaleManutenzione():C2}");
 
-        // 5. Uscire dal programma
-        Console.WriteLine("Premi un tasto per uscire...");
-        Console.ReadKey();
     }
 }
