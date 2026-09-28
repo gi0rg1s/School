@@ -56,6 +56,7 @@ namespace LambdaDemo
             // query linq lambda su array numeri per estrarre array ridotto a numeri pari e successivamente trasformare in nuovo array (proiezione) elevando al quadrato
             var numeriElevati = numeriPari
                           .Where(n => n % 2 == 0)
+                          // select -> metodo delle liste che trasforma
                           .Select(n => Math.Pow(n, 2)).ToList();
             Console.WriteLine("Numeri pari elevati: " + string.Join(" ", numeriElevati));
 
