@@ -1,7 +1,7 @@
 //script server.js
 
 const http=require("http")
-const hostname='192.168.185.31'
+const hostname='127.0.0.1'
 const port=3000;
 const path = require('path')
 const fs = require('fs')
