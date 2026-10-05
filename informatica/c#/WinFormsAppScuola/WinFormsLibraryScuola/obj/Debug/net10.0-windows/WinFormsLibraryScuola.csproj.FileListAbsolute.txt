@@ -1,0 +1,13 @@
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\bin\Debug\net10.0-windows\WinFormsLibraryScuola.deps.json
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\bin\Debug\net10.0-windows\WinFormsLibraryScuola.dll
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\bin\Debug\net10.0-windows\WinFormsLibraryScuola.pdb
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\WinFormsLibraryScuola.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\WinFormsLibraryScuola.AssemblyInfoInputs.cache
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\WinFormsLibraryScuola.AssemblyInfo.cs
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\WinFormsLibraryScuola.csproj.CoreCompileInputs.cache
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\WinFormsLibraryScuola.sourcelink.json
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\WinFormsLibraryScuola.dll
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\refint\WinFormsLibraryScuola.dll
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\WinFormsLibraryScuola.pdb
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\ref\WinFormsLibraryScuola.dll
+C:\Users\sfolloni1\Desktop\School\informatica\c#\WinFormsAppScuola\WinFormsLibraryScuola\obj\Debug\net10.0-windows\WinForms.7B6DAB04.Up2Date
