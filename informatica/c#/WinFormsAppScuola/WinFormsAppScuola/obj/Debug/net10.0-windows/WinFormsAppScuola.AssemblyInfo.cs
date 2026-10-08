@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WinFormsAppScuola")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64a4a372d8bf9c9d8b6aedc071c02967702f7a5d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fbccccaa5b412d6c10579d964cb0aa2b8660206")]
 [assembly: System.Reflection.AssemblyProductAttribute("WinFormsAppScuola")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WinFormsAppScuola")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

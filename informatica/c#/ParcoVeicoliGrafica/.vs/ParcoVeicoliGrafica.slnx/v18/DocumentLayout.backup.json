@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4C7E7613-5555-437F-95F5-2AABBE6648F5}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\parcoveicoligrafica\\parcoveicoligrafica\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4C7E7613-5555-437F-95F5-2AABBE6648F5}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|solutionrelative:parcoveicoligrafica\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\Form1.cs",
+              "RelativeDocumentMoniker": "ParcoVeicoliGrafica\\Form1.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\Form1.cs [Design]",
+              "RelativeToolTip": "ParcoVeicoliGrafica\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-08T10:36:03.804Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

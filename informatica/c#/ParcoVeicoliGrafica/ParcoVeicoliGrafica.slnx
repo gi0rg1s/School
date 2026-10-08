@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="parcoVeicoli/parcoVeicoli.csproj" />
+  <Project Path="ParcoVeicoliGrafica/ParcoVeicoliGrafica.csproj" />
+</Solution>
