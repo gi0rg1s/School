@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestioneParcoVeicoliAziendali")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ccf8a38598c4e25a8d9c515940e4f38ed103bd5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a63c83bd6db57ac738012c8804a0fc9d1d453362")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestioneParcoVeicoliAziendali")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestioneParcoVeicoliAziendali")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

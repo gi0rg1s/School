@@ -1,8 +1,8 @@
 namespace ParcoVeicoliGrafica
 {
-    public partial class Form1 : Form
+    public partial class ParcoVeicoli : Form
     {
-        public Form1()
+        public ParcoVeicoli()
         {
             InitializeComponent();
         }

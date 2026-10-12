@@ -36,7 +36,7 @@ namespace WinFormsLibraryScuola
             {
                 new Studente(12, "pippo", "pippo", DateTime.Parse("2008-04-08"), new List<int>{6, 8, 2, 10}),
                 new Studente{matricola=11, cognome="topolino", nome="topolino", dataDiNascita=DateTime.Parse("2002-01-30"), voti= new List<int>{6, 9, 7}},
-                new Studente{matricola=11, cognome="pluto", nome="pluto", dataDiNascita=DateTime.Parse("2002-12-20"), voti= new List<int>{8, 9, 7}}
+                new Studente{matricola=15, cognome="pluto", nome="pluto", dataDiNascita=DateTime.Parse("2002-12-20"), voti= new List<int>{8, 9, 7}}
             };
         }
     }

@@ -37,6 +37,11 @@
             textBoxCognome = new TextBox();
             textBoxDataDiNascita = new TextBox();
             buttonAggiungi = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            buttonModifica = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -118,11 +123,62 @@
             buttonAggiungi.UseVisualStyleBackColor = true;
             buttonAggiungi.Click += buttonAggiungi_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(64, 247);
+            label1.Name = "label1";
+            label1.Size = new Size(72, 20);
+            label1.TabIndex = 9;
+            label1.Text = "Matricola";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(209, 246);
+            label2.Name = "label2";
+            label2.Size = new Size(47, 20);
+            label2.TabIndex = 10;
+            label2.Text = "nome";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(355, 245);
+            label3.Name = "label3";
+            label3.Size = new Size(72, 20);
+            label3.TabIndex = 11;
+            label3.Text = "cognome";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(534, 243);
+            label4.Name = "label4";
+            label4.Size = new Size(108, 20);
+            label4.TabIndex = 12;
+            label4.Text = "Data di nascita";
+            // 
+            // buttonModifica
+            // 
+            buttonModifica.Location = new Point(237, 356);
+            buttonModifica.Name = "buttonModifica";
+            buttonModifica.Size = new Size(157, 39);
+            buttonModifica.TabIndex = 13;
+            buttonModifica.Text = "modifica";
+            buttonModifica.UseVisualStyleBackColor = true;
+            buttonModifica.Click += buttonModifica_Click;
+            // 
             // FormScuola
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonModifica);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(buttonAggiungi);
             Controls.Add(textBoxDataDiNascita);
             Controls.Add(textBoxCognome);
@@ -149,5 +205,10 @@
         private TextBox textBoxCognome;
         private TextBox textBoxDataDiNascita;
         private Button buttonAggiungi;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Button buttonModifica;
     }
 }
