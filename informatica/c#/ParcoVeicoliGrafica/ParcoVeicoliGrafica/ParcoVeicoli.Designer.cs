@@ -42,6 +42,9 @@
             buttonElimina = new Button();
             buttonCarica = new Button();
             comboBoxType = new ComboBox();
+            textBoxLastAttribute = new TextBox();
+            labelLastAttribute = new Label();
+            labelSelect = new Label();
             ((System.ComponentModel.ISupportInitialize)parcoVeicoliGrid).BeginInit();
             SuspendLayout();
             // 
@@ -53,6 +56,7 @@
             parcoVeicoliGrid.RowHeadersWidth = 51;
             parcoVeicoliGrid.Size = new Size(461, 200);
             parcoVeicoliGrid.TabIndex = 0;
+            parcoVeicoliGrid.CellContentClick += parcoVeicoliGrid_CellContentClick;
             // 
             // textBoxTarga
             // 
@@ -135,6 +139,7 @@
             buttonModifica.TabIndex = 10;
             buttonModifica.Text = "Modifica";
             buttonModifica.UseVisualStyleBackColor = true;
+            buttonModifica.Click += buttonModifica_Click;
             // 
             // buttonElimina
             // 
@@ -144,6 +149,7 @@
             buttonElimina.TabIndex = 11;
             buttonElimina.Text = "Elimina";
             buttonElimina.UseVisualStyleBackColor = true;
+            buttonElimina.Click += buttonElimina_Click;
             // 
             // buttonCarica
             // 
@@ -153,6 +159,7 @@
             buttonCarica.TabIndex = 12;
             buttonCarica.Text = "Carica";
             buttonCarica.UseVisualStyleBackColor = true;
+            buttonCarica.Click += buttonCarica_Click;
             // 
             // comboBoxType
             // 
@@ -162,11 +169,38 @@
             comboBoxType.Size = new Size(179, 28);
             comboBoxType.TabIndex = 13;
             // 
+            // textBoxLastAttribute
+            // 
+            textBoxLastAttribute.Location = new Point(607, 390);
+            textBoxLastAttribute.Name = "textBoxLastAttribute";
+            textBoxLastAttribute.Size = new Size(137, 27);
+            textBoxLastAttribute.TabIndex = 14;
+            // 
+            // labelLastAttribute
+            // 
+            labelLastAttribute.AutoSize = true;
+            labelLastAttribute.Location = new Point(616, 355);
+            labelLastAttribute.Name = "labelLastAttribute";
+            labelLastAttribute.Size = new Size(0, 20);
+            labelLastAttribute.TabIndex = 15;
+            // 
+            // labelSelect
+            // 
+            labelSelect.AutoSize = true;
+            labelSelect.Location = new Point(34, 248);
+            labelSelect.Name = "labelSelect";
+            labelSelect.Size = new Size(183, 20);
+            labelSelect.TabIndex = 16;
+            labelSelect.Text = "seleziona il tipo di veicolo";
+            // 
             // ParcoVeicoli
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelSelect);
+            Controls.Add(labelLastAttribute);
+            Controls.Add(textBoxLastAttribute);
             Controls.Add(comboBoxType);
             Controls.Add(buttonCarica);
             Controls.Add(buttonElimina);
@@ -204,5 +238,8 @@
         private Button buttonElimina;
         private Button buttonCarica;
         private ComboBox comboBoxType;
+        private TextBox textBoxLastAttribute;
+        private Label labelLastAttribute;
+        private Label labelSelect;
     }
 }

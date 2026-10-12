@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "ParcoVeicoliGrafica/1.0.0": {
+        "dependencies": {
+          "parcoVeicoli": "1.0.0"
+        },
+        "runtime": {
+          "ParcoVeicoliGrafica.dll": {}
+        }
+      },
+      "parcoVeicoli/1.0.0": {
+        "runtime": {
+          "parcoVeicoli.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ParcoVeicoliGrafica/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "parcoVeicoli/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

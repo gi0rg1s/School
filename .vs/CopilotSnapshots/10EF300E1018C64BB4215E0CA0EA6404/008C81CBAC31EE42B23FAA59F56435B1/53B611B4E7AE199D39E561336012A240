@@ -1,0 +1,103 @@
+﻿using parcoVeicoli;
+using System.ComponentModel;
+using System.Collections.Generic;
+
+
+namespace ParcoVeicoliGrafica
+{
+    public partial class ParcoVeicoli : Form
+    {
+        BindingList<Veicolo> veicoli;
+        private Dictionary<Type, Func<string, string, string, string, double, Veicolo>> factories;
+        private Dictionary<Type, string> paramNames;
+        public ParcoVeicoli()
+        {
+            InitializeComponent();
+            veicoli = new BindingList<Veicolo>{
+                new Auto(4, "AB123CD", "Fiat", "Punto", 15000),
+                new Camion(5000, "EF456GH", "Iveco", "Stralis", 30000),
+                new Auto(2, "IJ789KL", "Ford", "Mustang", 20000),
+                new Camion(3, "MN012OP", "Scania", "R500", 40000)
+            };
+
+            // popola la combobox dei tipi
+            comboBoxType.DataSource = new Type[] { typeof(Auto), typeof(Camion) };
+            comboBoxType.DisplayMember = "Name";
+            comboBoxType.SelectedIndexChanged += comboBoxType_SelectedIndexChanged;
+            buttonAggiungi.Click += buttonAggiungi_Click;
+        }
+
+        private void buttonCarica_Click(object sender, EventArgs e)
+        {
+            parcoVeicoliGrid.DataSource = veicoli;
+        }
+
+        private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxType.SelectedItem is Type t)
+            {
+                if (paramNames.TryGetValue(t, out var name))
+                    labelLastAttribute.Text = name;
+            }
+        }
+
+        private void buttonAggiungi_Click(object sender, EventArgs e)
+        {
+            var targa = textBoxTarga.Text;
+            var marca = textBoxMarca.Text;
+            var modello = textBoxModello.Text;
+            var km = double.TryParse(textBoxChilometri.Text, out var kmVal) ? kmVal : 0.0;
+            var selectedType = comboBoxType.SelectedItem as Type;
+            if (selectedType != null && factories.TryGetValue(selectedType, out var factory))
+            {
+                try
+                {
+                    var veicolo = factory(textBoxLastAttribute.Text, targa, marca, modello, km);
+                    veicoli.Add(veicolo);
+                    parcoVeicoliGrid.DataSource = veicoli;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Errore creazione veicolo: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleziona un tipo valido");
+            }
+        }
+
+        private void parcoVeicoliGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Veicolo veicolo = veicoli[e.RowIndex];
+            if (e.ColumnIndex > 0)
+            {
+                textBoxChilometri.Text = veicolo.ChilometriPercorsi.ToString();
+                textBoxMarca.Text = veicolo.Marca;
+                textBoxModello.Text = veicolo.Modello;
+                textBoxTarga.Text = veicolo.Targa;
+                textBoxLastAttribute.Text = veicolo is Auto auto ? auto.NumeroPorte.ToString() : veicolo is Camion camion ? camion.CapacitaCarico.ToString() : string.Empty;
+                labelLastAttribute.Text = veicolo is Auto ? "Numero di porte" : veicolo is Camion ? "Capacità di carico" : string.Empty; ;
+            }
+        }
+
+        private void buttonElimina_Click(object sender, EventArgs e)
+        {
+            veicoli.RemoveAt(parcoVeicoliGrid.CurrentCell.RowIndex);
+        }
+
+        private void buttonAggiungi_Click_1(object sender, EventArgs e)
+        {
+            if(ComboBoxType.SelectedItem == "auto")
+            {
+                Auto auto = new Auto(int.Parse(textBoxLastAttribute.Text), textBoxTarga.Text, textBoxMarca.Text, textBoxModello.Text, double.Parse(textBoxChilometri.Text));
+                veicoli.Add(auto);
+            }
+            else if (ComboBoxType.SelectedItem == "camion")
+            {
+                Camion camion = new Camion(double.Parse(textBoxLastAttribute.Text), textBoxTarga.Text, textBoxMarca.Text, textBoxModello.Text, double.Parse(textBoxChilometri.Text));
+                veicoli.Add(camion);
+            }
+        }
+    }
+}

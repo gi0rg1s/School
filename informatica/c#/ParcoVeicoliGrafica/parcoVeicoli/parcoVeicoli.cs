@@ -1,53 +1,8 @@
-﻿namespace parcoVeicoli
+﻿using System.ComponentModel;
+
+namespace parcoVeicoli
 {
-    public partial class parcoVeicoli : UserControl
-    {
-        // Attributo di classe (fuori dal costruttore)
-        private List<Veicolo> veicoli = new List<Veicolo>();
-        public parcoVeicoli()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// Aggiunge un nuovo veicolo alla flotta
-        /// </summary>
-        /// <param name="v"> Veicolo da aggiungere </param>
-        public void AggiungiVeicolo(Veicolo v)
-        {
-            veicoli.Add(v);
-        }
-
-        /// <summary>
-        /// Cicla la lista dei veicoli e stampa i dettagli di ciascuno sfruttando il polimorfismo
-        /// </summary>
-        public string VisualizzaFlotta()
-        {
-            string InfoFlotta = "";
-            foreach (Veicolo v in veicoli)
-            {
-                InfoFlotta += "\n" + v.StampaDettagli();
-            }
-            return InfoFlotta;
-        }
-
-        /// <summary>
-        /// Calcola la somma dei costi di manutenzione di tutti i veicoli della flotta
-        /// </summary>
-        /// <returns> Costo totale di manutenzione </returns>
-        public double CalcolaCostoTotaleManutenzione()
-        {
-            double costoTotale = 0;
-
-            foreach (Veicolo v in veicoli)
-            {
-                costoTotale += v.CalcolaCostoManutenzione();
-            }
-
-            return costoTotale;
-        }
-    }
-
+    
     // CLASSE ASTRATTA VEICOLO
     public abstract class Veicolo
     {
