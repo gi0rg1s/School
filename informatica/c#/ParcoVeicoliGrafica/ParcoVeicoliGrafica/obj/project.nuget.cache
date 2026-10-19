@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "mrJ/G/cINNY=",
   "success": true,
   "projectFilePath": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj",
+=======
+  "dgSpecHash": "OqaHLe973iY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj",
+>>>>>>> 1d3a7064d6ec2e05b71b4ef2bf4c11eb63d2bf9a
   "expectedPackageFiles": [],
   "logs": []
 }

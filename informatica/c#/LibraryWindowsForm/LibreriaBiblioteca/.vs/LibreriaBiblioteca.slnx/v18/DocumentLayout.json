@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibreriaBiblioteca\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{41DD8DC4-5147-45C3-8FB6-E0CB15D502B9}|LibreriaBiblioteca\\LibreriaBiblioteca.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\librarywindowsform\\librarywindowsform\\libreriabiblioteca\\libreriabiblioteca\\risorsa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41DD8DC4-5147-45C3-8FB6-E0CB15D502B9}|LibreriaBiblioteca\\LibreriaBiblioteca.csproj|solutionrelative:libreriabiblioteca\\risorsa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Risorsa.cs",
+              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\Risorsa.cs",
+              "RelativeDocumentMoniker": "LibreriaBiblioteca\\Risorsa.cs",
+              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\Risorsa.cs",
+              "RelativeToolTip": "LibreriaBiblioteca\\Risorsa.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowBEAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T07:18:45.525Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

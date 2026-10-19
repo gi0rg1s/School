@@ -45,6 +45,7 @@ function requestHandler(req, res) {
         // create the read stream 
         const stream = fs.createReadStream(filePath);
 
+        //connects the readable stream directly to the writable stream
         stream.pipe(res);
 
         //handle stream errors
