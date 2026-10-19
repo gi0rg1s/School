@@ -1,4 +1,5 @@
-﻿namespace LibreriaBiblioteca
+﻿
+namespace LibreriaBiblioteca
 {
     public abstract class Risorsa
     {
@@ -45,12 +46,12 @@
 
         public int NumeroPagine { get => numeroPagine; set => numeroPagine = value; }
 
-        public string override stampaDettagli()
+        public override string stampaDettagli()
         {
             return base.stampaDettagli() + $", Numero di pagine: {NumeroPagine}";
         }
 
-        public double override calcolaPenale(int giorniPrestitoEffettivi)
+        public override double calcolaPenaleRitardo(int giorniPrestitoEffettivi)
         {
             return base.calcolaPenaleRitardo(giorniPrestitoEffettivi) + 5.00;
         }
@@ -72,12 +73,12 @@
 
         public int DurataMinuti { get => durataMinuti; set => durataMinuti = value; }
 
-        public string override stampaDettagli()
+        public override string stampaDettagli()
         {
             return base.stampaDettagli() + $", Durata in minuti: {DurataMinuti}";
         }
 
-        public double override calcolaPenale(int giorniInPrestitoEffettivi)
+        public override double calcolaPenaleRitardo(int giorniInPrestitoEffettivi)
         {
             return giorniInPrestitoEffettivi > this.GiorniInPrestito ? 0.30 * (giorniInPrestitoEffettivi - this.GiorniInPrestito) + (0.1 * this.DurataMinuti) : 0;
         }
@@ -85,21 +86,21 @@
 
     public class Catalogo
     {
-        private List<Risorsa> catalogo;
+        private List<Risorsa> catalogo = new List<Risorsa>();
 
         public void aggiungiRisorsa(Risorsa r)
         {
-            this.catalogo = r;
+            this.catalogo.Add(r);
         }
 
         public string visualizzaCatalogo()
         {
-            return this.catalogo.Select(r => r.stampaDettagli() + "/n");
+            return string.Join("\n", catalogo.Select(r => r.stampaDettagli()));
         }
 
-        public double calcolaPenaleTotale()
+        public double calcolaPenaleTotale(int giorniRitardo)
         {
-            return this.catalogo.Sum(r => r.calcolaPenaleTotale());
+            return catalogo.Sum(r => r.calcolaPenaleRitardo(giorniRitardo));
         }
     }
 }

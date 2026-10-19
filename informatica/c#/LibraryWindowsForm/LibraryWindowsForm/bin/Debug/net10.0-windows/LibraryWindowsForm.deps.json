@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "LibraryWindowsForm/1.0.0": {
+        "dependencies": {
+          "LibreriaBiblioteca": "1.0.0"
+        },
+        "runtime": {
+          "LibraryWindowsForm.dll": {}
+        }
+      },
+      "LibreriaBiblioteca/1.0.0": {
+        "runtime": {
+          "LibreriaBiblioteca.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LibraryWindowsForm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LibreriaBiblioteca/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

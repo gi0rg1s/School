@@ -66,6 +66,7 @@
             buttonAggiungi.TabIndex = 1;
             buttonAggiungi.Text = "Aggiungi";
             buttonAggiungi.UseVisualStyleBackColor = true;
+            buttonAggiungi.Click += buttonAggiungi_Click;
             // 
             // buttonModifica
             // 
@@ -75,6 +76,7 @@
             buttonModifica.TabIndex = 2;
             buttonModifica.Text = "Modifica";
             buttonModifica.UseVisualStyleBackColor = true;
+            buttonModifica.Click += buttonModifica_Click;
             // 
             // buttonElimina
             // 
@@ -84,6 +86,7 @@
             buttonElimina.TabIndex = 3;
             buttonElimina.Text = "Elimina";
             buttonElimina.UseVisualStyleBackColor = true;
+            buttonElimina.Click += buttonElimina_Click;
             // 
             // buttonCarica
             // 

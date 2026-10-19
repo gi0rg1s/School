@@ -24,9 +24,52 @@ namespace LibraryWindowsForm
 
         private void risorseGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex > 0) {
-                
+            Risorsa r = catalogo[e.RowIndex];
+            if (e.ColumnIndex > 0)
+            {
+                textBoxAutore.Text = r.Autore;
+                textBoxCodice.Text = r.Codice;
+                textBoxGiorniPrestito.Text = r.GiorniInPrestito.ToString();
+                textBoxTitolo.Text = r.Titolo;
+                labelLastElement.Text = r is Libro ? "Numero di pagine" : r is Audiolibro ? "Minuti totali" : "";
+                textBoxLastElement.Text = r is Libro l ? l.NumeroPagine.ToString() : r is Audiolibro a ? a.DurataMinuti.ToString() : "";
             }
+        }
+
+        private void buttonElimina_Click(object sender, EventArgs e)
+        {
+            catalogo.RemoveAt(risorseGridView.CurrentCell.RowIndex);
+        }
+
+        private void buttonAggiungi_Click(object sender, EventArgs e)
+        {
+            if (radioButtonAudiolibro.Checked)
+            {
+                Audiolibro a = new Audiolibro(textBoxCodice.Text, textBoxTitolo.Text, textBoxAutore.Text, int.Parse(textBoxGiorniPrestito.Text), int.Parse(textBoxLastElement.Text));
+                catalogo.Add(a);
+            }
+            else if (radioButtonLibro.Checked)
+            {
+                Libro l = new Libro(textBoxCodice.Text, textBoxTitolo.Text, textBoxAutore.Text, int.Parse(textBoxGiorniPrestito.Text), int.Parse(textBoxLastElement.Text));
+                catalogo.Add(l);
+            }
+        }
+
+        private void buttonModifica_Click(object sender, EventArgs e)
+        {
+            Risorsa r = catalogo.FirstOrDefault(risorsa => risorsa.Codice == textBoxCodice.Text);
+            r.Titolo = textBoxTitolo.Text;
+            r.Autore = textBoxAutore.Text;
+            r.GiorniInPrestito = int.Parse(textBoxGiorniPrestito.Text);
+
+            if (r is Libro libro) {
+                libro.NumeroPagine = int.Parse(textBoxLastElement.Text);
+            }
+            else if(r is Audiolibro audiolibro)
+            {
+                audiolibro.DurataMinuti = int.Parse(textBoxLastElement.Text);
+            }
+            risorseGridView.Refresh();
         }
     }
 }
