@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ParcoVeicoliGrafica")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e7939646f8ef7b2436cd9d905a5bdb828a14de6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+360e636282c774d563ae28ec543612662714c0d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ParcoVeicoliGrafica")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ParcoVeicoliGrafica")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
