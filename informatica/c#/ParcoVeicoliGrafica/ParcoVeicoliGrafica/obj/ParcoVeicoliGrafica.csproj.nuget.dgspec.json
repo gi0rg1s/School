@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj": {}
+    "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj": {
+    "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj",
+        "projectUniqueName": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj",
         "projectName": "ParcoVeicoliGrafica",
-        "projectPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj",
-        "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\obj\\",
+        "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj",
+        "packagesPath": "C:\\Users\\sfolloni1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\giorg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sfolloni1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -29,8 +34,8 @@
             "framework": "net10.0-windows7.0",
             "targetAlias": "net10.0-windows",
             "projectReferences": {
-              "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj": {
-                "projectPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj"
+              "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj": {
+                "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj"
               }
             }
           }
@@ -364,17 +369,21 @@
         }
       }
     },
-    "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj": {
+    "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj",
+        "projectUniqueName": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj",
         "projectName": "parcoVeicoli",
-        "projectPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj",
-        "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\obj\\",
+        "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.csproj",
+        "packagesPath": "C:\\Users\\sfolloni1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\giorg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sfolloni1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -382,6 +391,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

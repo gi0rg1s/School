@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\",
+  "WorkspaceRootPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8EC953EB-F094-37EC-F616-E9B364CBA498}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|c:\\users\\giorg\\desktop\\school\\informatica\\c#\\parcoveicoligrafica\\parcoveicoligrafica\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8EC953EB-F094-37EC-F616-E9B364CBA498}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\parcoveicoligrafica\\parcoveicoligrafica\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8EC953EB-F094-37EC-F616-E9B364CBA498}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|solutionrelative:parcoveicoligrafica\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8EC953EB-F094-37EC-F616-E9B364CBA498}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|c:\\users\\giorg\\desktop\\school\\informatica\\c#\\parcoveicoligrafica\\parcoveicoligrafica\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8EC953EB-F094-37EC-F616-E9B364CBA498}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|solutionrelative:parcoveicoligrafica\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{CD25D025-7A5C-2DF0-B549-47E88FA214F6}|parcoVeicoli\\parcoVeicoli.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\parcoveicoligrafica\\parcoveicoli\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD25D025-7A5C-2DF0-B549-47E88FA214F6}|parcoVeicoli\\parcoVeicoli.csproj|solutionrelative:parcoveicoli\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD25D025-7A5C-2DF0-B549-47E88FA214F6}|parcoVeicoli\\parcoVeicoli.csproj|c:\\users\\giorg\\desktop\\school\\informatica\\c#\\parcoveicoligrafica\\parcoveicoli\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD25D025-7A5C-2DF0-B549-47E88FA214F6}|parcoVeicoli\\parcoVeicoli.csproj|solutionrelative:parcoveicoli\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8EC953EB-F094-37EC-F616-E9B364CBA498}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoveicoligrafica\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8EC953EB-F094-37EC-F616-E9B364CBA498}|ParcoVeicoliGrafica\\ParcoVeicoliGrafica.csproj|solutionrelative:parcoveicoligrafica\\parcoveicoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,29 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ParcoVeicoli.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoli.cs",
-              "RelativeDocumentMoniker": "ParcoVeicoliGrafica\\ParcoVeicoli.cs",
-              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoli.cs [Progettazione]",
-              "RelativeToolTip": "ParcoVeicoliGrafica\\ParcoVeicoli.cs [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T15:59:54.208Z",
-              "EditorCaption": " [Progettazione]"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ParcoVeicoli.cs",
-              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoli.cs",
+              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoli.cs",
               "RelativeDocumentMoniker": "ParcoVeicoliGrafica\\ParcoVeicoli.cs",
-              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoli.cs",
+              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoli.cs",
               "RelativeToolTip": "ParcoVeicoliGrafica\\ParcoVeicoli.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAswF4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwBoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T14:35:27.44Z",
               "EditorCaption": ""
@@ -52,10 +40,22 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ParcoVeicoli.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoli.cs",
+              "RelativeDocumentMoniker": "ParcoVeicoliGrafica\\ParcoVeicoli.cs",
+              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\ParcoVeicoliGrafica\\ParcoVeicoli.cs [Design]",
+              "RelativeToolTip": "ParcoVeicoliGrafica\\ParcoVeicoli.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T15:59:54.208Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "parcoVeicoli.cs",
-              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.cs",
+              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.cs",
               "RelativeDocumentMoniker": "parcoVeicoli\\parcoVeicoli.cs",
-              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.cs",
+              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\ParcoVeicoliGrafica\\parcoVeicoli\\parcoVeicoli.cs",
               "RelativeToolTip": "parcoVeicoli\\parcoVeicoli.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
