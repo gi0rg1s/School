@@ -8,19 +8,24 @@
     "net10.0-windows": []
   },
   "packageFolders": {
-    "C:\\Users\\giorg\\.nuget\\packages\\": {}
+    "C:\\Users\\sfolloni1\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\LibreriaBiblioteca.csproj",
+      "projectUniqueName": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\LibreriaBiblioteca.csproj",
       "projectName": "LibreriaBiblioteca",
-      "projectPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\LibreriaBiblioteca.csproj",
-      "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\obj\\",
+      "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\LibreriaBiblioteca.csproj",
+      "packagesPath": "C:\\Users\\sfolloni1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\giorg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sfolloni1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
