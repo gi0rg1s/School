@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\WinFormsLibraryScuola.csproj": {}
+    "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\WinFormsLibraryScuola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\WinFormsLibraryScuola.csproj": {
+    "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\WinFormsLibraryScuola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\WinFormsLibraryScuola.csproj",
+        "projectUniqueName": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\WinFormsLibraryScuola.csproj",
         "projectName": "WinFormsLibraryScuola",
-        "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\WinFormsLibraryScuola.csproj",
-        "packagesPath": "C:\\Users\\sfolloni1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\obj\\",
+        "projectPath": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\WinFormsLibraryScuola.csproj",
+        "packagesPath": "C:\\Users\\sFOLLONI1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppScuola\\WinFormsLibraryScuola\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\sfolloni1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sFOLLONI1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

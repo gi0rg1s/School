@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\",
+  "WorkspaceRootPath": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\",
   "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{64B97836-12A1-13E7-D1BA-DB5CECF31B3C}|LibraryWindowsForm\\LibraryWindowsForm.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\librarywindowsform\\librarywindowsform\\librarywindowsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64B97836-12A1-13E7-D1BA-DB5CECF31B3C}|LibraryWindowsForm\\LibraryWindowsForm.csproj|solutionrelative:librarywindowsform\\librarywindowsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
     {
       "AbsoluteMoniker": "D:0:0:{FD805332-45CA-C02C-2B09-FB216848BF13}|LibreriaBiblioteca\\LibreriaBiblioteca\\LibreriaBiblioteca.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\librarywindowsform\\libreriabiblioteca\\libreriabiblioteca\\risorsa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FD805332-45CA-C02C-2B09-FB216848BF13}|LibreriaBiblioteca\\LibreriaBiblioteca\\LibreriaBiblioteca.csproj|solutionrelative:libreriabiblioteca\\libreriabiblioteca\\risorsa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64B97836-12A1-13E7-D1BA-DB5CECF31B3C}|LibraryWindowsForm\\LibraryWindowsForm.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\librarywindowsform\\librarywindowsform\\librarywindowsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{64B97836-12A1-13E7-D1BA-DB5CECF31B3C}|LibraryWindowsForm\\LibraryWindowsForm.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\librarywindowsform\\librarywindowsform\\librarywindowsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64B97836-12A1-13E7-D1BA-DB5CECF31B3C}|LibraryWindowsForm\\LibraryWindowsForm.csproj|solutionrelative:librarywindowsform\\librarywindowsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64B97836-12A1-13E7-D1BA-DB5CECF31B3C}|LibraryWindowsForm\\LibraryWindowsForm.csproj|C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\librarywindowsform\\librarywindowsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{64B97836-12A1-13E7-D1BA-DB5CECF31B3C}|LibraryWindowsForm\\LibraryWindowsForm.csproj|solutionrelative:librarywindowsform\\librarywindowsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -22,15 +22,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "LibraryWindowsForm.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibraryWindowsForm.cs",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibraryWindowsForm.cs",
               "RelativeDocumentMoniker": "LibraryWindowsForm\\LibraryWindowsForm.cs",
-              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibraryWindowsForm.cs [Progettazione]",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibraryWindowsForm.cs [Progettazione]",
               "RelativeToolTip": "LibraryWindowsForm\\LibraryWindowsForm.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-19T08:18:05.207Z",
@@ -38,26 +38,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Risorsa.cs",
-              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\Risorsa.cs",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\Risorsa.cs",
               "RelativeDocumentMoniker": "LibreriaBiblioteca\\LibreriaBiblioteca\\Risorsa.cs",
-              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\Risorsa.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibreriaBiblioteca\\LibreriaBiblioteca\\Risorsa.cs",
               "RelativeToolTip": "LibreriaBiblioteca\\LibreriaBiblioteca\\Risorsa.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAcwFoAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAA2wGgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-19T07:38:42.27Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "LibraryWindowsForm.cs",
-              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibraryWindowsForm.cs",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibraryWindowsForm.cs",
               "RelativeDocumentMoniker": "LibraryWindowsForm\\LibraryWindowsForm.cs",
-              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibraryWindowsForm.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\LibraryWindowsForm\\LibraryWindowsForm\\LibraryWindowsForm.cs",
               "RelativeToolTip": "LibraryWindowsForm\\LibraryWindowsForm.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAmwBsAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAswCYAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-19T07:36:35.22Z",
               "EditorCaption": ""
