@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Dati" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Dati">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Cognome" type="xs:string" minOccurs="0" />
+                <xs:element name="Nome" type="xs:string" minOccurs="0" />
+                <xs:element name="Telefono" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Dati>
+    <Cognome>Rossi</Cognome>
+    <Nome>Mario</Nome>
+    <Telefono>123456</Telefono>
+  </Dati>
+  <Dati>
+    <Cognome>Verdi</Cognome>
+    <Nome>Maria</Nome>
+    <Telefono>123456</Telefono>
+  </Dati>
+  <Dati>
+    <Cognome>Bianchi</Cognome>
+    <Nome>Ugo</Nome>
+    <Telefono>632</Telefono>
+  </Dati>
+</NewDataSet>

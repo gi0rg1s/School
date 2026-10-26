@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WinFormsAlbum/WinFormsAlbum.csproj" />
+  <Project Path="WinFormsLibraryAlbum/WinFormsLibraryAlbum.csproj" Id="ef4885ed-ecfd-4c99-bef7-69df0ee2ecae" />
+</Solution>
