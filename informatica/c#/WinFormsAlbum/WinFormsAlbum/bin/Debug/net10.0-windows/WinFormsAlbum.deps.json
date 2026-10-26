@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "WinFormsAlbum/1.0.0": {
+        "dependencies": {
+          "WinFormsLibraryAlbum": "1.0.0"
+        },
+        "runtime": {
+          "WinFormsAlbum.dll": {}
+        }
+      },
+      "WinFormsLibraryAlbum/1.0.0": {
+        "runtime": {
+          "WinFormsLibraryAlbum.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WinFormsAlbum/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WinFormsLibraryAlbum/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

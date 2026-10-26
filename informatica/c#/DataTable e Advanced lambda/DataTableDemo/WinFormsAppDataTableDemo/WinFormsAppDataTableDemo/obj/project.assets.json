@@ -8,24 +8,19 @@
     "net8.0-windows": []
   },
   "packageFolders": {
-    "C:\\Users\\sfolloni1\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\giorg\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\DataTable e Advanced lambda\\DataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo.csproj",
+      "projectUniqueName": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\DataTable e Advanced lambda\\DataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo.csproj",
       "projectName": "WinFormsAppDataTableDemo",
-      "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\DataTable e Advanced lambda\\DataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo.csproj",
-      "packagesPath": "C:\\Users\\sfolloni1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\DataTable e Advanced lambda\\DataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo\\obj\\",
+      "projectPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\DataTable e Advanced lambda\\DataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo.csproj",
+      "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\DataTable e Advanced lambda\\DataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\sfolloni1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\giorg\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -53,7 +47,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.400"
+      "SdkAnalysisLevel": "11.0.100"
     },
     "frameworks": {
       "net8.0-windows": {
@@ -70,6 +64,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.32, 8.0.32]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.32, 8.0.32]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.32, 8.0.32]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.32, 8.0.32]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -78,7 +90,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\11.0.100-rc.2.26504.105/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

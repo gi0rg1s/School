@@ -1,0 +1,13 @@
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\bin\Debug\net10.0-windows\WinFormsLibraryAlbum.deps.json
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\bin\Debug\net10.0-windows\WinFormsLibraryAlbum.dll
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\bin\Debug\net10.0-windows\WinFormsLibraryAlbum.pdb
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\WinFormsLibraryAlbum.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\WinFormsLibraryAlbum.AssemblyInfoInputs.cache
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\WinFormsLibraryAlbum.AssemblyInfo.cs
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\WinFormsLibraryAlbum.csproj.CoreCompileInputs.cache
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\WinFormsLibraryAlbum.sourcelink.json
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\WinFormsLibraryAlbum.dll
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\refint\WinFormsLibraryAlbum.dll
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\WinFormsLibraryAlbum.pdb
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\ref\WinFormsLibraryAlbum.dll
+C:\Users\giorg\Desktop\School\informatica\c#\WinFormsAlbum\WinFormsLibraryAlbum\obj\Debug\net10.0-windows\WinForms.64D4A158.Up2Date

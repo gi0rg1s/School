@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "B8D50twn2DA=",
+  "dgSpecHash": "RO9fRMklOS8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\DataTable e Advanced lambda\\DataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\DataTable e Advanced lambda\\DataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo\\WinFormsAppDataTableDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.32\\microsoft.windowsdesktop.app.ref.8.0.32.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.32\\microsoft.netcore.app.ref.8.0.32.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.32\\microsoft.aspnetcore.app.ref.8.0.32.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.32\\microsoft.netcore.app.host.win-x64.8.0.32.nupkg.sha512"
+  ],
   "logs": []
 }
