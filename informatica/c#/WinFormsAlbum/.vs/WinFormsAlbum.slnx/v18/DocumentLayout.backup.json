@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\WinFormsAlbum\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{317C8BB1-74C6-E742-DFF2-28C82AF02A00}|WinFormsAlbum\\WinFormsAlbum.csproj|C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\WinFormsAlbum\\winformsalbum\\formalbum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{317C8BB1-74C6-E742-DFF2-28C82AF02A00}|WinFormsAlbum\\WinFormsAlbum.csproj|c:\\users\\giorg\\desktop\\school\\informatica\\c#\\winformsalbum\\winformsalbum\\formalbum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{317C8BB1-74C6-E742-DFF2-28C82AF02A00}|WinFormsAlbum\\WinFormsAlbum.csproj|solutionrelative:winformsalbum\\formalbum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -32,22 +32,9 @@
               "RelativeDocumentMoniker": "WinFormsLibraryAlbum\\Album.cs",
               "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\WinFormsAlbum\\WinFormsLibraryAlbum\\Album.cs",
               "RelativeToolTip": "WinFormsLibraryAlbum\\Album.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAA3wCkAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwDQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-26T09:47:02.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormAlbum.cs",
-              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\WinFormsAlbum\\WinFormsAlbum\\FormAlbum.cs",
-              "RelativeDocumentMoniker": "WinFormsAlbum\\FormAlbum.cs",
-              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\WinFormsAlbum\\WinFormsAlbum\\FormAlbum.cs",
-              "RelativeToolTip": "WinFormsAlbum\\FormAlbum.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-26T09:41:45.616Z",
               "EditorCaption": ""
             },
             {
@@ -59,8 +46,21 @@
               "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\WinFormsAlbum\\WinFormsAlbum\\FormAlbum.cs [Progettazione]",
               "RelativeToolTip": "WinFormsAlbum\\FormAlbum.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-26T09:35:56.801Z",
+              "WhenOpened": "2026-10-27T14:20:54.772Z",
               "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormAlbum.cs",
+              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\WinFormsAlbum\\WinFormsAlbum\\FormAlbum.cs",
+              "RelativeDocumentMoniker": "WinFormsAlbum\\FormAlbum.cs",
+              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\WinFormsAlbum\\WinFormsAlbum\\FormAlbum.cs",
+              "RelativeToolTip": "WinFormsAlbum\\FormAlbum.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwE8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T09:41:45.616Z",
+              "EditorCaption": ""
             }
           ]
         }
