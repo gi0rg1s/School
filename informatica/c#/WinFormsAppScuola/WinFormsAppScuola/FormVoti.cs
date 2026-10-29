@@ -11,12 +11,12 @@ namespace WinFormsAppScuola
 {
     public partial class FormVoti : Form
     {
-        List<Object> voti;
+        List<Object> v;
         public FormVoti(List<Object> voti)
         {
             InitializeComponent();
-            this.voti = voti;
-            dataGridViewVoti.DataSource = voti;
+            v = voti;
+            dataGridViewVoti.DataSource = v;
         }
     }
 }

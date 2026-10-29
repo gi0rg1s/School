@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WinFormsAlbum")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c68e0c256dc385cbbf34d8fccde53ac1798ae34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05733e153662d3eb9d237a5ba6ca66d12c88b153")]
 [assembly: System.Reflection.AssemblyProductAttribute("WinFormsAlbum")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WinFormsAlbum")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

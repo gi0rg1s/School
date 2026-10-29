@@ -1,0 +1,13 @@
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\bin\Debug\net10.0-windows\WinFormsLibraryUtente.deps.json
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\bin\Debug\net10.0-windows\WinFormsLibraryUtente.dll
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\bin\Debug\net10.0-windows\WinFormsLibraryUtente.pdb
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\WinFormsLibraryUtente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\WinFormsLibraryUtente.AssemblyInfoInputs.cache
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\WinFormsLibraryUtente.AssemblyInfo.cs
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\WinFormsLibraryUtente.csproj.CoreCompileInputs.cache
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\WinFormsLibraryUtente.sourcelink.json
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\WinFormsLibraryUtente.dll
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\refint\WinFormsLibraryUtente.dll
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\WinFormsLibraryUtente.pdb
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\ref\WinFormsLibraryUtente.dll
+C:\Users\sFOLLONI1\Desktop\School\informatica\c#\WinFormsLibraryUtente\obj\Debug\net10.0-windows\WinForms.44B323E1.Up2Date

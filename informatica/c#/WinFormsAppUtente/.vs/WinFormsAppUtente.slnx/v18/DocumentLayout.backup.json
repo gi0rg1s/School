@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\winformsapputente\\formutente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|solutionrelative:formutente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E577451A-C4E4-44E2-A90B-1B7D711EF20C}|..\\WinFormsLibraryUtente\\WinFormsLibraryUtente.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\winformslibraryutente\\utente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\winformsapputente\\formutente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|solutionrelative:formutente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\winformsapputente\\formareapersonale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|solutionrelative:formareapersonale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\winformsapputente\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|solutionrelative:formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\winformsapputente\\formareapersonale.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB857DF5-E82F-4B44-AF5D-DFA2368D76E7}|WinFormsAppUtente.csproj|solutionrelative:formareapersonale.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormAreaPersonale.cs",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormAreaPersonale.cs",
+              "RelativeDocumentMoniker": "FormAreaPersonale.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormAreaPersonale.cs",
+              "RelativeToolTip": "FormAreaPersonale.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAWwBoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-29T11:50:46.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormLogin.cs",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormLogin.cs",
+              "RelativeDocumentMoniker": "FormLogin.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormLogin.cs",
+              "RelativeToolTip": "FormLogin.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-29T11:39:33.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormUtente.cs [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormUtente.cs",
+              "RelativeDocumentMoniker": "FormUtente.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormUtente.cs [Progettazione]",
+              "RelativeToolTip": "FormUtente.cs [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-29T11:27:12.503Z",
+              "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormAreaPersonale.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormAreaPersonale.Designer.cs",
+              "RelativeDocumentMoniker": "FormAreaPersonale.Designer.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormAreaPersonale.Designer.cs",
+              "RelativeToolTip": "FormAreaPersonale.Designer.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAArwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-29T11:53:21.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormUtente.cs",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormUtente.cs",
+              "RelativeDocumentMoniker": "FormUtente.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsAppUtente\\FormUtente.cs",
+              "RelativeToolTip": "FormUtente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-29T10:36:43.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Utente.cs",
+              "DocumentMoniker": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsLibraryUtente\\Utente.cs",
+              "RelativeDocumentMoniker": "..\\WinFormsLibraryUtente\\Utente.cs",
+              "ToolTip": "C:\\Users\\sFOLLONI1\\Desktop\\School\\informatica\\c#\\WinFormsLibraryUtente\\Utente.cs",
+              "RelativeToolTip": "..\\WinFormsLibraryUtente\\Utente.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAuwGUAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-29T10:36:27.048Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
