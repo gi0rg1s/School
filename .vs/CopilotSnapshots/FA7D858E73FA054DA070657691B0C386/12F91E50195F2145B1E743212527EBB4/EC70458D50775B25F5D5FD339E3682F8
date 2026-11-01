@@ -1,0 +1,43 @@
+﻿using System.Data;
+using WinFormsLibraryUtente;
+
+
+namespace WinFormsAppUtente
+{
+    public partial class FormUtente : Form
+    {
+        List<Anagrafica> anagrafiche = new List<Anagrafica>();
+        public FormUtente()
+        {
+            InitializeComponent();
+
+            Data d = new Data();
+            dataGridView.DataSource = d.getUserCompleti();
+            dataGridViewAnagrafica.DataSource = d.getAnagrafica();
+        }
+
+        private void buttonLogIn_Click(object sender, EventArgs e)
+        {
+            Utente u = new Utente(0, "", "", "");
+            FormLogin f = new FormLogin(u.getSampleData());
+            f.ShowDialog();
+        }
+
+        private void buttonAnagrafica_Click(object sender, EventArgs e)
+        {
+            anagrafiche.Add(
+                foreach(DataGridViewRow row in dataGridViewAnagrafica.Rows)
+                {
+                    anagrafiche.Add(new Anagrafica(
+                        parseInt(row.Cells["ID"].Value),
+                        row.Cells["Cognome"].Value.ToString(),
+                        row.Cells["Indirizzo"].Value.ToString(),
+                        row.Cells["Telefono"].Value.ToString()
+                    ));
+                }
+            );
+            dataGridViewAnagrafica.DataSource = anagrafiche;
+
+        }
+    }
+}
