@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Form Validation</h1>
+        <form id="myForm">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+
+            <label for="surname">Surname: </label>
+            <input type="text" id="surname" name="surname" required>
+            <br><br>
+
+            <label for="matricola">Matricola: </label>
+            <input type="text" id="matricola" name="matricola" required>
+            <br><br>
+
+            <label for="regione">Regione di residenza: </label>
+            <select id="regione" name="regione" required>
+                <option value="valleAosta">Valle d'Aosta</option>
+                <option value="piemonte">Piemonte</option>
+                <option value="liguria">Liguria</option>
+                <option value="lombardia">Lombardia</option>
+                <option value="trentino">Trentino-Alto Adige</option>
+                <option value="veneto">Veneto</option>
+                <option value="friuli">Friuli Venezia Giulia</option>
+                <option value="emilia">Emilia-Romagna</option>
+                <option value="toscana">Toscana</option>
+                <option value="umbria">Umbria</option>
+                <option value="marche">Marche</option>
+                <option value="lazio">Lazio</option>
+                <option value="abruzzo">Abruzzo</option>
+                <option value="molise">Molise</option>
+                <option value="campania">Campania</option>
+                <option value="puglia">Puglia</option>
+                <option value="basilicata">Basilicata</option>
+                <option value="calabria">Calabria</option>
+                <option value="sicilia">Sicilia</option>
+                <option value="sardegna">Sardegna</option>
+            </select>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+
+            <label for="telephone" id="telephone">Phone number:</label>
+            <input type="tel" id="telephone" required>
+
+            <label for="requests">Particular requests: </label>
+            <textarea name="requests" id="requests"></textarea>
+
+            <div id="buttons" class="buttons">
+                <button id="submit">Submit</button>
+                <button id="reset">Reset</button>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
