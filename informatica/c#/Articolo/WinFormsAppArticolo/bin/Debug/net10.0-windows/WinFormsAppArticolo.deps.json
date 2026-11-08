@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "WinFormsAppArticolo/1.0.0": {
+        "dependencies": {
+          "WinFormsLibraryArticolo": "1.0.0"
+        },
+        "runtime": {
+          "WinFormsAppArticolo.dll": {}
+        }
+      },
+      "WinFormsLibraryArticolo/1.0.0": {
+        "runtime": {
+          "WinFormsLibraryArticolo.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WinFormsAppArticolo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WinFormsLibraryArticolo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

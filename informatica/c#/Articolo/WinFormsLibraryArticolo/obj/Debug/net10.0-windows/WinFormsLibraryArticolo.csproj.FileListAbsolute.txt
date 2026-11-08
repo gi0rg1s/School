@@ -1,0 +1,13 @@
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\bin\Debug\net10.0-windows\WinFormsLibraryArticolo.deps.json
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\bin\Debug\net10.0-windows\WinFormsLibraryArticolo.dll
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\bin\Debug\net10.0-windows\WinFormsLibraryArticolo.pdb
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\WinFormsLibraryArticolo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\WinFormsLibraryArticolo.AssemblyInfoInputs.cache
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\WinFormsLibraryArticolo.AssemblyInfo.cs
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\WinFormsLibraryArticolo.csproj.CoreCompileInputs.cache
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\WinFormsLibraryArticolo.sourcelink.json
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\WinFormsLibraryArticolo.dll
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\refint\WinFormsLibraryArticolo.dll
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\WinFormsLibraryArticolo.pdb
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\ref\WinFormsLibraryArticolo.dll
+C:\Users\giorg\Desktop\School\informatica\c#\Articolo\WinFormsLibraryArticolo\obj\Debug\net10.0-windows\WinForms.975F35AC.Up2Date
