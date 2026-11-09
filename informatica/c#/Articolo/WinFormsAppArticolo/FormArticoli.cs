@@ -27,5 +27,11 @@ namespace WinFormsAppArticolo
             importoLabel.Text = d.SommaImporti(idOrdine).ToString();
             mediaLabel.Text = d.MediaImporti(idOrdine).ToString();
         }
+
+        private void buttonAggiungi_Click(object sender, EventArgs e)
+        {
+            d.AggiungiArticolo(idOrdine);
+            dataGridViewArticoli.DataSource = d.articoliPerOrdine(idOrdine);
+        }
     }
 }

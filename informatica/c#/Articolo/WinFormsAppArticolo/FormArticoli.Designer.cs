@@ -35,6 +35,7 @@
             importoLabel = new Label();
             mediaLabel = new Label();
             buttonCalculate = new Button();
+            buttonAggiungi = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewArticoli).BeginInit();
             SuspendLayout();
             // 
@@ -99,11 +100,22 @@
             buttonCalculate.UseVisualStyleBackColor = true;
             buttonCalculate.Click += buttonCalculate_Click;
             // 
+            // buttonAggiungi
+            // 
+            buttonAggiungi.Location = new Point(531, 371);
+            buttonAggiungi.Name = "buttonAggiungi";
+            buttonAggiungi.Size = new Size(209, 30);
+            buttonAggiungi.TabIndex = 7;
+            buttonAggiungi.Text = "Aggiungi";
+            buttonAggiungi.UseVisualStyleBackColor = true;
+            buttonAggiungi.Click += buttonAggiungi_Click;
+            // 
             // FormArticoli
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonAggiungi);
             Controls.Add(buttonCalculate);
             Controls.Add(mediaLabel);
             Controls.Add(importoLabel);
@@ -127,5 +139,6 @@
         private Label importoLabel;
         private Label mediaLabel;
         private Button buttonCalculate;
+        private Button buttonAggiungi;
     }
 }

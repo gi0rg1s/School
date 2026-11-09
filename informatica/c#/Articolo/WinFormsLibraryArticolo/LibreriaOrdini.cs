@@ -58,29 +58,32 @@ namespace WinFormsLibraryArticolo
 
     public class Dati
     {
-        
+        private static DataTable dtArticoli = new DataTable();
+        private static DataTable dtOrdini = new DataTable();
+
+        public static DataTable DtArticoli { get => dtArticoli; set => dtArticoli = value; }
+        public static DataTable DtOrdini { get => dtOrdini; set => dtOrdini = value; }
+
         public DataTable getArticoli()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[]
+            dtArticoli.Columns.AddRange(new DataColumn[]
             {
                 new DataColumn("Nome", typeof(String)),
-                new DataColumn("ID Ordine", typeof(int)),
+                new DataColumn("IdOrdine", typeof(int)),
                 new DataColumn("Prezzo", typeof(double))
             });
 
             Articolo a = new Articolo("", 0, 0.00);
             List<Articolo> aa = a.getSampleData();
 
-            foreach (Articolo articolo in aa) { dt.Rows.Add(articolo.NomeArticolo, articolo.IdOrdine, articolo.Importo); }
+            foreach (Articolo articolo in aa) { dtArticoli.Rows.Add(articolo.NomeArticolo, articolo.IdOrdine, articolo.Importo); }
 
-            return dt;
+            return dtArticoli;
         }
 
         public DataTable getOrdini()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[]
+            dtOrdini.Columns.AddRange(new DataColumn[]
             {
                 new DataColumn("ID", typeof(int)),
                 new DataColumn("ID Cliente", typeof(int)),
@@ -90,20 +93,18 @@ namespace WinFormsLibraryArticolo
             Ordine o = new Ordine(0, 0, DateTime.Parse("2000-2-20"));
             List<Ordine> oo = o.getSampleData();
 
-            foreach (Ordine ordine in oo) { dt.Rows.Add(ordine.IdOrdine, ordine.IdCliente, ordine.Data); }
+            foreach (Ordine ordine in oo) { dtOrdini.Rows.Add(ordine.IdOrdine, ordine.IdCliente, ordine.Data); }
             
-            return dt;
+            return dtOrdini;
         }
 
         public DataTable articoliPerOrdine(int idOrdine)
         {
-            DataTable articles = getArticoli();
-            DataTable result = articles.Clone(); // same structure, without any lines
+            if (dtArticoli.Rows.Count == 0) getArticoli();
+            DataView dv = new DataView(dtArticoli);
+            dv.RowFilter = $"IdOrdine = {idOrdine}";
 
-            foreach (DataRow riga in articles.Select("[ID Ordine] = " + idOrdine))
-                result.ImportRow(riga);
-
-            return result;
+            return dv.ToTable();
         }
 
         public double SommaImporti(int idOrdine)
@@ -120,6 +121,11 @@ namespace WinFormsLibraryArticolo
             DataTable dt = articoliPerOrdine(idOrdine);
             if (dt.Rows.Count == 0) return 0;
             return SommaImporti(idOrdine) / dt.Rows.Count;
+        }
+
+        public void AggiungiArticolo(int idOrdine)
+        {
+            dtArticoli.Rows.Add("Nuovo articolo", idOrdine, 0.00);
         }
     }
 }
