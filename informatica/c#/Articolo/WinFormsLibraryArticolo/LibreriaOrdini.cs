@@ -123,9 +123,9 @@ namespace WinFormsLibraryArticolo
             return SommaImporti(idOrdine) / dt.Rows.Count;
         }
 
-        public void AggiungiArticolo(int idOrdine)
+        public void AggiungiArticolo(int idOrdine, String name, double price)
         {
-            dtArticoli.Rows.Add("Nuovo articolo", idOrdine, 0.00);
+            dtArticoli.Rows.Add(name, idOrdine, price);
         }
     }
 }

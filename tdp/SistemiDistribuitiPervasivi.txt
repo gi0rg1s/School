@@ -1,0 +1,50 @@
+Sistemi distribuiti pervasivi
+
+1. Illuminazione pubblica:
+	- Funzionalità principale: I lampioni regolano l'intensità della luce in base alla presenza di persone/veicoli e alla luminosità ambientale, risparmiando energia e segnalando i guasti in modo automatico
+	- Componenti:
+		Sensori: di luminosità, di movimento, di guasto della lampada
+		Attuatori: driver LED che regola l'intensità della luce
+		Infrastruttura: Modulo di comunicazione su ogni lampione
+	- Protocolli possibili:
+		tra gateway e server: 4/5G o Ethernet con HTTPS
+	- Vantaggi:
+		Risparmio energetico
+		Manutenzione più rapida
+		Meno inquinamento luminoso
+	- Rischi: 
+		Attacchi informatici
+		Privacy
+		Costi iniziali e dipendenza dalla rete di comunicazione
+		
+2. Registro elettronico
+	- Funzionalità: il sistema registra presenze, voti, compiti e comunicazioni, rendendoli consultabili in tempo reale da insegnanti, studenti e genitori
+	-Componenti:
+		- Dispositivi di input: PC/Computer/tablet/telefono
+		- Dispositivi di output: monitor o touch screen, notifiche
+		- Infrastruttura: server/cloud, db, rete Wi-Fi, app
+	- Protocolli possibili: HTTPS e Wi-Fi e TCP/IP
+	- Vantaggi: 
+		Comunicazioni più rapide e tracciabili
+		Presa visione da parte dei genitori
+		Meno spreco di carta
+		Riduzione del rischio di incomprensioni tra studente e insegnante
+	- Svantaggi: 
+		Accesso non autorizzato
+		Dati sensibili sui minori
+		Servizio non disponibile in caso di guasti al server o alla rete
+		
+3. Termostato smart
+	- Funzionalità: consente di rilevare la temperatura e accendere o spegnere in automatico il sistema di riscaldamento o raffreddamento, riducendo gli sprechi
+	- Componenti:
+		Sensori: di temperatura, di movimento, di guasto, di apertura/chiusura delle finestre
+		Attuatori: valvole, climatizzatore
+		Infrastruttura: modulo di comunicazione tra riscaldamento, aria condizionata e termostato e app per il controllo da remoto
+	- Protocolli possibili: Wi-Fi HTTPS
+	- Vantaggi:
+		Manutenzione più rapida
+		Risparmio energetico
+	- Svantaggi: 
+		Privacy
+		Attacchi informatici
+		Dipendenza dalla rete

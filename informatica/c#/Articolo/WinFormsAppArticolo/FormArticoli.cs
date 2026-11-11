@@ -30,7 +30,7 @@ namespace WinFormsAppArticolo
 
         private void buttonAggiungi_Click(object sender, EventArgs e)
         {
-            d.AggiungiArticolo(idOrdine);
+            d.AggiungiArticolo(idOrdine, textBoxName.Text, double.Parse(textBoxPrice.Text));
             dataGridViewArticoli.DataSource = d.articoliPerOrdine(idOrdine);
         }
     }

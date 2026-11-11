@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\WinFormsAppArticolo.csproj": {}
+    "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\WinFormsAppArticolo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\WinFormsAppArticolo.csproj": {
+    "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\WinFormsAppArticolo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\WinFormsAppArticolo.csproj",
+        "projectUniqueName": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\WinFormsAppArticolo.csproj",
         "projectName": "WinFormsAppArticolo",
-        "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\WinFormsAppArticolo.csproj",
-        "packagesPath": "C:\\Users\\sfolloni1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\obj\\",
+        "projectPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\WinFormsAppArticolo.csproj",
+        "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sfolloni1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\giorg\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,8 +29,8 @@
             "framework": "net10.0-windows7.0",
             "targetAlias": "net10.0-windows",
             "projectReferences": {
-              "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj": {
-                "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj"
+              "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj": {
+                "projectPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj"
               }
             }
           }
@@ -50,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.400"
+        "SdkAnalysisLevel": "11.0.100"
       },
       "frameworks": {
         "net10.0-windows": {
@@ -75,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\11.0.100-rc.3.26522.148/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -369,21 +364,17 @@
         }
       }
     },
-    "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj": {
+    "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj",
+        "projectUniqueName": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj",
         "projectName": "WinFormsLibraryArticolo",
-        "projectPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj",
-        "packagesPath": "C:\\Users\\sfolloni1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\obj\\",
+        "projectPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj",
+        "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sfolloni1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\giorg\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -391,7 +382,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -411,7 +401,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.400"
+        "SdkAnalysisLevel": "11.0.100"
       },
       "frameworks": {
         "net10.0-windows": {
@@ -436,7 +426,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\11.0.100-rc.3.26522.148/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

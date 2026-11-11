@@ -1,25 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\",
+  "WorkspaceRootPath": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\articolo\\winformsapparticolo\\formarticoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|solutionrelative:formarticoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\formarticoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|solutionrelative:formarticoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C862A08E-21D2-69D2-A074-305578F50404}|..\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\articolo\\winformslibraryarticolo\\libreriaordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C862A08E-21D2-69D2-A074-305578F50404}|..\\WinFormsLibraryArticolo\\WinFormsLibraryArticolo.csproj|c:\\users\\giorg\\desktop\\school\\informatica\\c#\\articolo\\winformslibraryarticolo\\libreriaordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|c:\\users\\sfolloni1\\desktop\\school\\informatica\\c#\\articolo\\winformsapparticolo\\formordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|solutionrelative:formordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\formordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\formordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|solutionrelative:formordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\formarticoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|solutionrelative:formarticoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|c:\\users\\giorg\\desktop\\school\\informatica\\c#\\articolo\\winformsapparticolo\\formordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|solutionrelative:formordini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|c:\\users\\giorg\\desktop\\school\\informatica\\c#\\articolo\\winformsapparticolo\\formarticoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC12FE47-E4BA-48B3-2029-99DA07DD7A6E}|WinFormsAppArticolo.csproj|solutionrelative:formarticoli.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,41 +29,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "LibreriaOrdini.cs",
-              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\LibreriaOrdini.cs",
+              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\LibreriaOrdini.cs",
               "RelativeDocumentMoniker": "..\\WinFormsLibraryArticolo\\LibreriaOrdini.cs",
-              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\LibreriaOrdini.cs",
+              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsLibraryArticolo\\LibreriaOrdini.cs",
               "RelativeToolTip": "..\\WinFormsLibraryArticolo\\LibreriaOrdini.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAIwH0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAmwH8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T08:42:55.216Z",
+              "WhenOpened": "2026-11-11T18:27:16.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "FormArticoli.cs",
-              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormArticoli.cs",
+              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormArticoli.cs",
               "RelativeDocumentMoniker": "FormArticoli.cs",
-              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormArticoli.cs",
+              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormArticoli.cs",
               "RelativeToolTip": "FormArticoli.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAowCUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwCAAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-08T17:51:13.58Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FormOrdini.cs",
-              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormOrdini.cs",
+              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormOrdini.cs",
               "RelativeDocumentMoniker": "FormOrdini.cs",
-              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormOrdini.cs",
+              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormOrdini.cs",
               "RelativeToolTip": "FormOrdini.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -72,11 +72,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "FormArticoli.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormArticoli.cs",
+              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormArticoli.cs",
               "RelativeDocumentMoniker": "FormArticoli.cs",
-              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormArticoli.cs [Progettazione]",
+              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormArticoli.cs [Progettazione]",
               "RelativeToolTip": "FormArticoli.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-08T17:48:30.24Z",
@@ -84,11 +84,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "FormOrdini.cs [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormOrdini.cs",
+              "DocumentMoniker": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormOrdini.cs",
               "RelativeDocumentMoniker": "FormOrdini.cs",
-              "ToolTip": "C:\\Users\\sfolloni1\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormOrdini.cs [Progettazione]",
+              "ToolTip": "C:\\Users\\giorg\\Desktop\\School\\informatica\\c#\\Articolo\\WinFormsAppArticolo\\FormOrdini.cs [Progettazione]",
               "RelativeToolTip": "FormOrdini.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-08T15:29:57.251Z",
