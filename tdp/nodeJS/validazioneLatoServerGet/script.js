@@ -102,5 +102,5 @@ function requestHandler(req, res) {
 const server = http.createServer(requestHandler);
 
 server.listen(PORT, () => {
-    console.log(`GET Server active on http://localhost:${PORT}`);
+    console.log(`GET Server active on http://127.0.0.1:${PORT}`);
 });
