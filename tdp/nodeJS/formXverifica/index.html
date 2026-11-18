@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Form Validation</h1>
+        <form id="myForm" action="/" method="post">
+
+            <label for="product">Seleziona un prodotto:</label>
+            <select id="product" name="product">
+                <option value="">-- Seleziona --</option>
+                <option value="notti-bianche">Le notti bianche</option>
+                <option value="ricordi-sottosuolo">Ricordi dal sottosuolo</option>
+                <option value="idiota">L'idiota</option>
+                <option value="adolescente">L'adolescente</option>
+                <option value="fratelli-karamazov">I fratelli Karamazov</option>
+                <option value="mite">La mite</option>
+            </select>
+            <span class="error" id="error-product"></span>
+            <br><br>
+
+            <label for="quantita">Quantità: </label>
+            <input type="text" id="quantita" name="quantita">
+            <span class="error" id="error-quantita"></span>
+            <br><br>
+
+            <div id="buttons" class="buttons">
+                <button type="submit">Ordina</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
